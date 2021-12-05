@@ -1,0 +1,63 @@
+﻿@model OnlineStore.Models.ViewModels.GoodsForIndexViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="main-container">
+    <aside>
+        @await Html.PartialAsync("_Sidebar")
+    </aside>
+    
+    <div class="main-page">
+        
+        @* Related products *@
+        <div class="goods-row">
+            @if (Model.RelatedGoodsList.Count > 0)
+            {
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[0])
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[1])
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[2])
+            }
+            else
+            {
+                <p>There is no goods.</p>
+            }
+        </div>
+
+        @* Discounted products *@
+
+        <h3>Скидки</h3>
+        
+        @if (Model.DiscountGoodsList.Count > 0)
+        {
+            <div class="goods-row">
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[0])
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[1])
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[2])
+            </div>
+        }
+        else
+        {
+            <p>There is no goods.</p>
+        }
+       
+        
+        @* New products *@
+        
+        <h3>Новые продукты</h3>
+        
+        @if (Model.NewGoodsList.Count > 0)
+        {
+            <div class="goods-row">
+                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[0])
+                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[1])
+                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[2])
+            </div>
+        }
+        else
+        {
+            <p>There is no goods.</p>
+        }
+    </div>
+</div>
