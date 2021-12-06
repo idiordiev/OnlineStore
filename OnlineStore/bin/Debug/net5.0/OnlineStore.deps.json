@@ -324,6 +324,14 @@
         "runtime": {
           "OnlineStore.dll": {}
         },
+        "resources": {
+          "en/OnlineStore.resources.dll": {
+            "locale": "en"
+          },
+          "ru/OnlineStore.resources.dll": {
+            "locale": "ru"
+          }
+        },
         "compile": {
           "OnlineStore.dll": {}
         }

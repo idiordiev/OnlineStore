@@ -1,0 +1,44 @@
+@model OnlineStore.Models.Goods
+
+@* JUST A TEST PAGE!!!! *@
+@* NOT FINAL!!!!! *@
+
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "_Layout";
+}
+
+<form asp-controller="Home" asp-action="Create" asp-antiforgery="true">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="NameUA"></label>
+        <input type="text" asp-for="NameUA">
+        <span asp-validation-for="NameUA"></span>
+    </div>
+    <div>
+        <label asp-for="NameRU"></label>
+        <input type="text" asp-for="NameRU">
+        <span asp-validation-for="NameRU"></span>
+    </div>
+    <div>
+        <label asp-for="NameEN"></label>
+        <input type="text" asp-for="NameEN">
+        <span asp-validation-for="NameEN"></span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input type="text" asp-for="Price">
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+
+</form>
+
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }

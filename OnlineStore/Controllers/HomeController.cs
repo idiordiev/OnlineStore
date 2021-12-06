@@ -81,6 +81,33 @@ namespace OnlineStore.Controllers
             
             return View(goodsList);
         }
+
+        /// <summary>
+        /// "Create" page of "Home" controller. GET request
+        /// </summary>
+        /// <returns>Returns view.</returns>
+        public IActionResult Create()
+        {
+            return View();
+        }
+        
+        /// <summary>
+        /// POST request of "Create" action, "Home" controller.
+        /// </summary>
+        /// <param name="goods">A model, which user filling in inputs.</param>
+        /// <returns>Redirecting to main page.</returns>
+        [HttpPost]
+        public IActionResult Create(Goods goods)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Goods.AddAsync(goods);
+                _db.SaveChangesAsync();
+            }
+            
+            return RedirectToAction("Index");
+        }
+        
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
