@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OnlineStore.Resources.Models {
+namespace OnlineStore.Resources.Views.Home {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace OnlineStore.Resources.Models {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Goods_en {
+    internal class Index_en_US {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Goods_en() {
+        internal Index_en_US() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace OnlineStore.Resources.Models {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Models.Goods.en", typeof(Goods_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Home.Index.en-US", typeof(Index_en_US).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,11 @@ namespace OnlineStore.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to DiscountsEN-US.
         /// </summary>
-        internal static string Name {
+        internal static string Discounts {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, enter name of the product.
-        /// </summary>
-        internal static string NameRequired {
-            get {
-                return ResourceManager.GetString("NameRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter name in Ukrainian.
-        /// </summary>
-        internal static string NameUA {
-            get {
-                return ResourceManager.GetString("NameUA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Price.
-        /// </summary>
-        internal static string Price {
-            get {
-                return ResourceManager.GetString("Price", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, enter a price of the product.
-        /// </summary>
-        internal static string PriceRequired {
-            get {
-                return ResourceManager.GetString("PriceRequired", resourceCulture);
+                return ResourceManager.GetString("Discounts", resourceCulture);
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿@model OnlineStore.Models.ViewModels.GoodsForIndexViewModel
 
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "Home";
 }
@@ -10,7 +12,7 @@
     </aside>
     
     <div class="main-page">
-        
+
         @* Related products *@
         <div class="goods-row">
             @if (Model.RelatedGoodsList.Count > 0)
@@ -27,7 +29,7 @@
 
         @* Discounted products *@
 
-        <h3>Скидки</h3>
+        <h3>@Localizer["Discounts"]</h3>
         
         @if (Model.DiscountGoodsList.Count > 0)
         {

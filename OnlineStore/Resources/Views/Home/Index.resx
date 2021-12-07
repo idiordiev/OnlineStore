@@ -18,19 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="NameRequired" xml:space="preserve">
-        <value>Будь ласка, введіть назву продукту</value>
-    </data>
-    <data name="PriceRequired" xml:space="preserve">
-        <value>Будь ласка, введіть ціну продукту</value>
-    </data>
-    <data name="Price" xml:space="preserve">
-        <value>Ціна</value>
-    </data>
-    <data name="Name" xml:space="preserve">
-        <value>Назва</value>
-    </data>
-    <data name="NameUA" xml:space="preserve">
-        <value>Введіть назву українською</value>
+    <data name="Discounts" xml:space="preserve">
+        <value>ЗнижкиУКР</value>
     </data>
 </root>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,10 +29,25 @@ namespace OnlineStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");  // set a folder with resources
+            
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("ua-UA"),
+                    new CultureInfo("ru-RU"),
+                    new CultureInfo("en-US")
+                };
+ 
+                options.DefaultRequestCulture = new RequestCulture("ua-UA");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation()
-                .AddViewLocalization()                  // localization of views
-                .AddDataAnnotationsLocalization();      // localization of 
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)           // localization of views
+                .AddDataAnnotationsLocalization();                                        // localization of 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
@@ -54,28 +70,12 @@ namespace OnlineStore
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            // adding supported languages
-            var supportedCultures = new[]
-            {
-                new CultureInfo("ua"),
-                new CultureInfo("ru"),
-                new CultureInfo("en")
-            };
-
-            app.UseRequestLocalization(new RequestLocalizationOptions()
-            {
-                DefaultRequestCulture = new RequestCulture("ua"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
-                
-            
             
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseRequestLocalization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -325,11 +325,11 @@
           "OnlineStore.dll": {}
         },
         "resources": {
-          "en/OnlineStore.resources.dll": {
-            "locale": "en"
+          "en-US/OnlineStore.resources.dll": {
+            "locale": "en-US"
           },
-          "ru/OnlineStore.resources.dll": {
-            "locale": "ru"
+          "ru-RU/OnlineStore.resources.dll": {
+            "locale": "ru-RU"
           }
         },
         "compile": {

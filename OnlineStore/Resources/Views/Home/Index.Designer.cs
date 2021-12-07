@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OnlineStore.Resources.Models {
+namespace OnlineStore.Resources.Views.Home {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace OnlineStore.Resources.Models {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Goods {
+    internal class Index {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Goods() {
+        internal Index() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace OnlineStore.Resources.Models {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Models.Goods", typeof(Goods).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Home.Index", typeof(Index).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,11 @@ namespace OnlineStore.Resources.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Назва.
+        ///   Looks up a localized string similar to ЗнижкиУКР.
         /// </summary>
-        internal static string Name {
+        internal static string Discounts {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Будь ласка, введіть назву продукту.
-        /// </summary>
-        internal static string NameRequired {
-            get {
-                return ResourceManager.GetString("NameRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Введіть назву українською.
-        /// </summary>
-        internal static string NameUA {
-            get {
-                return ResourceManager.GetString("NameUA", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ціна.
-        /// </summary>
-        internal static string Price {
-            get {
-                return ResourceManager.GetString("Price", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Будь ласка, введіть ціну продукту.
-        /// </summary>
-        internal static string PriceRequired {
-            get {
-                return ResourceManager.GetString("PriceRequired", resourceCulture);
+                return ResourceManager.GetString("Discounts", resourceCulture);
             }
         }
     }
