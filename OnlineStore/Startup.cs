@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -47,11 +48,17 @@ namespace OnlineStore
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)           // localization of views
-                .AddDataAnnotationsLocalization();                                        // localization of 
+                .AddDataAnnotationsLocalization();                                        // localization of data annotations 
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
-            
+
+            // for authorization and authentication
+            services.AddDbContext<UserApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<UserApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +80,10 @@ namespace OnlineStore
             
             app.UseRouting();
 
+            // for authorization and authentication -_-
             app.UseAuthorization();
+            app.UseAuthentication();
+            
             app.UseRequestLocalization();
             
             app.UseEndpoints(endpoints =>

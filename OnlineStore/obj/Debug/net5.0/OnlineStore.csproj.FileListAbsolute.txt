@@ -54,8 +54,6 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Micros
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -140,8 +138,6 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Micros
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -398,3 +394,10 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\en-US\Onlin
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\en-US\OnlineStore.resources.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\ru-RU\OnlineStore.resources.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\ru-RU\OnlineStore.resources.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs

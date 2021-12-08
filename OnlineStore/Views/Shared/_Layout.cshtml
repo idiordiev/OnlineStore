@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -12,6 +14,18 @@
     <nav class="header-nav">
         <a class="header-link" asp-area="" asp-controller="Home" asp-action="Index">OnlineStore</a>
         <a class="header-link" asp-controller="Home" asp-action="Create">Create</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>@Localizer["Welcome, "] @User.Identity.Name</p>
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <input type="submit" value="@Localizer["LogOut"]">
+            </form>
+        }
+        else
+        {
+            <a class="header-link" asp-controller="Account" asp-action="Register">@Localizer["Register"]</a>
+            <a class="header-link" asp-controller="Account" asp-action="Login">@Localizer["Login"]</a>
+        }
     </nav>
 </header>
 <div>
