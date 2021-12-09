@@ -18,7 +18,16 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Discounts" xml:space="preserve">
-        <value>DiscountsEN-US</value>
+    <data name="DiscountedGoods" xml:space="preserve">
+        <value>Discounts</value>
+    </data>
+    <data name="NewGoods" xml:space="preserve">
+        <value>New goods</value>
+    </data>
+    <data name="RelatedGoods" xml:space="preserve">
+        <value>Related</value>
+    </data>
+    <data name="NoGoods" xml:space="preserve">
+        <value>There are no goods in this category. </value>
     </data>
 </root>

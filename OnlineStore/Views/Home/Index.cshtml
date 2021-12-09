@@ -14,6 +14,8 @@
     <div class="main-page">
 
         @* Related products *@
+        <h3>@Localizer["RelatedGoods"]</h3>
+        
         <div class="goods-row">
             @if (Model.RelatedGoodsList.Count > 0)
             {
@@ -23,13 +25,13 @@
             }
             else
             {
-                <p>There is no goods.</p>
+                <p>@Localizer["NoGoods"]</p>
             }
         </div>
 
         @* Discounted products *@
 
-        <h3>@Localizer["Discounts"]</h3>
+        <h3>@Localizer["DiscountedGoods"]</h3>
         
         @if (Model.DiscountGoodsList.Count > 0)
         {
@@ -41,13 +43,13 @@
         }
         else
         {
-            <p>There is no goods.</p>
+            <p>@Localizer["NoGoods"]</p>
         }
        
         
         @* New products *@
         
-        <h3>Новые продукты</h3>
+        <h3>@Localizer["NewGoods"]</h3>
         
         @if (Model.NewGoodsList.Count > 0)
         {
@@ -59,7 +61,7 @@
         }
         else
         {
-            <p>There is no goods.</p>
+            <p>@Localizer["NoGoods"]</p>
         }
     </div>
 </div>

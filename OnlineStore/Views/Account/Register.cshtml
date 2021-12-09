@@ -3,11 +3,11 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = @Localizer["RegisterTitle"];
     Layout = "_Layout";
 }
 
-<h2>@Localizer["RegisterNewAccount"]</h2>
+<h2>@Localizer["RegisterTitle"]</h2>
 <form method="post" asp-controller="Account" asp-action="Register">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
@@ -31,6 +31,6 @@
         <span asp-validation-for="ConfirmPassword"></span>
     </div>
     <div>
-        <input type="submit" value="@Localizer["Register"]" />
+        <input type="submit" value="@Localizer["RegisterButton"]" />
     </div>
 </form>

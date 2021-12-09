@@ -401,3 +401,15 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.E
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Login.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Register.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Login.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Login.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Register.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Register.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._LanguageSelect.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._Layout.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._LanguageSelect.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._LanguageSelect.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._Layout.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._Layout.ru-RU.resources

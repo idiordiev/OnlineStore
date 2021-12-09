@@ -61,11 +61,38 @@ namespace OnlineStore.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ЗнижкиУКР.
+        ///   Looks up a localized string similar to Знижки.
         /// </summary>
-        internal static string Discounts {
+        internal static string DiscountedGoods {
             get {
-                return ResourceManager.GetString("Discounts", resourceCulture);
+                return ResourceManager.GetString("DiscountedGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нові товари.
+        /// </summary>
+        internal static string NewGoods {
+            get {
+                return ResourceManager.GetString("NewGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Немає товарів у цій категорії..
+        /// </summary>
+        internal static string NoGoods {
+            get {
+                return ResourceManager.GetString("NoGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рекомендовані.
+        /// </summary>
+        internal static string RelatedGoods {
+            get {
+                return ResourceManager.GetString("RelatedGoods", resourceCulture);
             }
         }
     }

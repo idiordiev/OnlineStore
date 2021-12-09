@@ -61,11 +61,38 @@ namespace OnlineStore.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiscountsEN-US.
+        ///   Looks up a localized string similar to Discounts.
         /// </summary>
-        internal static string Discounts {
+        internal static string DiscountedGoods {
             get {
-                return ResourceManager.GetString("Discounts", resourceCulture);
+                return ResourceManager.GetString("DiscountedGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New goods.
+        /// </summary>
+        internal static string NewGoods {
+            get {
+                return ResourceManager.GetString("NewGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no goods in this category. .
+        /// </summary>
+        internal static string NoGoods {
+            get {
+                return ResourceManager.GetString("NoGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Related.
+        /// </summary>
+        internal static string RelatedGoods {
+            get {
+                return ResourceManager.GetString("RelatedGoods", resourceCulture);
             }
         }
     }
