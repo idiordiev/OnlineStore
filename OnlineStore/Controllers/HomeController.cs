@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OnlineStore.Localization;
 using OnlineStore.Models;
 using OnlineStore.Models.ViewModels;
 
@@ -15,12 +16,15 @@ namespace OnlineStore.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _db;
+
+        private readonly GoodsLocalizer _goodsLocalizer;
         
         private Random random = new Random();
 
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
+            _goodsLocalizer = new GoodsLocalizer(db);
         }
 
         public async Task<IActionResult> Index()
@@ -28,17 +32,19 @@ namespace OnlineStore.Controllers
             // creating viewmodel
             GoodsForIndexViewModel goodsList = new GoodsForIndexViewModel();
 
-            if (_db.Goods.Count() == 0)
+            var allGoods = _goodsLocalizer.GetAll();
+
+            if (allGoods.Count() == 0)
                 return View(goodsList);
 
-            int lastId = _db.Goods.OrderByDescending(p => p.Id).FirstOrDefault().Id;
+            int lastId = allGoods.LastOrDefault().Id;
             lastId++;
 
             // filling Related Goods
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                Goods item = await _db.Goods.FindAsync(num);
+                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {
@@ -54,7 +60,7 @@ namespace OnlineStore.Controllers
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                Goods item = await _db.Goods.FindAsync(num);
+                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {
@@ -70,7 +76,7 @@ namespace OnlineStore.Controllers
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                Goods item = await _db.Goods.FindAsync(num);
+                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {

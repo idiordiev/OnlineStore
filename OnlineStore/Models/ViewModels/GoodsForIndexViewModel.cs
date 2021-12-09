@@ -10,23 +10,23 @@ namespace OnlineStore.Models.ViewModels
         /// <summary>
         /// List of related goods (first row)
         /// </summary>
-        public List<Goods> RelatedGoodsList { get; set; }
+        public List<LocalizedGoods> RelatedGoodsList { get; set; }
         
         /// <summary>
         /// List of discounted goods (second row)
         /// </summary>
-        public List<Goods> DiscountGoodsList { get; set; }
+        public List<LocalizedGoods> DiscountGoodsList { get; set; }
         
         /// <summary>
         /// List of new goods (third row)
         /// </summary>
-        public List<Goods> NewGoodsList { get; set; }
+        public List<LocalizedGoods> NewGoodsList { get; set; }
 
         public GoodsForIndexViewModel()
         {
-            RelatedGoodsList = new List<Goods>();
-            DiscountGoodsList = new List<Goods>();
-            NewGoodsList = new List<Goods>();
+            RelatedGoodsList = new List<LocalizedGoods>();
+            DiscountGoodsList = new List<LocalizedGoods>();
+            NewGoodsList = new List<LocalizedGoods>();
         }
     }
 }

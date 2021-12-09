@@ -9,8 +9,8 @@ namespace OnlineStore.Localization
     /// </summary>
     public interface IGoodsLocalizer
     {
-        IEnumerable<LocalizedGoods> GetAll(int cultureId);
+        IEnumerable<LocalizedGoods> GetAll();
         
-        IEnumerable<LocalizedGoods> Find(string request, int cultureId);
+        IEnumerable<LocalizedGoods> Find(string request);
     }
 }

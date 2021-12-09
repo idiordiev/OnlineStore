@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 using OnlineStore.Models;
 
@@ -20,18 +21,19 @@ namespace OnlineStore.Localization
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="cultureId">Id of culture. NEED TO BE REWORKED (may be).</param>
         /// <returns>Returns list of localized goods.</returns>
-        public IEnumerable<LocalizedGoods> GetAll(int cultureId)
+        public IEnumerable<LocalizedGoods> GetAll()
         {
             List<LocalizedGoods> goodsList = new List<LocalizedGoods>();
 
             // for every item in db - choosing 1 of 3 languages
             foreach (var goods in _db.Goods)
             {
-                switch (cultureId)
+                string culture = CultureInfo.CurrentCulture.ToString();
+                
+                switch (culture)
                 {
-                    case 1:
+                    case "ua-UA":
                         goodsList.Add(new LocalizedGoods()
                         {
                             Id = goods.Id,
@@ -42,7 +44,7 @@ namespace OnlineStore.Localization
                             ImageLink = goods.ImageLink
                         });
                         break;
-                    case 2:
+                    case "ru-RU":
                         goodsList.Add(new LocalizedGoods()
                         {
                             Id = goods.Id,
@@ -53,7 +55,18 @@ namespace OnlineStore.Localization
                             ImageLink = goods.ImageLink
                         });
                         break;
-                    case 3:
+                    case "en-US":
+                        goodsList.Add(new LocalizedGoods()
+                        {
+                            Id = goods.Id,
+                            Price = goods.Price,
+                            Name = goods.NameEN,
+                            DescriptionFull = goods.DescriptionFullEN,
+                            DescriptionShort = goods.DescriptionShortEN,
+                            ImageLink = goods.ImageLink
+                        });
+                        break;
+                    default:
                         goodsList.Add(new LocalizedGoods()
                         {
                             Id = goods.Id,
@@ -74,9 +87,8 @@ namespace OnlineStore.Localization
         /// 
         /// </summary>
         /// <param name="request">String with user`s request</param>
-        /// <param name="cultureId">Id of culture. NEED TO BE REWORKED (may be).</param>
         /// <returns></returns>
-        public IEnumerable<LocalizedGoods> Find(string request, int cultureId)
+        public IEnumerable<LocalizedGoods> Find(string request)
         {
             List<LocalizedGoods> goodsList = new List<LocalizedGoods>();
 
@@ -93,9 +105,11 @@ namespace OnlineStore.Localization
                     goods.DescriptionFullRU.Contains(request) ||
                     goods.DescriptionFullEN.Contains(request))
                 {
-                    switch (cultureId)
+                    string culture = CultureInfo.CurrentCulture.ToString();
+                    
+                    switch (culture)
                     {
-                        case 1:
+                        case "ua-UA":
                             goodsList.Add(new LocalizedGoods()
                             {
                                 Id = goods.Id,
@@ -106,7 +120,7 @@ namespace OnlineStore.Localization
                                 ImageLink = goods.ImageLink
                             });
                             break;
-                        case 2:
+                        case "ru-RU":
                             goodsList.Add(new LocalizedGoods()
                             {
                                 Id = goods.Id,
@@ -117,7 +131,18 @@ namespace OnlineStore.Localization
                                 ImageLink = goods.ImageLink
                             });
                             break;
-                        case 3:
+                        case "en-US":
+                            goodsList.Add(new LocalizedGoods()
+                            {
+                                Id = goods.Id,
+                                Price = goods.Price,
+                                Name = goods.NameEN,
+                                DescriptionFull = goods.DescriptionFullEN,
+                                DescriptionShort = goods.DescriptionShortEN,
+                                ImageLink = goods.ImageLink
+                            });
+                            break;
+                        default:
                             goodsList.Add(new LocalizedGoods()
                             {
                                 Id = goods.Id,
