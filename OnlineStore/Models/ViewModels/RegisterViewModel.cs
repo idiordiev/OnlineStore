@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// A model for Account/Register()
+    /// </summary>
     public class RegisterViewModel
     {
         [Required]
