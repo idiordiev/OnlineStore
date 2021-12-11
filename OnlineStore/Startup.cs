@@ -64,6 +64,8 @@ namespace OnlineStore
                     options.Password.RequiredLength = 6;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
+
+                    options.User.RequireUniqueEmail = true;
                 })
                 .AddEntityFrameworkStores<UserApplicationDbContext>();
         }
