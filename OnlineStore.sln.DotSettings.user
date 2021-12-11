@@ -2,7 +2,7 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FCreateUserViewModel/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FEditUserViewModel/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FLoginViewModel/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FRegisterViewModel/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FRegisterViewModel/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FLogin/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FRegister/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FHome_002FIndex/@EntryIndexedValue">True</s:Boolean>

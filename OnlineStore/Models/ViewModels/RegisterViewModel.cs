@@ -18,6 +18,7 @@ namespace OnlineStore.Models.ViewModels
 
         [Required]
         [DisplayName("Password")]
+        [StringLength(64, ErrorMessage = "MinimumPasswordLength", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

@@ -33,4 +33,7 @@
     <data name="Username" xml:space="preserve">
         <value>Имя пользователя</value>
     </data>
+    <data name="MinimumPasswordLength" xml:space="preserve">
+        <value>Минимальная длина пароля - 6 символов, максимальная - 64.</value>
+    </data>
 </root>

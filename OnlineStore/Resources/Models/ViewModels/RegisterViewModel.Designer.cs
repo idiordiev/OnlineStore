@@ -79,6 +79,15 @@ namespace OnlineStore.Resources.Models.ViewModels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Мінімальна довжина пароля - 6 символів, максимальна - 64.
+        /// </summary>
+        internal static string MinimumPasswordLength {
+            get {
+                return ResourceManager.GetString("MinimumPasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Пароль.
         /// </summary>
         internal static string Password {
