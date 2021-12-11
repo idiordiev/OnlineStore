@@ -1,0 +1,65 @@
+@model OnlineStore.Models.ViewModels.UserPageViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["MyAccount"];
+    Layout = "_Layout";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <h2>@Localizer["PleaseLogin"]</h2>
+    <a class="btn btn-primary" asp-action="Login" asp-controller="Account">@Localizer["Login"]</a>
+    <a class="btn btn-primary" asp-action="Register" asp-controller="Account">@Localizer["Register"]</a>
+}
+else
+{
+    <h2>@Localizer["MyAccount"]</h2>
+
+    <form method="post" asp-action="Edit" asp-controller="Account">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <input asp-for="Id" hidden>
+        </div>
+        <div class="form-group">
+            <label asp-for="Username"></label><br/>
+            <input asp-for="Username"/>
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label><br/>
+            <input asp-for="Email"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FirstName"></label><br/>
+            <input asp-for="FirstName"/>
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName"></label><br/>
+            <input asp-for="LastName"/>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber"></label><br/>
+            <input asp-for="PhoneNumber"/>
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="City"></label><br/>
+            <input asp-for="City"/>
+            <span asp-validation-for="City"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address"></label><br/>
+            <input asp-for="Address"/>
+            <span asp-validation-for="Address"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-danger"/>
+        </div>
+    </form>
+}
+
