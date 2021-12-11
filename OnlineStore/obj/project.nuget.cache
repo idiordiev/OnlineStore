@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kFDYBCp9hJhyYbewdcmhnXRASNvMrqT3M1LcmIWRupfiwcTJcLVcZrAKLvUYrobqQa5A4gzvIJtD2qg2IbKsZA==",
+  "dgSpecHash": "fIK41kl3+2Si0a7CvhRuTR8KYuLPtShbS1FDKXfTGiV9a+NuF+vndUqDMP6qmiMIT2Y5S51QNN4a7D++dtvZnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
   "expectedPackageFiles": [
@@ -116,7 +116,8 @@
     "C:\\Users\\duhov\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\duhov\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\duhov\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\duhov\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\duhov\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\duhov\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
