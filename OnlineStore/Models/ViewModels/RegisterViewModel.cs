@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// A model for Account/Register()
+    /// </summary>
     public class RegisterViewModel
     {
         [Required]
@@ -15,6 +18,7 @@ namespace OnlineStore.Models.ViewModels
 
         [Required]
         [DisplayName("Password")]
+        [StringLength(64, ErrorMessage = "MinimumPasswordLength", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

@@ -413,6 +413,7 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._LanguageSelect.ru-RU.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._Layout.en-US.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Shared._Layout.ru-RU.resources
+<<<<<<< HEAD
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\bin\Debug\net5.0\appsettings.json
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\bin\Debug\net5.0\OnlineStore.exe
@@ -827,3 +828,29 @@ C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.pdb
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.genruntimeconfig.cache
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.csproj.CopyComplete
+=======
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.LoginViewModel.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.RegisterViewModel.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.LoginViewModel.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.LoginViewModel.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.RegisterViewModel.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.RegisterViewModel.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Users\Create.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Users\Edit.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Users\Index.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.CreateUserViewModel.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.EditUserViewModel.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Create.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Edit.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Index.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.CreateUserViewModel.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.CreateUserViewModel.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.EditUserViewModel.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.EditUserViewModel.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Create.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Create.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Edit.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Edit.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Index.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Users.Index.ru-RU.resources
+>>>>>>> e39dae1ad8d94683411ccbedd6151f0cb4d8b2b6

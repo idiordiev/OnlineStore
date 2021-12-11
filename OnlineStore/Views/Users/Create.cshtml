@@ -1,0 +1,58 @@
+@model OnlineStore.Models.ViewModels.CreateUserViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["CreateUser"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["CreateUser"]</h2>
+<form asp-action="Create" asp-controller="Users">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username">
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName">
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName">
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber">
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City"></label>
+        <input asp-for="City">
+        <span asp-validation-for="City"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address">
+        <span asp-validation-for="Address"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger">
+        <button class="btn btn-primary" asp-action="Index" asp-controller="Users">@Localizer["Back"]</button>
+    </div>
+
+</form>
