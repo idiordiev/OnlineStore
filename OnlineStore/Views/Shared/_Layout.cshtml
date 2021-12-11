@@ -17,7 +17,7 @@
         <a class="header-link" asp-controller="Users" asp-action="Index">Users</a>
         @if (User.Identity.IsAuthenticated)
         {
-            <p>@Localizer["Welcome"] @User.Identity.Name</p>
+            <a asp-action="Index" asp-controller="Account">@Localizer["Welcome"] @User.Identity.Name</a>
             <form method="post" asp-controller="Account" asp-action="Logout">
                 <input type="submit" value="@Localizer["LogOutButton"]">
             </form>

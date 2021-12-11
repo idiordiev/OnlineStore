@@ -6534,28 +6534,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\duhov\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Ivan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
       "projectName": "OnlineStore",
-      "projectPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
-      "packagesPath": "C:\\Users\\duhov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\obj\\",
+      "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+      "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\duhov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
