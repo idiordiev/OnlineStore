@@ -82,6 +82,58 @@ namespace OnlineStore.Controllers
         }
 
         [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string id = _userManager.GetUserId(HttpContext.User);
+
+                User user = _userManager.FindByIdAsync(id).Result;
+
+                ChangePasswordViewModel model = new ChangePasswordViewModel()
+                {
+                    Id = user.Id,
+                    Username = user.UserName
+                };
+
+                return View(model);
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await _userManager.FindByIdAsync(model.Id);
+
+                if (user != null)
+                {
+                    var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(String.Empty, error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(String.Empty, "User not found.");
+                }
+            }
+            return View(model);
+        }
+
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
