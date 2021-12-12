@@ -89,7 +89,7 @@ body{
 .main-page {
   display: flex;
   flex-direction: column;
-  flex-basis: 1000px;
+  flex-basis: 1200px;
   background-color: var(--clr-elements);
   margin-top: 25px;
   border: 1px solid transparent;
@@ -105,11 +105,15 @@ body{
 
 /*    HEADER       */
 
+.logo{
+    width: 3em;
+}
+
 .header-nav {
   display: flex;
   flex-direction: row;
   gap: 40px;
-  padding-left: 70px;
+  padding-left: 8em;
   background-color: var(--clr-primary);
 }
 
@@ -122,7 +126,47 @@ body{
   font-family: var(--ff-primary);
   font-size: 24px;
   text-decoration: none;
-  
+  color:  white;  
+}
+
+.header-menu{
+    margin-right: 8em;
+}
+
+.header-buttons {
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding-left: 4em;
+}
+
+.header-search {
+    margin-top: 0.5em;
+    padding: 0;
+}
+
+.search-ico{
+    height: 1em;
+    border-radius: 0.5em;
+}
+
+.search-bar{
+    border: none;
+    height: 2em;
+    width:  17em;
+    border-radius: 1em;
+}
+
+.search-button {
+    height: 2em;
+    width: 2em;
+    border-radius: 0.7em;
+    border: none;
+}
+
+.search-button:enabled{
+    outline: 0;
 }
 
 /*    SIDEBAR      */
@@ -174,6 +218,7 @@ body{
   flex-direction: column;
   background-color: var(--clr-elements);
   height: 450px;
+  min-width: 15em;
   padding: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -203,4 +248,9 @@ body{
 .post-price {
   font-family: var(--ff-accent);
   font-size: 36px;
+}
+
+footer{
+    background-color: var(--clr-primary);
+    color: white;
 }
