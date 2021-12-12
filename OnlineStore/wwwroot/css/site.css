@@ -21,11 +21,22 @@
 }
 
 body {
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
     font-family: var(--ff-primary);
     font-weight: 400;
     font-size: 1.3125rem;
     line-height: 1.6;
 }
+
+main {
+    display: inline-block;
+    width: 100%;
+}
+
 
 .menu-button {
     display: inline-block;
@@ -83,7 +94,8 @@ body {
     gap: 100px;
     background-color: #246d2496;
     justify-content: center;
-    flex-basis: 1400px;
+    flex-basis: 1000px;
+    min-height: 93em;
 }
 
 .main-page {
@@ -91,13 +103,16 @@ body {
     flex-direction: column;
     flex-basis: 1200px;
     background-color: var(--clr-elements);
+    min-height: 91em;
     margin-top: 25px;
     border: 1px solid transparent;
     border-radius: 20px;
 }
 
     .main-page h3 {
+        text-align: center;
         font-family: var(--ff-accent);
+        color: black;
         font-size: 36px;
         margin-left: 20px;
         margin-top: 15px;
@@ -201,11 +216,10 @@ body {
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
-    background-color: #AAAAAAAA;
-    margin-top: 1.5em;
+    margin-top: 0.1em;
     margin-left: 1.5em;
     margin-right: 1.5em;
-    border: 1em solid transparent;
+    border: 0.1em solid black;
     border-radius: 2em;
     gap: 5%;
     align-items: center;
@@ -215,7 +229,7 @@ body {
 .goods-post {
     display: flex;
     flex-direction: column;
-    background-color: var(--clr-elements);
+    background-color: #FCFBEC;
     height: 450px;
     min-width: 15em;
     padding: 5px;
@@ -256,4 +270,9 @@ footer {
     flex-direction: row;
     gap: 40em;
     padding-left: 5em;
+
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
