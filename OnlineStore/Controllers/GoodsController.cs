@@ -103,7 +103,6 @@ namespace OnlineStore.Controllers
                 DescriptionFullEN = goods.DescriptionFullEN,
                 DateAdded = goods.DateAdded,
                 ImageLink = goods.ImageLink
-                
             };
             
             return View(model);
@@ -150,9 +149,7 @@ namespace OnlineStore.Controllers
                     _db.Goods.Update(goods);
                     await _db.SaveChangesAsync();
                 }
-
             }
-            
             return View(model);
         }
 

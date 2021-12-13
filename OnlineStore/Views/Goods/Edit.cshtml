@@ -9,11 +9,96 @@
 
 <h2>@Localizer["EditProduct"]</h2>
 
-<form method="post" asp-action="Edit" asp-controller="Goods"></form>
+<form method="post" asp-action="Edit" asp-controller="Goods">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Id" hidden=""></label>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameUA"></label><br/>
+        <input type="text" asp-for="NameUA"/>
+        <span asp-validation-for="NameUA"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameRU"></label><br/>
+        <input type="text" asp-for="NameRU"/>
+        <span asp-validation-for="NameRU"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameEN"></label><br/>
+        <input type="text" asp-for="NameEN"/>
+        <span asp-validation-for="NameEN"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label><br/>
+        <input asp-for="Price"/>
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Category"></label><br/>
+        <input type="text" asp-for="Category"/>
+        <span asp-validation-for="Category"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DescriptionShortUA"></label><br/>
+        <input type="text" asp-for="DescriptionShortUA"/>
+        <span asp-validation-for="DescriptionShortUA"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DescriptionShortRU"></label><br/>
+        <input type="text" asp-for="DescriptionShortRU"/>
+        <span asp-validation-for="DescriptionShortRU"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DescriptionShortEN"></label><br/>
+        <input type="text" asp-for="DescriptionShortEN"/>
+        <span asp-validation-for="DescriptionShortEN"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DescriptionFullUA"></label><br/>
+        <input type="text" asp-for="DescriptionFullUA"/>
+        <span asp-validation-for="DescriptionFullUA"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="DescriptionFullRU"></label><br/>
+        <input type="text" asp-for="DescriptionFullRU"/>
+        <span asp-validation-for="DescriptionFullRU"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DescriptionFullEN"></label><br/>
+        <input type="text" asp-for="DescriptionFullEN"/>
+        <span asp-validation-for="DescriptionFullEN"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateAdded"></label><br/>
+        <input asp-for="DateAdded" id="datepicker" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+        <span asp-validation-for="DateAdded"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image"></label><br/>
+        <input type="file" asp-for="Image"/><br/>
+        <span asp-validation-for="Image"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary"/>
+    </div>
+</form>
 
 @section Scripts
 {
-    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    }
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function () {
+                $("#datepicker").datepicker();
+            });
+    </script>
+}
+
 
