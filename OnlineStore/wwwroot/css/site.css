@@ -25,7 +25,6 @@ body {
     right: 0;
     left: 0;
     bottom: 0;
-
     font-family: var(--ff-primary);
     font-weight: 400;
     font-size: 1.3125rem;
@@ -36,7 +35,6 @@ main {
     display: inline-block;
     width: 100%;
 }
-
 
 .menu-button {
     display: inline-block;
@@ -172,6 +170,10 @@ main {
     border-radius: 1em;
 }
 
+    .search-bar:enabled {
+        outline: 0;
+    }
+
 .search-button {
     height: 2em;
     width: 2em;
@@ -269,10 +271,55 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 40em;
+    height: 2.1em;
     padding-left: 5em;
-
     position: relative;
     right: 0;
     left: 0;
     bottom: 0;
+}
+
+/*  Login view  */
+
+.login-view {
+    height: 39.5em;
+    background-color: var(--clr-small-elements);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-view-menu {
+    width: 20em;
+    padding: 2.5em;
+    margin: 2em;
+    display: inline-block;
+    background-color: var(--clr-primary);
+    border: 1px solid transparent;
+    border-radius: 2em;
+}
+
+.login-header {
+    font-family: var(--ff-primary);
+    width: 10em;
+    padding-left: 1.2em;
+    margin-bottom: 1em;
+}
+
+.login-input {
+    border-radius: 1em;
+    border: none;
+    padding: 0.5em;
+}
+
+    .login-input:enabled {
+        outline: 0;
+    }
+
+.login-button {
+    border-radius: 1em;
+    border: none;
+    padding: 0.2em;
 }

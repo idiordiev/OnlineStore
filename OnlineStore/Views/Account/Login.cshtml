@@ -3,30 +3,30 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+	ViewBag.Title = "title";
+	Layout = "_Layout";
 }
 
-<h2>@Localizer["LoginTitle"]</h2>
-
-<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Username"></label><br>
-        <input asp-for="Username">
-        <span asp-validation-for="Username"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br>
-        <input asp-for="Password">
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label><br>
-        <input asp-for="RememberMe">
-    </div>
-    <div>
-        <input type="submit" value="@Localizer["LoginButton"]">
-    </div>
-    
+<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl" class="login-view">
+	<div class="login-view-menu">    
+		<h2 class="login-header">@Localizer["LoginTitle"]</h2>
+		<div asp-validation-summary="ModelOnly"></div>
+		<div>
+			<label asp-for="Username"></label><br>
+			<input asp-for="Username" class="login-input">
+			<span asp-validation-for="Username"></span>
+		</div>
+		<div>
+			<label asp-for="Password"></label><br>
+			<input asp-for="Password" class="login-input">
+			<span asp-validation-for="Password"></span>
+		</div>
+		<div>
+			<input asp-for="RememberMe">
+			<label asp-for="RememberMe"></label>
+		</div>
+		<div>
+			<input type="submit" value="@Localizer["LoginButton"]" class="login-button">
+		</div>
+	</div>
 </form>
