@@ -7,31 +7,33 @@
     Layout = "_Layout";
 }
 
-<h2>@Localizer["RegisterTitle"]</h2>
-<form method="post" asp-controller="Account" asp-action="Register">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Username"></label><br>
-        <input asp-for="Username"/>
-        <span asp-validation-for="Username"></span>
-    </div>
-    <div>
-        <label asp-for="Email"></label><br>
-        <input asp-for="Email"/>
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br>
-        <input asp-for="Password"/>
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="ConfirmPassword"></label><br>
-        <input asp-for="ConfirmPassword"/>
-        <span asp-validation-for="ConfirmPassword"></span>
-    </div>
-    <div>
-        <input type="submit" value="@Localizer["RegisterButton"]" />
+<form method="post" asp-controller="Account" asp-action="Register" class="register-view">
+    <div class="register-view-menu">
+        <h2 class="register-header">@Localizer["RegisterTitle"]</h2>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Username"></label><br>
+            <input asp-for="Username" class="register-input" autocomplete="off">
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div>
+            <label asp-for="Email"></label><br>
+            <input asp-for="Email" class="register-input" autocomplete="off">
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br>
+            <input asp-for="Password" class="register-input" autocomplete="off">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="ConfirmPassword"></label><br>
+            <input asp-for="ConfirmPassword" class="register-input" autocomplete="off">
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <div>
+            <input type="submit" value="@Localizer["RegisterButton"]" class="register-button">
+        </div>
     </div>
 </form>
 

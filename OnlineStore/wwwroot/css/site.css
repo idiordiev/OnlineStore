@@ -6,6 +6,7 @@
 :root {
     --clr-primary: #44773e;
     --clr-additional: #406343;
+    --clr-backgroung: #246d2496;
     --clr-elements: #ECE7B4;
     --clr-small-elements: #F3EFCC;
     --ff-primary: 'Roboto', sans-serif;
@@ -90,7 +91,7 @@ main {
     flex-direction: row;
     align-items: flex-start;
     gap: 100px;
-    background-color: #246d2496;
+    background-color: var(--clr-backgroung);
     justify-content: center;
     flex-basis: 1000px;
     min-height: 93em;
@@ -281,9 +282,8 @@ footer {
 /*  Login view  */
 
 .login-view {
-    height: 41.05em;
-    background-color: var(--clr-small-elements);
-    color: white;
+    height: 42em;
+    background-color: var(--clr-backgroung);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,7 +295,7 @@ footer {
     padding: 2.5em;
     margin: 2em;
     display: inline-block;
-    background-color: var(--clr-primary);
+    background-color: var(--clr-elements);
     border: 1px solid transparent;
     border-radius: 2em;
 }
@@ -320,5 +320,61 @@ footer {
 .login-button {
     border-radius: 0.7em;
     border: none;
+    padding: 0.2em;
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+/*  Goods table  */
+
+.table{
+    font-size: 16px;
+    margin-bottom: 100em;
+}
+
+/*  Registration form  */
+
+.register-view {
+    height: 42em;
+    background-color: var(--clr-backgroung);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-view-menu {
+    width: 20em;
+    padding: 2.5em;
+    margin: 2em;
+    display: inline-block;
+    background-color: var(--clr-elements);
+    border: 1px solid transparent;
+    border-radius: 2em;
+}
+
+.register-header {
+    font-family: var(--ff-primary);
+    width: 10em;
+    padding-left: 1.2em;
+    margin-bottom: 1em;
+}
+
+.register-input {
+    border-radius: 1em;
+    border: none;
+    padding: 0.5em;
+}
+
+    .register-input:enabled {
+        outline: 0;
+    }
+
+.register-button {
+    border-radius: 0.7em;
+    border: none;
+    background-color: var(--clr-primary);
+    color: white;
+    margin-top: 1em;
     padding: 0.2em;
 }

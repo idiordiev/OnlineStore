@@ -887,3 +887,6 @@ C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Create.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Edit.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Index.cshtml.g.cs
+C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Create.cshtml.g.cs
+C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Edit.cshtml.g.cs
+C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Goods\Index.cshtml.g.cs
