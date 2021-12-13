@@ -27,7 +27,7 @@ namespace OnlineStore.Controllers
             _goodsLocalizer = new GoodsLocalizer(db);
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             // creating viewmodel
             GoodsForIndexViewModel goodsList = new GoodsForIndexViewModel();
@@ -101,34 +101,7 @@ namespace OnlineStore.Controllers
             );
             return LocalRedirect(returnUrl);
         }
-
-        /// <summary>
-        /// "Create" page of "Home" controller. GET request
-        /// </summary>
-        /// <returns>Returns view.</returns>
-        public IActionResult Create()
-        {
-            return View();
-        }
         
-        /// <summary>
-        /// POST request of "Create" action, "Home" controller.
-        /// </summary>
-        /// <param name="goods">A model, which user filling in inputs.</param>
-        /// <returns>Redirecting to main page.</returns>
-        [HttpPost]
-        public IActionResult Create(Goods goods)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Goods.AddAsync(goods);
-                _db.SaveChangesAsync();
-            }
-            
-            return RedirectToAction("Index");
-        }
-        
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

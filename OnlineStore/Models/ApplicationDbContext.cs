@@ -10,5 +10,7 @@ namespace OnlineStore.Models
         }
 
         public DbSet<Goods> Goods { get; set; }
+        
+        public DbSet<Category> Categories { get; set; }
     }
 }

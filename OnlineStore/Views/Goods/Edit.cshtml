@@ -1,0 +1,19 @@
+@model OnlineStore.Models.ViewModels.GoodsEditViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["EditProduct"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["EditProduct"]</h2>
+
+<form method="post" asp-action="Edit" asp-controller="Goods"></form>
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
+

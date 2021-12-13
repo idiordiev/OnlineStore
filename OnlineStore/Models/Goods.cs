@@ -1,18 +1,20 @@
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStore.Models
 {
     /// <summary>
     /// A class that represents a product in database.
-    /// NEED TO ADD FIELDS OF DATE AND SOMETHING ELSE.
     /// </summary>
     public class Goods
     {
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "PriceRequired")] 
+        [Required(ErrorMessage = "PriceRequired")]
+        [DisplayName("Price")]
         public decimal Price { get; set; }
         
         [Required(ErrorMessage = "NameRequired")]
@@ -44,8 +46,14 @@ namespace OnlineStore.Models
         
         [DisplayName("DescriptionFullEN")]
         public string DescriptionFullEN { get; set; }
-        
+
         [DisplayName("ImageLink")] 
         public string ImageLink { get; set; }
+
+        [DisplayName("Category")]
+        public string Category { get; set; }
+        
+        [DisplayName("DateAdded")]
+        public DateTime DateAdded { get; set; }
     }
 }

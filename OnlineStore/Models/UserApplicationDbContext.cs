@@ -7,7 +7,7 @@ namespace OnlineStore.Models
     {
         public UserApplicationDbContext(DbContextOptions<UserApplicationDbContext> options): base(options)
         {
-            Database.EnsureCreated();
+
         }
     }
 }
