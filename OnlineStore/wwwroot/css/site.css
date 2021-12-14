@@ -1,9 +1,4 @@
-﻿/* TODO: Сделать посты нормального размера (щас они получаются разного размера)
-   TODO: Заполнить сайдбар (можно добавить иконки возле каждой строчки)
-   TODO: Задизайнить посты
-   TODO: Задизайнить сайт (отступы, шрифты, цвета)*/
-
-:root {
+﻿:root {
     --clr-primary: #44773e;
     --clr-additional: #406343;
     --clr-backgroung: #246d2496;
@@ -81,9 +76,14 @@ main {
     margin-left: 20px;
 }
 
-.chert {
-    color: rgb(66, 0, 0);
-    margin-left: 0;
+.add-goods {
+    display: flex;
+    flex-direction: row;
+    gap: 20em;
+}
+
+.add-goods input{
+    width: 400px;
 }
 
 .main-container {
@@ -248,10 +248,9 @@ main {
 }
 
 .post-title {
-    font-size: 36px;
+    font-size: 24px;
     font-family: var(--ff-primary);
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
 .post-description {
