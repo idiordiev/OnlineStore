@@ -56,7 +56,7 @@ namespace OnlineStore.Controllers
                     DescriptionFullUA = model.DescriptionFullUA,
                     DescriptionFullRU = model.DescriptionFullRU,
                     DescriptionFullEN = model.DescriptionFullEN,
-                    Category = model.Category,
+                    CategoryId = model.CategoryId,
                     DateAdded = DateTime.Today
                 };
                 if (model.Image != null)
@@ -94,7 +94,7 @@ namespace OnlineStore.Controllers
                 NameRU = goods.NameRU,
                 NameEN = goods.NameEN,
                 Price = goods.Price,
-                Category = goods.Category,
+                CategoryId = goods.CategoryId,
                 DescriptionShortUA = goods.DescriptionShortUA,
                 DescriptionShortRU = goods.DescriptionShortRU,
                 DescriptionShortEN = goods.DescriptionShortEN,

@@ -12,5 +12,9 @@ namespace OnlineStore.Models
         public DbSet<Goods> Goods { get; set; }
         
         public DbSet<Category> Categories { get; set; }
+        
+        public DbSet<DiscountedGoods> DiscountedGoods { get; set; }
+        
+        public DbSet<Receipt> Receipts { get; set; }
     }
 }
