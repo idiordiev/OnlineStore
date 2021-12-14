@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="CategoryId" xml:space="preserve">
+        <value>Номер категории</value>
+    </data>
+    <data name="DescriptionFullEN" xml:space="preserve">
+        <value>Полное описание (на русском)</value>
+    </data>
+    <data name="DescriptionFullRU" xml:space="preserve">
+        <value>Полное описание (на английском)</value>
+    </data>
+    <data name="DescriptionFullUA" xml:space="preserve">
+        <value>Полное описание (на украинском)</value>
+    </data>
+    <data name="DescriptionShortUA" xml:space="preserve">
+        <value>Короткое описание (на украинском)</value>
+    </data>
+    <data name="DescriptionShortEN" xml:space="preserve">
+        <value>Короткое описание (на английском)</value>
+    </data>
+    <data name="DescriptionShortRU" xml:space="preserve">
+        <value>Короткое описание (на русском)</value>
+    </data>
+    <data name="ImageLink" xml:space="preserve">
+        <value>Путь до изображения</value>
+    </data>
+    <data name="Image" xml:space="preserve">
+        <value>Изображение</value>
+    </data>
+    <data name="NameEN" xml:space="preserve">
+        <value>Название (на английском)</value>
+    </data>
+    <data name="NameRequired" xml:space="preserve">
+        <value>Пожалуйста, введите название продукта.</value>
+    </data>
+    <data name="NameRU" xml:space="preserve">
+        <value>Название (на русском)</value>
+    </data>
+    <data name="NameUA" xml:space="preserve">
+        <value>Название (на украинском)</value>
+    </data>
+    <data name="Price" xml:space="preserve">
+        <value>Цена</value>
+    </data>
+    <data name="PriceRequired" xml:space="preserve">
+        <value>Пожалуйста, введите цену продукта.</value>
+    </data>
+</root>

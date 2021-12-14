@@ -1,15 +1,24 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FCreateUserViewModel/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FEditUserViewModel/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FLoginViewModel/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FChangePasswordViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FCreateUserViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FEditUserViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FGoodsAddViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FGoodsEditViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FLoginViewModel/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FRegisterViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FModels_002FViewModels_002FUserPageViewModel/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FChangePassword/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FIndex/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FLogin/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FAccount_002FRegister/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FGoods_002FCreate/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FGoods_002FEdit/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FGoods_002FIndex/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FHome_002FIndex/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FShared_002F_005FLanguageSelect/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FShared_002F_005FLayout/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FUsers_002FCreate/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FUsers_002FEdit/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FUsers_002FCreate/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FUsers_002FEdit/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OnlineStore_002FResources_002FViews_002FUsers_002FIndex/@EntryIndexedValue">True</s:Boolean>
 	
 	
