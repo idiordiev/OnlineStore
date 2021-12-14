@@ -18,4 +18,58 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="AddGoods" xml:space="preserve">
+        <value>Add goods</value>
+    </data>
+    <data name="Category" xml:space="preserve">
+        <value>Category</value>
+    </data>
+    <data name="DateAdded" xml:space="preserve">
+        <value>Date added</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+    <data name="DescriptionFullEN" xml:space="preserve">
+        <value>Full description (English)</value>
+    </data>
+    <data name="DescriptionFullRU" xml:space="preserve">
+        <value>Full description (Russian)</value>
+    </data>
+    <data name="DescriptionFullUA" xml:space="preserve">
+        <value>Full description (Ukrainian)</value>
+    </data>
+    <data name="DescriptionShortUA" xml:space="preserve">
+        <value>Short description (Ukrainian)</value>
+    </data>
+    <data name="DescriptionShortRU" xml:space="preserve">
+        <value>Short description (Russian)</value>
+    </data>
+    <data name="DescriptionShortEN" xml:space="preserve">
+        <value>Short description (English)</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>Edit</value>
+    </data>
+    <data name="GoodsTitle" xml:space="preserve">
+        <value>Product name</value>
+    </data>
+    <data name="Image" xml:space="preserve">
+        <value>Image</value>
+    </data>
+    <data name="NameEN" xml:space="preserve">
+        <value>Name (English)</value>
+    </data>
+    <data name="NameRU" xml:space="preserve">
+        <value>Name (Russian)</value>
+    </data>
+    <data name="NameUA" xml:space="preserve">
+        <value>Name (Ukrainian)</value>
+    </data>
+    <data name="Price" xml:space="preserve">
+        <value>Price</value>
+    </data>
 </root>

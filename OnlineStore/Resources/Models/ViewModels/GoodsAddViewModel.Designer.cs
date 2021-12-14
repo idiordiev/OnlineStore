@@ -59,5 +59,140 @@ namespace OnlineStore.Resources.Models.ViewModels {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер категорії.
+        /// </summary>
+        internal static string CategoryId {
+            get {
+                return ResourceManager.GetString("CategoryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата додання.
+        /// </summary>
+        internal static string DateAdded {
+            get {
+                return ResourceManager.GetString("DateAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повний опис (англійською).
+        /// </summary>
+        internal static string DescriptionFullEN {
+            get {
+                return ResourceManager.GetString("DescriptionFullEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повний опис (російською).
+        /// </summary>
+        internal static string DescriptionFullRU {
+            get {
+                return ResourceManager.GetString("DescriptionFullRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повний опис (українською).
+        /// </summary>
+        internal static string DescriptionFullUA {
+            get {
+                return ResourceManager.GetString("DescriptionFullUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Короткий опис (англійською).
+        /// </summary>
+        internal static string DescriptionShortEN {
+            get {
+                return ResourceManager.GetString("DescriptionShortEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Короткий опис (російською).
+        /// </summary>
+        internal static string DescriptionShortRU {
+            get {
+                return ResourceManager.GetString("DescriptionShortRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Короткий опис (українською).
+        /// </summary>
+        internal static string DescriptionShortUA {
+            get {
+                return ResourceManager.GetString("DescriptionShortUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Зображення.
+        /// </summary>
+        internal static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назва (англійскою).
+        /// </summary>
+        internal static string NameEN {
+            get {
+                return ResourceManager.GetString("NameEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Будь ласка, введіть назву товару..
+        /// </summary>
+        internal static string NameRequired {
+            get {
+                return ResourceManager.GetString("NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назва (російською).
+        /// </summary>
+        internal static string NameRU {
+            get {
+                return ResourceManager.GetString("NameRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назва (українською).
+        /// </summary>
+        internal static string NameUA {
+            get {
+                return ResourceManager.GetString("NameUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ціна.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Будь ласка, введіть ціну товару..
+        /// </summary>
+        internal static string PriceRequired {
+            get {
+                return ResourceManager.GetString("PriceRequired", resourceCulture);
+            }
+        }
     }
 }

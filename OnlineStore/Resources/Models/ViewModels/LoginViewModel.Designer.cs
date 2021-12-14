@@ -79,7 +79,7 @@ namespace OnlineStore.Resources.Models.ViewModels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Логін.
+        ///   Looks up a localized string similar to Ім&apos;я користувача.
         /// </summary>
         internal static string Username {
             get {

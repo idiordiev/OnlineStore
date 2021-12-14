@@ -162,6 +162,114 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Edit.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Index.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Index.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Create.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Create.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Edit.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Goods\Edit.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\Index.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\Index.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\ChangePassword.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePassword.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\ChangePassword.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePassword.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\ChangePasswordViewModel.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePasswordViewModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\ChangePasswordViewModel.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePasswordViewModel.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\ChangePasswordViewModel.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePasswordViewModel.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsAddViewModel.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsAddViewModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsAddViewModel.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsAddViewModel.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsAddViewModel.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsAddViewModel.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsEditViewModel.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsEditViewModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsEditViewModel.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsEditViewModel.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\GoodsEditViewModel.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GoodsEditViewModel.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\UserPageViewModel.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UserPageViewModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\UserPageViewModel.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UserPageViewModel.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Models\ViewModels\UserPageViewModel.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UserPageViewModel.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Account\ChangePassword.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ChangePassword.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -344,6 +452,141 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Index.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Index.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Create.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Create.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Edit.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Goods\Edit.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\Index.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\Index.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\ChangePassword.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePassword.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\ChangePassword.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePassword.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\ChangePasswordViewModel.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePasswordViewModel.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\ChangePasswordViewModel.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePasswordViewModel.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\ChangePasswordViewModel.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePasswordViewModel.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsAddViewModel.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsAddViewModel.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsAddViewModel.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsAddViewModel.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsAddViewModel.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsAddViewModel.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsEditViewModel.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsEditViewModel.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsEditViewModel.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsEditViewModel.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\GoodsEditViewModel.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GoodsEditViewModel.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\UserPageViewModel.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>UserPageViewModel.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\UserPageViewModel.en-US.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>UserPageViewModel.en-US.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Models\ViewModels\UserPageViewModel.ru-RU.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>UserPageViewModel.ru-RU.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Account\ChangePassword.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ChangePassword.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

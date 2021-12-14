@@ -59,5 +59,41 @@ namespace OnlineStore.Resources.Views.Account {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменить.
+        /// </summary>
+        internal static string Change {
+            get {
+                return ResourceManager.GetString("Change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменить пароль.
+        /// </summary>
+        internal static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Моя учетная запись.
+        /// </summary>
+        internal static string MyAccount {
+            get {
+                return ResourceManager.GetString("MyAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пожалуйста, войдите или зарегистрируйтесь..
+        /// </summary>
+        internal static string PleaseLogin {
+            get {
+                return ResourceManager.GetString("PleaseLogin", resourceCulture);
+            }
+        }
     }
 }

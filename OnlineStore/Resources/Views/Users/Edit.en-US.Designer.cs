@@ -70,7 +70,7 @@ namespace OnlineStore.Resources.Views.Users {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit User.
+        ///   Looks up a localized string similar to Edit user.
         /// </summary>
         internal static string EditUser {
             get {

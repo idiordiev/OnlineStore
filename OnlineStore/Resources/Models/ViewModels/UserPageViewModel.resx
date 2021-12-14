@@ -18,4 +18,28 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="Username" xml:space="preserve">
+        <value>Ім'я користувача</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="FirstName" xml:space="preserve">
+        <value>Ім'я</value>
+    </data>
+    <data name="LastName" xml:space="preserve">
+        <value>Прізвище</value>
+    </data>
+    <data name="Address" xml:space="preserve">
+        <value>Адреса</value>
+    </data>
+    <data name="City" xml:space="preserve">
+        <value>Місто</value>
+    </data>
+    <data name="PhoneNumber" xml:space="preserve">
+        <value>Номер телефону</value>
+    </data>
 </root>

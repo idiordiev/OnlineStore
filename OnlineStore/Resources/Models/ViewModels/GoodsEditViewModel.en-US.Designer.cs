@@ -59,5 +59,149 @@ namespace OnlineStore.Resources.Models.ViewModels {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category ID.
+        /// </summary>
+        internal static string CategoryId {
+            get {
+                return ResourceManager.GetString("CategoryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full description (English).
+        /// </summary>
+        internal static string DescriptionFullEN {
+            get {
+                return ResourceManager.GetString("DescriptionFullEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full description (Russian).
+        /// </summary>
+        internal static string DescriptionFullRU {
+            get {
+                return ResourceManager.GetString("DescriptionFullRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full description (Ukrainian).
+        /// </summary>
+        internal static string DescriptionFullUA {
+            get {
+                return ResourceManager.GetString("DescriptionFullUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short description (English).
+        /// </summary>
+        internal static string DescriptionShortEN {
+            get {
+                return ResourceManager.GetString("DescriptionShortEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short description (Russian).
+        /// </summary>
+        internal static string DescriptionShortRU {
+            get {
+                return ResourceManager.GetString("DescriptionShortRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short description (Ukrainian).
+        /// </summary>
+        internal static string DescriptionShortUA {
+            get {
+                return ResourceManager.GetString("DescriptionShortUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image link.
+        /// </summary>
+        internal static string ImageLink {
+            get {
+                return ResourceManager.GetString("ImageLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name (English).
+        /// </summary>
+        internal static string NameEN {
+            get {
+                return ResourceManager.GetString("NameEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, enter a name of product..
+        /// </summary>
+        internal static string NameRequired {
+            get {
+                return ResourceManager.GetString("NameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name (Russian).
+        /// </summary>
+        internal static string NameRU {
+            get {
+                return ResourceManager.GetString("NameRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name (Ukrainian).
+        /// </summary>
+        internal static string NameUA {
+            get {
+                return ResourceManager.GetString("NameUA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, enter a price of product..
+        /// </summary>
+        internal static string PriceRequired {
+            get {
+                return ResourceManager.GetString("PriceRequired", resourceCulture);
+            }
+        }
     }
 }

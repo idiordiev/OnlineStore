@@ -59,5 +59,32 @@ namespace OnlineStore.Resources.Views.Account {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Змінити.
+        /// </summary>
+        internal static string ChangeDetails {
+            get {
+                return ResourceManager.GetString("ChangeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Мій обліковий запис.
+        /// </summary>
+        internal static string MyAccount {
+            get {
+                return ResourceManager.GetString("MyAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Будь ласка, увійдіть або зареєструйтеся..
+        /// </summary>
+        internal static string PleaseLogin {
+            get {
+                return ResourceManager.GetString("PleaseLogin", resourceCulture);
+            }
+        }
     }
 }

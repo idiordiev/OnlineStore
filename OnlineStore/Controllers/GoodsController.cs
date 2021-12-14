@@ -42,7 +42,7 @@ namespace OnlineStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(GoodsAddViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 Goods goods = new Goods()
                 {
