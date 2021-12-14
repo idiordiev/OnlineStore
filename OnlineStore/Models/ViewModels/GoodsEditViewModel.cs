@@ -44,12 +44,9 @@ namespace OnlineStore.Models.ViewModels
         [DisplayName("DescriptionFullEN")]
         public string DescriptionFullEN { get; set; }
 
-        [DisplayName("Category")]
-        public string Category { get; set; }
-        
-        [DisplayName("DateAdded")]
-        public DateTime DateAdded { get; set; }
-        
+        [DisplayName("CategoryId")]
+        public int CategoryId { get; set; }
+
         [DisplayName("Image")]
         public IFormFile Image { get; set; }
         

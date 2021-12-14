@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace OnlineStore.Models
@@ -11,5 +12,7 @@ namespace OnlineStore.Models
         public string Address { get; set; }
         
         public string City { get; set; }
+        
+        public List<Receipt> Receipts { get; set; }
     }
 }

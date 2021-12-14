@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -50,10 +51,20 @@ namespace OnlineStore.Models
         [DisplayName("ImageLink")] 
         public string ImageLink { get; set; }
 
+        [DisplayName("CategoryId")]
+        public int CategoryId { get; set; }
+        
         [DisplayName("Category")]
-        public string Category { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
         
         [DisplayName("DateAdded")]
         public DateTime DateAdded { get; set; }
+        
+        [DisplayName("Discounted")]
+        public DiscountedGoods Discounted { get; set; }
+        
+        [DisplayName("ReceiptsList")]
+        public List<Receipt> ReceiptsList { get; set; }
     }
 }
