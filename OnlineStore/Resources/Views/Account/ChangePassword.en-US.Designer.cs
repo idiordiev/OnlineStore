@@ -72,9 +72,9 @@ namespace OnlineStore.Resources.Views.Account {
         /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
-        internal static string ChangePassword {
+        internal static string ChangeButton {
             get {
-                return ResourceManager.GetString("ChangePassword", resourceCulture);
+                return ResourceManager.GetString("ChangeButton", resourceCulture);
             }
         }
         
