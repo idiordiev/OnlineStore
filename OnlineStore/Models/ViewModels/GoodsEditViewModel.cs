@@ -46,10 +46,7 @@ namespace OnlineStore.Models.ViewModels
 
         [DisplayName("CategoryId")]
         public int CategoryId { get; set; }
-        
-        [DisplayName("DateAdded")]
-        public DateTime DateAdded { get; set; }
-        
+
         [DisplayName("Image")]
         public IFormFile Image { get; set; }
         

@@ -101,7 +101,6 @@ namespace OnlineStore.Controllers
                 DescriptionFullUA = goods.DescriptionFullUA,
                 DescriptionFullRU = goods.DescriptionFullRU,
                 DescriptionFullEN = goods.DescriptionFullEN,
-                DateAdded = goods.DateAdded,
                 ImageLink = goods.ImageLink
             };
             
@@ -117,18 +116,17 @@ namespace OnlineStore.Controllers
 
                 if (goods != null)
                 {
-                    goods.NameUA = goods.NameUA;
-                    goods.NameRU = goods.NameRU;
-                    goods.NameEN = goods.NameEN;
-                    goods.Price = goods.Price;
-                    goods.Category = goods.Category;
-                    goods.DescriptionShortUA = goods.DescriptionShortUA;
-                    goods.DescriptionShortRU = goods.DescriptionShortRU;
-                    goods.DescriptionShortEN = goods.DescriptionShortEN;
-                    goods.DescriptionFullUA = goods.DescriptionFullUA;
-                    goods.DescriptionFullRU = goods.DescriptionFullRU;
-                    goods.DescriptionFullEN = goods.DescriptionFullEN;
-                    goods.DateAdded = goods.DateAdded;
+                    goods.NameUA = model.NameUA;
+                    goods.NameRU = model.NameRU;
+                    goods.NameEN = model.NameEN;
+                    goods.Price = model.Price;
+                    goods.CategoryId = model.CategoryId;
+                    goods.DescriptionShortUA = model.DescriptionShortUA;
+                    goods.DescriptionShortRU = model.DescriptionShortRU;
+                    goods.DescriptionShortEN = model.DescriptionShortEN;
+                    goods.DescriptionFullUA = model.DescriptionFullUA;
+                    goods.DescriptionFullRU = model.DescriptionFullRU;
+                    goods.DescriptionFullEN = model.DescriptionFullEN;
 
                     if (model.Image != null)
                     {
@@ -141,13 +139,11 @@ namespace OnlineStore.Controllers
 
                         goods.ImageLink = path;
                     }
-                    else
-                    {
-                        goods.ImageLink = model.ImageLink;
-                    }
-
+                    
                     _db.Goods.Update(goods);
                     await _db.SaveChangesAsync();
+
+                    return RedirectToAction("Index");
                 }
             }
             return View(model);
