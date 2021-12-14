@@ -916,3 +916,4 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Edit.ru-RU.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Index.en-US.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Index.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.ChangePassword.resources
