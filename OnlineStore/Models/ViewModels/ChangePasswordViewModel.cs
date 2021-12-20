@@ -24,7 +24,7 @@ namespace OnlineStore.Models.ViewModels
         [Required]
         [DisplayName("ConfirmPassword")]
         [DataType(DataType.Password)]
-        [Compare("OldPassword", ErrorMessage = ("PasswordNotEqual"))]
+        [Compare("NewPassword", ErrorMessage = ("PasswordNotEqual"))]
         public string ConfirmPassword { get; set; }
     }
 }
