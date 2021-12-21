@@ -78,9 +78,11 @@ namespace OnlineStore.Controllers
                 await _db.Goods.AddAsync(goods);
                 await _db.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return Json(new
+                    { isValid = true, html = Helper.RenderRazorViewToString(this, "_GoodsTable", _db.Goods.ToList()) });
             }
-            return View(model);
+
+            return Json(new {isValid = false, html = Helper.RenderRazorViewToString(this, "Create", model)});
         }
 
         public IActionResult Edit(int id)
@@ -153,13 +155,10 @@ namespace OnlineStore.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var goods = _db.Goods.FindAsync(id).Result;
-            if (goods != null)
-            {
-                _db.Goods.Remove(goods);
-                await _db.SaveChangesAsync();
-            }
-
-            return RedirectToAction("Index");
+            _db.Goods.Remove(goods);
+            await _db.SaveChangesAsync();
+            
+            return Json(new {html = Helper.RenderRazorViewToString(this, "_GoodsTable", _db.Goods.ToList())});
         }
 
     }
