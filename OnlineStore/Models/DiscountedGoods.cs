@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents discounted product. 
+    /// </summary>
     public class DiscountedGoods
     {
         [Key]

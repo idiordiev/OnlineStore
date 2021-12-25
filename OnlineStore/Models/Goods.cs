@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineStore.Models
 {
     /// <summary>
-    /// A class that represents a product in database.
+    /// Represents product.
     /// </summary>
     public class Goods
     {

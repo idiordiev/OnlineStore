@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents category.
+    /// </summary>
     public class Category
     {
         [Key]

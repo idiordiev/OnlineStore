@@ -11,6 +11,9 @@ using OnlineStore.Models.ViewModels;
 
 namespace OnlineStore.Controllers
 {
+    /// <summary>
+    /// A controller for CRUD operations for products
+    /// </summary>
     public class GoodsController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -26,7 +29,10 @@ namespace OnlineStore.Controllers
             _goodsLocalizer = new GoodsLocalizer(db);
         }
 
-        // GET
+        /// <summary>
+        /// A GET request for "/goods/"
+        /// </summary>
+        /// <returns>Returns view with list of products. </returns>
         public IActionResult Index()
         {
             var goodsList = _db.Goods.ToList();
@@ -34,11 +40,20 @@ namespace OnlineStore.Controllers
             return View(goodsList);
         }
         
+        /// <summary>
+        /// A GET request for "/goods/create/".
+        /// </summary>
+        /// <returns>Returns view with form.</returns>
         public IActionResult Create()
         {
             return View();
         }
         
+        /// <summary>
+        /// A POST request for "/goods/create".
+        /// </summary>
+        /// <param name="model">A viewmodel with product's data.</param>
+        /// <returns>If model is valid, redirects to "/goods/". Otherwise, returns the same page.</returns>
         [HttpPost]
         public async Task<IActionResult> Create(GoodsAddViewModel model)
         {
@@ -83,9 +98,14 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
-        public IActionResult Edit(int id)
+        /// <summary>
+        /// A GET request for "/goods/edit/id".
+        /// </summary>
+        /// <param name="id">Product's ID.</param>
+        /// <returns>Returns a view with form (inputs might be filled).</returns>
+        public async Task<IActionResult> Edit(int id)
         {
-            var goods = _db.Goods.FindAsync(id).Result;
+            var goods = await _db.Goods.FindAsync(id);
 
             GoodsEditViewModel model = new GoodsEditViewModel()
             {
@@ -107,6 +127,11 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// A POST request for "/goods/edit/id".
+        /// </summary>
+        /// <param name="model">A product's viewmodel with data.</param>
+        /// <returns>If model is valid, redirects to "/goods/". Otherwise, returns the same page.</returns>
         [HttpPost]
         public async Task<IActionResult> Edit(GoodsEditViewModel model)
         {
@@ -149,6 +174,11 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// A POST request for deleting products. Don't have view, just use form with asp-route-id.
+        /// </summary>
+        /// <param name="id">Product's ID.</param>
+        /// <returns>Redirects to "/goods".</returns>
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

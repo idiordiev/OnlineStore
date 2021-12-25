@@ -13,6 +13,9 @@ using OnlineStore.Models.ViewModels;
 
 namespace OnlineStore.Controllers
 {
+    /// <summary>
+    /// A controller for viewing main page and pages of products. ]
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -27,6 +30,10 @@ namespace OnlineStore.Controllers
             _goodsLocalizer = new GoodsLocalizer(db);
         }
 
+        /// <summary>
+        /// A GET request for the main page.
+        /// </summary>
+        /// <returns>Returns view with related, new and discounted products.</returns>
         public IActionResult Index()
         {
             // creating viewmodel
@@ -89,7 +96,6 @@ namespace OnlineStore.Controllers
             
             return View(goodsList);
         }
-        
         
         [HttpPost]
         public IActionResult SetLanguage(string culture, string returnUrl)

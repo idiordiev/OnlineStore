@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents user. Based on ASP.NET Core Identity User.
+    /// </summary>
     public class User : IdentityUser
     {
         public string FirstName { get; set; }
