@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Models
 {
+    // TODO: переделать бд
+    // TODO: поместить оба контекста в один
+    // TODO: комменты в моделях
     public class ApplicationDbContext: DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)

@@ -1,7 +1,7 @@
 namespace OnlineStore.Models
 {
     /// <summary>
-    /// Localized "Goods" model. Use for views.
+    /// Represents localized product. Contain data in required language.
     /// </summary>
     public class LocalizedGoods
     {

@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents receipt.
+    /// </summary>
     public class Receipt
     {
         [Key]

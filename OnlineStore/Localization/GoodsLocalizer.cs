@@ -7,6 +7,7 @@ namespace OnlineStore.Localization
 {
     /// <summary>
     /// Localizes a "Goods" model.
+    /// TODO: total rework using PATTERNS
     /// </summary>
     public class GoodsLocalizer: IGoodsLocalizer
     {

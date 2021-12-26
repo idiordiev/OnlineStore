@@ -6,6 +6,7 @@ namespace OnlineStore.Localization
 {
     /// <summary>
     /// An interface that represents localizer(Goods -> LocalizedGoods).
+    /// TODO: total rework using patterns
     /// </summary>
     public interface IGoodsLocalizer
     {
