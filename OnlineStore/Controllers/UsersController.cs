@@ -12,7 +12,7 @@ namespace OnlineStore.Controllers
     /// <summary>
     /// A controller for CRUD operations for users.
     /// </summary>
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         private readonly UserManager<User> _userManager;

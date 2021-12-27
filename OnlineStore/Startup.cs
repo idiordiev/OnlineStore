@@ -87,8 +87,9 @@ namespace OnlineStore
             app.UseRouting();
 
             // for authorization and authentication -_-
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+
             
             app.UseRequestLocalization();
             
