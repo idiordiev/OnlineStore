@@ -3,7 +3,7 @@ namespace OnlineStore.Models
     /// <summary>
     /// Represents localized product. Contain data in required language.
     /// </summary>
-    public class LocalizedGoods
+    public class LocalizedProduct
     {
         public int Id { get; set; }
         

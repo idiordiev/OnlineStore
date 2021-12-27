@@ -4,10 +4,14 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
-    /// A model for Users/Create()
+    /// A model for Users/Edit()
     /// </summary>
-    public class CreateUserViewModel
+    public class UserEditViewModel
     {
+        [Required]
+        [DisplayName("Id")]
+        public string Id { get; set; }
+        
         [Required]
         [DisplayName("Username")]
         public string Username { get; set; }
@@ -15,11 +19,6 @@ namespace OnlineStore.Models.ViewModels
         [Required]
         [DisplayName("Email")]
         public string Email { get; set; }
-
-        [Required]
-        [DisplayName("Password")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
         
         [DisplayName("FirstName")] 
         public string FirstName { get; set; }

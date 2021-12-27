@@ -2,19 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace OnlineStore.Models
+namespace OnlineStore.Models.ViewModels
 {
-    /// <summary>
-    /// Represents product.
-    /// </summary>
-    public class Goods
+    public class ProductAddViewModel
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required(ErrorMessage = "PriceRequired")]
+        [Required(ErrorMessage = "PriceRequired")] 
         [DisplayName("Price")]
         public decimal Price { get; set; }
         
@@ -47,21 +42,14 @@ namespace OnlineStore.Models
         
         [DisplayName("DescriptionFullEN")]
         public string DescriptionFullEN { get; set; }
-
-        [DisplayName("ImageLink")] 
-        public string ImageLink { get; set; }
-
+        
         [DisplayName("CategoryId")]
         public int CategoryId { get; set; }
-        
-        [DisplayName("Category")]
-        [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
-        
+
         [DisplayName("DateAdded")]
         public DateTime DateAdded { get; set; }
-
-        [DisplayName("Receipts")]
-        public List<Receipt> Receipts { get; set; }
+        
+        [DisplayName("Image")]
+        public IFormFile Image { get; set; }
     }
 }

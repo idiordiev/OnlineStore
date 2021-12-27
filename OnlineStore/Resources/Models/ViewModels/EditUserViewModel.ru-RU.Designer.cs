@@ -39,7 +39,7 @@ namespace OnlineStore.Resources.Models.ViewModels {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Models.ViewModels.EditUserViewModel.ru-RU", typeof(EditUserViewModel_ru_RU).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Models.ViewModels.UserEditViewModel.ru-RU", typeof(EditUserViewModel_ru_RU).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

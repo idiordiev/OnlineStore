@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace OnlineStore.Models.ViewModels
 {
-    public class GoodsEditViewModel
+    public class ProductEditViewModel
     {
         [DisplayName("Id")]
         public int Id { get; set; }

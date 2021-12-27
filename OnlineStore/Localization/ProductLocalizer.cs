@@ -9,12 +9,12 @@ namespace OnlineStore.Localization
     /// Localizes a "Goods" model.
     /// TODO: total rework using PATTERNS
     /// </summary>
-    public class GoodsLocalizer: IGoodsLocalizer
+    public class ProductLocalizer: IProductLocalizer
     {
         // db instance
         private readonly ApplicationDbContext _db;
 
-        public GoodsLocalizer(ApplicationDbContext db)
+        public ProductLocalizer(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -23,19 +23,19 @@ namespace OnlineStore.Localization
         /// 
         /// </summary>
         /// <returns>Returns list of localized goods.</returns>
-        public IEnumerable<LocalizedGoods> GetAll()
+        public IEnumerable<LocalizedProduct> GetAll()
         {
-            List<LocalizedGoods> goodsList = new List<LocalizedGoods>();
+            List<LocalizedProduct> goodsList = new List<LocalizedProduct>();
 
             // for every item in db - choosing 1 of 3 languages
-            foreach (var goods in _db.Goods)
+            foreach (var goods in _db.Products)
             {
                 string culture = CultureInfo.CurrentCulture.ToString();
                 
                 switch (culture)
                 {
                     case "ua-UA":
-                        goodsList.Add(new LocalizedGoods()
+                        goodsList.Add(new LocalizedProduct()
                         {
                             Id = goods.Id,
                             Price = goods.Price,
@@ -46,7 +46,7 @@ namespace OnlineStore.Localization
                         });
                         break;
                     case "ru-RU":
-                        goodsList.Add(new LocalizedGoods()
+                        goodsList.Add(new LocalizedProduct()
                         {
                             Id = goods.Id,
                             Price = goods.Price,
@@ -57,7 +57,7 @@ namespace OnlineStore.Localization
                         });
                         break;
                     case "en-US":
-                        goodsList.Add(new LocalizedGoods()
+                        goodsList.Add(new LocalizedProduct()
                         {
                             Id = goods.Id,
                             Price = goods.Price,
@@ -68,7 +68,7 @@ namespace OnlineStore.Localization
                         });
                         break;
                     default:
-                        goodsList.Add(new LocalizedGoods()
+                        goodsList.Add(new LocalizedProduct()
                         {
                             Id = goods.Id,
                             Price = goods.Price,
@@ -89,12 +89,12 @@ namespace OnlineStore.Localization
         /// </summary>
         /// <param name="request">String with user`s request</param>
         /// <returns></returns>
-        public IEnumerable<LocalizedGoods> Find(string request)
+        public IEnumerable<LocalizedProduct> Find(string request)
         {
-            List<LocalizedGoods> goodsList = new List<LocalizedGoods>();
+            List<LocalizedProduct> goodsList = new List<LocalizedProduct>();
 
             // for every item - if one of fiels contains request - choose 1 of 3 languages and add to list
-            foreach (var goods in _db.Goods)
+            foreach (var goods in _db.Products)
             {
                 if (goods.NameUA.Contains(request) ||
                     goods.NameRU.Contains(request) ||
@@ -111,7 +111,7 @@ namespace OnlineStore.Localization
                     switch (culture)
                     {
                         case "ua-UA":
-                            goodsList.Add(new LocalizedGoods()
+                            goodsList.Add(new LocalizedProduct()
                             {
                                 Id = goods.Id,
                                 Price = goods.Price,
@@ -122,7 +122,7 @@ namespace OnlineStore.Localization
                             });
                             break;
                         case "ru-RU":
-                            goodsList.Add(new LocalizedGoods()
+                            goodsList.Add(new LocalizedProduct()
                             {
                                 Id = goods.Id,
                                 Price = goods.Price,
@@ -133,7 +133,7 @@ namespace OnlineStore.Localization
                             });
                             break;
                         case "en-US":
-                            goodsList.Add(new LocalizedGoods()
+                            goodsList.Add(new LocalizedProduct()
                             {
                                 Id = goods.Id,
                                 Price = goods.Price,
@@ -144,7 +144,7 @@ namespace OnlineStore.Localization
                             });
                             break;
                         default:
-                            goodsList.Add(new LocalizedGoods()
+                            goodsList.Add(new LocalizedProduct()
                             {
                                 Id = goods.Id,
                                 Price = goods.Price,

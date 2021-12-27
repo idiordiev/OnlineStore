@@ -16,7 +16,7 @@ namespace OnlineStore.Models
         [DisplayName("Name")]
         public string Name { get; set; }
         
-        [DisplayName("GoodsList")]
-        public List<Goods> Goods { get; set; }
+        [DisplayName("Products")]
+        public List<Product> Products { get; set; }
     }
 }

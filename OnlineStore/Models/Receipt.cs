@@ -22,8 +22,8 @@ namespace OnlineStore.Models
         [ForeignKey("UserId")]
         public User User { get; set; }
         
-        [DisplayName("GoodsList")]
-        public List<Goods> GoodsList { get; set; }
+        [DisplayName("Products")]
+        public List<Product> Products { get; set; }
 
         [DisplayName("DateTime")]
         public DateTime Date { get; set; }

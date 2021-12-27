@@ -1,4 +1,4 @@
-@model OnlineStore.Models.ViewModels.GoodsAddViewModel
+@model OnlineStore.Models.ViewModels.ProductAddViewModel
 
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
@@ -8,7 +8,7 @@
 }
 
 <div class="add-goods">
-    <form method="post" asp-action="Create" asp-controller="Goods" enctype="multipart/form-data">
+    <form method="post" asp-action="Create" asp-controller="Product" enctype="multipart/form-data">
         <h2>@Localizer["AddProduct"]</h2>
         <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group">

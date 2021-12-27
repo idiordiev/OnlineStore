@@ -1,4 +1,4 @@
-@model IEnumerable<OnlineStore.Models.Goods>
+@model IEnumerable<OnlineStore.Models.Product>
 
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
@@ -8,7 +8,7 @@
 }
 
 <h2>@Localizer["GoodsTitle"]</h2>
-<a asp-action="Create" asp-controller="Goods">@Localizer["AddGoods"]</a>
+<a asp-action="Create" asp-controller="Product">@Localizer["AddGoods"]</a>
 
 <table class="table">
     <thead>
@@ -49,8 +49,8 @@
                     <td>@goods.DateAdded</td>
                     <td><img src="@goods.ImageLink" style="height: 80px"/></td>
             <td>
-                <a class="btn btn-primary" asp-action="Edit" asp-controller="Goods" asp-route-id="@goods.Id">@Localizer["Edit"]</a>
-                <form method="post" asp-action="Delete" asp-controller="Goods" asp-route-id="@goods.Id">
+                <a class="btn btn-primary" asp-action="Edit" asp-controller="Product" asp-route-id="@goods.Id">@Localizer["Edit"]</a>
+                <form method="post" asp-action="Delete" asp-controller="Product" asp-route-id="@goods.Id">
                     <input class="btn btn-danger" type="submit" value="@Localizer["Delete"]">
                 </form>
             </td>

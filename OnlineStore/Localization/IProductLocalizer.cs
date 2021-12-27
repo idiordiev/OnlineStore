@@ -5,13 +5,13 @@ using OnlineStore.Models;
 namespace OnlineStore.Localization
 {
     /// <summary>
-    /// An interface that represents localizer(Goods -> LocalizedGoods).
+    /// An interface that represents localizer(Product -> LocalizedProduct).
     /// TODO: total rework using patterns
     /// </summary>
-    public interface IGoodsLocalizer
+    public interface IProductLocalizer
     {
-        IEnumerable<LocalizedGoods> GetAll();
+        IEnumerable<LocalizedProduct> GetAll();
         
-        IEnumerable<LocalizedGoods> Find(string request);
+        IEnumerable<LocalizedProduct> Find(string request);
     }
 }

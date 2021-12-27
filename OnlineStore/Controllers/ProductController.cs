@@ -14,34 +14,34 @@ namespace OnlineStore.Controllers
     /// <summary>
     /// A controller for CRUD operations for products
     /// </summary>
-    public class GoodsController : Controller
+    public class ProductController : Controller
     {
         private readonly ApplicationDbContext _db;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        private readonly GoodsLocalizer _goodsLocalizer;
+        private readonly ProductLocalizer _productLocalizer;
 
-        public GoodsController(ApplicationDbContext db, IWebHostEnvironment environment)
+        public ProductController(ApplicationDbContext db, IWebHostEnvironment environment)
         {
             _db = db;
             _webHostEnvironment = environment;
-            _goodsLocalizer = new GoodsLocalizer(db);
+            _productLocalizer = new ProductLocalizer(db);
         }
 
         /// <summary>
-        /// A GET request for "/goods/"
+        /// A GET request for "/product/"
         /// </summary>
         /// <returns>Returns view with list of products. </returns>
         public IActionResult Index()
         {
-            var goodsList = _db.Goods.ToList();
+            var products = _db.Products.ToList();
 
-            return View(goodsList);
+            return View(products);
         }
         
         /// <summary>
-        /// A GET request for "/goods/create/".
+        /// A GET request for "/product/create/".
         /// </summary>
         /// <returns>Returns view with form.</returns>
         public IActionResult Create()
@@ -50,16 +50,16 @@ namespace OnlineStore.Controllers
         }
         
         /// <summary>
-        /// A POST request for "/goods/create".
+        /// A POST request for "/product/create".
         /// </summary>
         /// <param name="model">A viewmodel with product's data.</param>
-        /// <returns>If model is valid, redirects to "/goods/". Otherwise, returns the same page.</returns>
+        /// <returns>If model is valid, redirects to "/product/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Create(GoodsAddViewModel model)
+        public async Task<IActionResult> Create(ProductAddViewModel model)
         {
             if (ModelState.IsValid)
             {
-                Goods goods = new Goods()
+                Product product = new Product()
                 {
                     Price = model.Price,
                     NameUA = model.NameUA,
@@ -83,14 +83,14 @@ namespace OnlineStore.Controllers
                         await model.Image.CopyToAsync(fileStream);
                     }
 
-                    goods.ImageLink = path;
+                    product.ImageLink = path;
                 }
                 else
                 {
-                    goods.ImageLink = String.Empty;
+                    product.ImageLink = String.Empty;
                 }
 
-                await _db.Goods.AddAsync(goods);
+                await _db.Products.AddAsync(product);
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction("Index");
@@ -99,59 +99,59 @@ namespace OnlineStore.Controllers
         }
 
         /// <summary>
-        /// A GET request for "/goods/edit/id".
+        /// A GET request for "/product/edit/id".
         /// </summary>
         /// <param name="id">Product's ID.</param>
         /// <returns>Returns a view with form (inputs might be filled).</returns>
         public async Task<IActionResult> Edit(int id)
         {
-            var goods = await _db.Goods.FindAsync(id);
+            var product = await _db.Products.FindAsync(id);
 
-            GoodsEditViewModel model = new GoodsEditViewModel()
+            ProductEditViewModel model = new ProductEditViewModel()
             {
-                Id = goods.Id,
-                NameUA = goods.NameUA,
-                NameRU = goods.NameRU,
-                NameEN = goods.NameEN,
-                Price = goods.Price,
-                CategoryId = goods.CategoryId,
-                DescriptionShortUA = goods.DescriptionShortUA,
-                DescriptionShortRU = goods.DescriptionShortRU,
-                DescriptionShortEN = goods.DescriptionShortEN,
-                DescriptionFullUA = goods.DescriptionFullUA,
-                DescriptionFullRU = goods.DescriptionFullRU,
-                DescriptionFullEN = goods.DescriptionFullEN,
-                ImageLink = goods.ImageLink
+                Id = product.Id,
+                NameUA = product.NameUA,
+                NameRU = product.NameRU,
+                NameEN = product.NameEN,
+                Price = product.Price,
+                CategoryId = product.CategoryId,
+                DescriptionShortUA = product.DescriptionShortUA,
+                DescriptionShortRU = product.DescriptionShortRU,
+                DescriptionShortEN = product.DescriptionShortEN,
+                DescriptionFullUA = product.DescriptionFullUA,
+                DescriptionFullRU = product.DescriptionFullRU,
+                DescriptionFullEN = product.DescriptionFullEN,
+                ImageLink = product.ImageLink
             };
             
             return View(model);
         }
 
         /// <summary>
-        /// A POST request for "/goods/edit/id".
+        /// A POST request for "/product/edit/id".
         /// </summary>
         /// <param name="model">A product's viewmodel with data.</param>
-        /// <returns>If model is valid, redirects to "/goods/". Otherwise, returns the same page.</returns>
+        /// <returns>If model is valid, redirects to "/product/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Edit(GoodsEditViewModel model)
+        public async Task<IActionResult> Edit(ProductEditViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var goods = _db.Goods.FindAsync(model.Id).Result;
+                var product = _db.Products.FindAsync(model.Id).Result;
 
-                if (goods != null)
+                if (product != null)
                 {
-                    goods.NameUA = model.NameUA;
-                    goods.NameRU = model.NameRU;
-                    goods.NameEN = model.NameEN;
-                    goods.Price = model.Price;
-                    goods.CategoryId = model.CategoryId;
-                    goods.DescriptionShortUA = model.DescriptionShortUA;
-                    goods.DescriptionShortRU = model.DescriptionShortRU;
-                    goods.DescriptionShortEN = model.DescriptionShortEN;
-                    goods.DescriptionFullUA = model.DescriptionFullUA;
-                    goods.DescriptionFullRU = model.DescriptionFullRU;
-                    goods.DescriptionFullEN = model.DescriptionFullEN;
+                    product.NameUA = model.NameUA;
+                    product.NameRU = model.NameRU;
+                    product.NameEN = model.NameEN;
+                    product.Price = model.Price;
+                    product.CategoryId = model.CategoryId;
+                    product.DescriptionShortUA = model.DescriptionShortUA;
+                    product.DescriptionShortRU = model.DescriptionShortRU;
+                    product.DescriptionShortEN = model.DescriptionShortEN;
+                    product.DescriptionFullUA = model.DescriptionFullUA;
+                    product.DescriptionFullRU = model.DescriptionFullRU;
+                    product.DescriptionFullEN = model.DescriptionFullEN;
 
                     if (model.Image != null)
                     {
@@ -162,10 +162,10 @@ namespace OnlineStore.Controllers
                             await model.Image.CopyToAsync(fileStream);
                         }
 
-                        goods.ImageLink = path;
+                        product.ImageLink = path;
                     }
                     
-                    _db.Goods.Update(goods);
+                    _db.Products.Update(product);
                     await _db.SaveChangesAsync();
 
                     return RedirectToAction("Index");
@@ -178,14 +178,14 @@ namespace OnlineStore.Controllers
         /// A POST request for deleting products. Don't have view, just use form with asp-route-id.
         /// </summary>
         /// <param name="id">Product's ID.</param>
-        /// <returns>Redirects to "/goods".</returns>
+        /// <returns>Redirects to "/product".</returns>
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var goods = _db.Goods.FindAsync(id).Result;
-            if (goods != null)
+            var product = _db.Products.FindAsync(id).Result;
+            if (product != null)
             {
-                _db.Goods.Remove(goods);
+                _db.Products.Remove(product);
                 await _db.SaveChangesAsync();
             }
 

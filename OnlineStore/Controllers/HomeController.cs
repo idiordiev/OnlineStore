@@ -14,20 +14,20 @@ using OnlineStore.Models.ViewModels;
 namespace OnlineStore.Controllers
 {
     /// <summary>
-    /// A controller for viewing main page and pages of products. ]
+    /// A controller for viewing main page and pages of products.
     /// </summary>
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        private readonly GoodsLocalizer _goodsLocalizer;
+        private readonly ProductLocalizer _productLocalizer;
         
         private Random random = new Random();
 
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
-            _goodsLocalizer = new GoodsLocalizer(db);
+            _productLocalizer = new ProductLocalizer(db);
         }
 
         /// <summary>
@@ -37,21 +37,21 @@ namespace OnlineStore.Controllers
         public IActionResult Index()
         {
             // creating viewmodel
-            GoodsForIndexViewModel goodsList = new GoodsForIndexViewModel();
+            MainPageViewModel products = new MainPageViewModel();
 
-            var allGoods = _goodsLocalizer.GetAll();
+            var allProducts = _productLocalizer.GetAll();
 
-            if (allGoods.Count() == 0)
-                return View(goodsList);
+            if (allProducts.Count() == 0)
+                return View(products);
 
-            int lastId = allGoods.LastOrDefault().Id;
+            int lastId = allProducts.LastOrDefault().Id;
             lastId++;
 
-            // filling Related Goods
+            // filling Related Products
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
+                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {
@@ -59,7 +59,7 @@ namespace OnlineStore.Controllers
                     continue;
                 }
                 
-                goodsList.RelatedGoodsList.Add(item);
+                products.RelatedProducts.Add(item);
             }
 
             // filling Discounted Goods
@@ -67,7 +67,7 @@ namespace OnlineStore.Controllers
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
+                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {
@@ -75,7 +75,7 @@ namespace OnlineStore.Controllers
                     continue;
                 }
                 
-                goodsList.DiscountGoodsList.Add(item);
+                products.DiscountedProducts.Add(item);
             }
 
             // filling New Goods
@@ -83,7 +83,7 @@ namespace OnlineStore.Controllers
             for (int i = 0; i < 3; i++)
             {
                 int num = random.Next(lastId);
-                LocalizedGoods item = (from goods in allGoods where goods.Id == num select goods).FirstOrDefault();
+                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
 
                 if (item == null)
                 {
@@ -91,10 +91,10 @@ namespace OnlineStore.Controllers
                     continue;
                 }
                 
-                goodsList.NewGoodsList.Add(item);
+                products.NewProducts.Add(item);
             }
             
-            return View(goodsList);
+            return View(products);
         }
         
         [HttpPost]

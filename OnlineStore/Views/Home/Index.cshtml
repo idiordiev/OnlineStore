@@ -1,4 +1,4 @@
-﻿@model OnlineStore.Models.ViewModels.GoodsForIndexViewModel
+﻿@model OnlineStore.Models.ViewModels.MainPageViewModel
 
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
@@ -17,11 +17,11 @@
         <h3>@Localizer["RelatedGoods"]</h3>
         
         <div class="goods-row">
-            @if (Model.RelatedGoodsList.Count > 0)
+            @if (Model.RelatedProducts.Count > 0)
             {
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[0])
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[1])
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedGoodsList[2])
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[0])
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[1])
+                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[2])
             }
             else
             {
@@ -33,12 +33,12 @@
 
         <h3>@Localizer["DiscountedGoods"]</h3>
         
-        @if (Model.DiscountGoodsList.Count > 0)
+        @if (Model.DiscountedProducts.Count > 0)
         {
             <div class="goods-row">
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[0])
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[1])
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountGoodsList[2])
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[0])
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[1])
+                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[2])
             </div>
         }
         else
@@ -51,12 +51,12 @@
         
         <h3>@Localizer["NewGoods"]</h3>
         
-        @if (Model.NewGoodsList.Count > 0)
+        @if (Model.NewProducts.Count > 0)
         {
             <div class="goods-row">
-                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[0])
-                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[1])
-                @await Html.PartialAsync("_GoodsPost", Model.NewGoodsList[2])
+                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[0])
+                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[1])
+                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[2])
             </div>
         }
         else

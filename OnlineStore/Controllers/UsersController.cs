@@ -46,7 +46,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A viewmodel with user's data.</param>
         /// <returns>If model is valid, redirects to "/users". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Create(CreateUserViewModel model)
+        public async Task<IActionResult> Create(UserAddViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            EditUserViewModel model = new EditUserViewModel()
+            UserEditViewModel model = new UserEditViewModel()
             {
                 Id = user.Id, 
                 Username = user.UserName,
@@ -110,7 +110,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A model with fields filled in form.</param>
         /// <returns>If model is valid, redirects to "/users/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Edit(EditUserViewModel model)
+        public async Task<IActionResult> Edit(UserEditViewModel model)
         {
             if (ModelState.IsValid)
             {
