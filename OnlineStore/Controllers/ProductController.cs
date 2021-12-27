@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ namespace OnlineStore.Controllers
     /// <summary>
     /// A controller for CRUD operations for products
     /// </summary>
+    [Authorize(Roles = "admin")]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _db;

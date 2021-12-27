@@ -1,0 +1,40 @@
+@model IEnumerable<OnlineStore.Models.User>
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["UsersRoles"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["UsersRoles"]</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Localizer["Id"]
+        </th>
+        <th>
+            @Localizer["Username"]
+        </th>
+        <th>
+            @Localizer["Email"]
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-controller="Roles" asp-route-id="@user.Id">@Localizer["Edit"]</a>
+            </td>
+        </tr>   
+    }
+    </tbody>
+</table>

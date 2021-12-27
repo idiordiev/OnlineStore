@@ -944,3 +944,5 @@ C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Roles\Edit.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Roles\Index.cshtml.g.cs

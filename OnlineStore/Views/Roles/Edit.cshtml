@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Identity
+@model OnlineStore.Models.ViewModels.ChangeRolesViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["ChangeRoles"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["ChangeRoles"]</h2>
+
+<form method="post" asp-action="Edit" asp-controller="Roles">
+    <input hidden asp-for="UserId"/>
+    <div class="form-group">
+        @foreach (IdentityRole role in Model.AllRoles)
+        {
+            <input type="checkbox" name="roles" value="@role.Name" @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />@role.Name <br />
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">@Localizer["SaveChanges"]</button>
+</form>

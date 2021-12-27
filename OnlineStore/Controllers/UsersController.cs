@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Models;
@@ -11,6 +12,7 @@ namespace OnlineStore.Controllers
     /// <summary>
     /// A controller for CRUD operations for users.
     /// </summary>
+    [Authorize(Roles = "ADMIN")]
     public class UsersController : Controller
     {
         private readonly UserManager<User> _userManager;
