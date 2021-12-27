@@ -11,7 +11,5 @@ namespace OnlineStore.Localization
     public interface IProductLocalizer
     {
         IEnumerable<LocalizedProduct> GetAll();
-        
-        IEnumerable<LocalizedProduct> Find(string request);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.AspNetCore.Identity;
 
 namespace OnlineStore.Models.ViewModels
@@ -7,10 +8,13 @@ namespace OnlineStore.Models.ViewModels
     {
         public string UserId { get; set; }
         
+        [DisplayName("Username")]
         public string UserName { get; set; }
         
+        [DisplayName("AllRoles")]
         public List<IdentityRole> AllRoles { get; set; }
         
+        [DisplayName("UserRoles")]
         public IList<string> UserRoles { get; set; }
         
         public ChangeRolesViewModel()

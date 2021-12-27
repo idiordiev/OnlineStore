@@ -34,15 +34,11 @@ namespace OnlineStore.Controllers
         /// A GET request for the main page.
         /// </summary>
         /// <returns>Returns view with related, new and discounted products.</returns>
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            // creating viewmodel
             MainPageViewModel products = new MainPageViewModel();
 
             var allProducts = _productLocalizer.GetAll();
-
-            if (allProducts.Count() == 0)
-                return View(products);
 
             int lastId = allProducts.LastOrDefault().Id;
             lastId++;
@@ -62,38 +58,11 @@ namespace OnlineStore.Controllers
                 products.RelatedProducts.Add(item);
             }
 
-            // filling Discounted Goods
-            // TODO: сделать таблицу со скидочными товарами
-            for (int i = 0; i < 3; i++)
-            {
-                int num = random.Next(lastId);
-                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
-
-                if (item == null)
-                {
-                    i--;
-                    continue;
-                }
-                
-                products.DiscountedProducts.Add(item);
-            }
-
             // filling New Goods
-            // TODO: добавить в модель поле "дата добавления" чтобы потом выбирать товары, добавленые не позже недели назад
-            for (int i = 0; i < 3; i++)
-            {
-                int num = random.Next(lastId);
-                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
-
-                if (item == null)
-                {
-                    i--;
-                    continue;
-                }
-                
-                products.NewProducts.Add(item);
-            }
+            var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
             
+            products.NewProducts.AddRange(newProducts);
+
             return View(products);
         }
         

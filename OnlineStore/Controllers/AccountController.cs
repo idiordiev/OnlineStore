@@ -26,13 +26,13 @@ namespace OnlineStore.Controllers
         /// A GET request for "/account".
         /// </summary>
         /// <returns>Returns a view with form (inputs might be filled).</returns>
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string id = _userManager.GetUserId(HttpContext.User);
 
-                User user = _userManager.FindByIdAsync(id).Result;
+                User user = await _userManager.FindByIdAsync(id);
 
                 UserPageViewModel model = new UserPageViewModel()
                 {
@@ -94,13 +94,13 @@ namespace OnlineStore.Controllers
         /// </summary>
         /// <returns>Returns a view with form for changing password.</returns>
         [HttpGet]
-        public IActionResult ChangePassword()
+        public async Task<IActionResult> ChangePassword()
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string id = _userManager.GetUserId(HttpContext.User);
 
-                User user = _userManager.FindByIdAsync(id).Result;
+                User user = await _userManager.FindByIdAsync(id);
 
                 ChangePasswordViewModel model = new ChangePasswordViewModel()
                 {

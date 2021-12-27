@@ -25,140 +25,67 @@ namespace OnlineStore.Localization
         /// <returns>Returns list of localized goods.</returns>
         public IEnumerable<LocalizedProduct> GetAll()
         {
-            List<LocalizedProduct> goodsList = new List<LocalizedProduct>();
+            List<LocalizedProduct> localizedProducts = new List<LocalizedProduct>();
 
             // for every item in db - choosing 1 of 3 languages
-            foreach (var goods in _db.Products)
+            foreach (var product in _db.Products)
             {
                 string culture = CultureInfo.CurrentCulture.ToString();
                 
                 switch (culture)
                 {
                     case "ua-UA":
-                        goodsList.Add(new LocalizedProduct()
+                        localizedProducts.Add(new LocalizedProduct()
                         {
-                            Id = goods.Id,
-                            Price = goods.Price,
-                            Name = goods.NameUA,
-                            DescriptionFull = goods.DescriptionFullUA,
-                            DescriptionShort = goods.DescriptionShortUA,
-                            ImageLink = goods.ImageLink
+                            Id = product.Id,
+                            Price = product.Price,
+                            Name = product.NameUA,
+                            DescriptionFull = product.DescriptionFullUA,
+                            DescriptionShort = product.DescriptionShortUA,
+                            ImageLink = product.ImageLink,
+                            DateAdded = product.DateAdded
                         });
                         break;
                     case "ru-RU":
-                        goodsList.Add(new LocalizedProduct()
+                        localizedProducts.Add(new LocalizedProduct()
                         {
-                            Id = goods.Id,
-                            Price = goods.Price,
-                            Name = goods.NameRU,
-                            DescriptionFull = goods.DescriptionFullRU,
-                            DescriptionShort = goods.DescriptionShortRU,
-                            ImageLink = goods.ImageLink
+                            Id = product.Id,
+                            Price = product.Price,
+                            Name = product.NameRU,
+                            DescriptionFull = product.DescriptionFullRU,
+                            DescriptionShort = product.DescriptionShortRU,
+                            ImageLink = product.ImageLink,
+                            DateAdded = product.DateAdded
                         });
                         break;
                     case "en-US":
-                        goodsList.Add(new LocalizedProduct()
+                        localizedProducts.Add(new LocalizedProduct()
                         {
-                            Id = goods.Id,
-                            Price = goods.Price,
-                            Name = goods.NameEN,
-                            DescriptionFull = goods.DescriptionFullEN,
-                            DescriptionShort = goods.DescriptionShortEN,
-                            ImageLink = goods.ImageLink
+                            Id = product.Id,
+                            Price = product.Price,
+                            Name = product.NameEN,
+                            DescriptionFull = product.DescriptionFullEN,
+                            DescriptionShort = product.DescriptionShortEN,
+                            ImageLink = product.ImageLink,
+                            DateAdded = product.DateAdded
                         });
                         break;
                     default:
-                        goodsList.Add(new LocalizedProduct()
+                        localizedProducts.Add(new LocalizedProduct()
                         {
-                            Id = goods.Id,
-                            Price = goods.Price,
-                            Name = goods.NameEN,
-                            DescriptionFull = goods.DescriptionFullEN,
-                            DescriptionShort = goods.DescriptionShortEN,
-                            ImageLink = goods.ImageLink
+                            Id = product.Id,
+                            Price = product.Price,
+                            Name = product.NameEN,
+                            DescriptionFull = product.DescriptionFullEN,
+                            DescriptionShort = product.DescriptionShortEN,
+                            ImageLink = product.ImageLink,
+                            DateAdded = product.DateAdded
                         });
                         break;
                 }
             }
 
-            return goodsList;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request">String with user`s request</param>
-        /// <returns></returns>
-        public IEnumerable<LocalizedProduct> Find(string request)
-        {
-            List<LocalizedProduct> goodsList = new List<LocalizedProduct>();
-
-            // for every item - if one of fiels contains request - choose 1 of 3 languages and add to list
-            foreach (var goods in _db.Products)
-            {
-                if (goods.NameUA.Contains(request) ||
-                    goods.NameRU.Contains(request) ||
-                    goods.NameEN.Contains(request) ||
-                    goods.DescriptionShortUA.Contains(request) ||
-                    goods.DescriptionShortRU.Contains(request) ||
-                    goods.DescriptionShortEN.Contains(request) ||
-                    goods.DescriptionFullUA.Contains(request) ||
-                    goods.DescriptionFullRU.Contains(request) ||
-                    goods.DescriptionFullEN.Contains(request))
-                {
-                    string culture = CultureInfo.CurrentCulture.ToString();
-                    
-                    switch (culture)
-                    {
-                        case "ua-UA":
-                            goodsList.Add(new LocalizedProduct()
-                            {
-                                Id = goods.Id,
-                                Price = goods.Price,
-                                Name = goods.NameUA,
-                                DescriptionFull = goods.DescriptionFullUA,
-                                DescriptionShort = goods.DescriptionShortUA,
-                                ImageLink = goods.ImageLink
-                            });
-                            break;
-                        case "ru-RU":
-                            goodsList.Add(new LocalizedProduct()
-                            {
-                                Id = goods.Id,
-                                Price = goods.Price,
-                                Name = goods.NameRU,
-                                DescriptionFull = goods.DescriptionFullRU,
-                                DescriptionShort = goods.DescriptionShortRU,
-                                ImageLink = goods.ImageLink
-                            });
-                            break;
-                        case "en-US":
-                            goodsList.Add(new LocalizedProduct()
-                            {
-                                Id = goods.Id,
-                                Price = goods.Price,
-                                Name = goods.NameEN,
-                                DescriptionFull = goods.DescriptionFullEN,
-                                DescriptionShort = goods.DescriptionShortEN,
-                                ImageLink = goods.ImageLink
-                            });
-                            break;
-                        default:
-                            goodsList.Add(new LocalizedProduct()
-                            {
-                                Id = goods.Id,
-                                Price = goods.Price,
-                                Name = goods.NameEN,
-                                DescriptionFull = goods.DescriptionFullEN,
-                                DescriptionShort = goods.DescriptionShortEN,
-                                ImageLink = goods.ImageLink
-                            });
-                            break;
-                    }
-                }
-            }
-
-            return goodsList;
+            return localizedProducts;
         }
     }
 }

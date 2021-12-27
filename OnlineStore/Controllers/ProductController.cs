@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using OnlineStore.Localization;
 using OnlineStore.Models;
 using OnlineStore.Models.ViewModels;
@@ -21,23 +22,20 @@ namespace OnlineStore.Controllers
         private readonly ApplicationDbContext _db;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
-
-        private readonly ProductLocalizer _productLocalizer;
-
+        
         public ProductController(ApplicationDbContext db, IWebHostEnvironment environment)
         {
             _db = db;
             _webHostEnvironment = environment;
-            _productLocalizer = new ProductLocalizer(db);
         }
 
         /// <summary>
         /// A GET request for "/product/"
         /// </summary>
         /// <returns>Returns view with list of products. </returns>
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var products = _db.Products.ToList();
+            var products = await _db.Products.ToListAsync();
 
             return View(products);
         }
@@ -139,7 +137,7 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var product = _db.Products.FindAsync(model.Id).Result;
+                var product = await _db.Products.FindAsync(model.Id);
 
                 if (product != null)
                 {

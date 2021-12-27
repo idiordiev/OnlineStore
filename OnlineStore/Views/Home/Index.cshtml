@@ -29,24 +29,6 @@
             }
         </div>
 
-        @* Discounted products *@
-
-        <h3>@Localizer["DiscountedGoods"]</h3>
-        
-        @if (Model.DiscountedProducts.Count > 0)
-        {
-            <div class="goods-row">
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[0])
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[1])
-                @await Html.PartialAsync("_GoodsPost", Model.DiscountedProducts[2])
-            </div>
-        }
-        else
-        {
-            <p>@Localizer["NoGoods"]</p>
-        }
-       
-        
         @* New products *@
         
         <h3>@Localizer["NewGoods"]</h3>

@@ -11,11 +11,6 @@ namespace OnlineStore.Models.ViewModels
         /// List of related products (first row)
         /// </summary>
         public List<LocalizedProduct> RelatedProducts { get; set; } = new List<LocalizedProduct>();
-        
-        /// <summary>
-        /// List of discounted products (second row)
-        /// </summary>
-        public List<LocalizedProduct> DiscountedProducts { get; set; } = new List<LocalizedProduct>();
 
         /// <summary>
         /// List of new products (third row)

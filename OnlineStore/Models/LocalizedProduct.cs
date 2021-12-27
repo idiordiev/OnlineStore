@@ -1,3 +1,5 @@
+using System;
+
 namespace OnlineStore.Models
 {
     /// <summary>
@@ -16,5 +18,7 @@ namespace OnlineStore.Models
         public string DescriptionFull { get; set; }
         
         public string ImageLink { get; set; }
+        
+        public DateTime DateAdded { get; set; }
     }
 }

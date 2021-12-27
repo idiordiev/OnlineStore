@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineStore.Models;
 using OnlineStore.Models.ViewModels;
 
@@ -26,9 +27,9 @@ namespace OnlineStore.Controllers
         /// A GET request for "/users/" or "/users/index".
         /// </summary>
         /// <returns>Returns view with a list of all users</returns>
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_userManager.Users.ToList());
+            return View(await _userManager.Users.ToListAsync());
         }
         
         
