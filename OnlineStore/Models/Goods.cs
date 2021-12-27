@@ -60,11 +60,8 @@ namespace OnlineStore.Models
         
         [DisplayName("DateAdded")]
         public DateTime DateAdded { get; set; }
-        
-        [DisplayName("Discounted")]
-        public DiscountedGoods Discounted { get; set; }
-        
-        [DisplayName("ReceiptsList")]
-        public List<Receipt> ReceiptsList { get; set; }
+
+        [DisplayName("Receipts")]
+        public List<Receipt> Receipts { get; set; }
     }
 }

@@ -53,10 +53,7 @@ namespace OnlineStore
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
-
-            // for authorization and authentication
-            services.AddDbContext<UserApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddIdentity<User, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = true;
@@ -67,7 +64,7 @@ namespace OnlineStore
 
                     options.User.RequireUniqueEmail = true;
                 })
-                .AddEntityFrameworkStores<UserApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
