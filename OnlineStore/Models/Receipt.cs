@@ -24,10 +24,7 @@ namespace OnlineStore.Models
         
         [DisplayName("GoodsList")]
         public List<Goods> GoodsList { get; set; }
-        
-        [DisplayName("Summa")]
-        public decimal Summa { get; set; }
-        
+
         [DisplayName("DateTime")]
         public DateTime Date { get; set; }
     }
