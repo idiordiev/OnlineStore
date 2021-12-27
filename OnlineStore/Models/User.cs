@@ -17,5 +17,9 @@ namespace OnlineStore.Models
         public string City { get; set; }
         
         public List<Receipt> Receipts { get; set; }
+        
+        public Wishlist Wishlist { get; set; }
+        
+        public ShoppingCart ShoppingCart { get; set; }
     }
 }

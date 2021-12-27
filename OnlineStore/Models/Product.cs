@@ -63,5 +63,11 @@ namespace OnlineStore.Models
 
         [DisplayName("Receipts")]
         public List<Receipt> Receipts { get; set; }
+        
+        [DisplayName("Wishlists")]
+        public List<Wishlist> Wishlists { get; set; }
+        
+        [DisplayName("ShoppingCarts")]
+        public List<ShoppingCart> ShoppingCarts { get; set; }
     }
 }
