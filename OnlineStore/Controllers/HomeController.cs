@@ -37,31 +37,34 @@ namespace OnlineStore.Controllers
         public async Task<IActionResult> Index()
         {
             MainPageViewModel products = new MainPageViewModel();
-
-            var allProducts = _productLocalizer.GetAll();
-
-            int lastId = allProducts.LastOrDefault().Id;
-            lastId++;
-
-            // filling Related Products
-            for (int i = 0; i < 3; i++)
-            {
-                int num = random.Next(lastId);
-                LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
-
-                if (item == null)
-                {
-                    i--;
-                    continue;
-                }
-                
-                products.RelatedProducts.Add(item);
-            }
-
-            // filling New Goods
-            var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
             
-            products.NewProducts.AddRange(newProducts);
+            List<LocalizedProduct> allProducts = _productLocalizer.GetAll();
+
+            products.RelatedProducts.Add(allProducts[0]);
+            products.RelatedProducts.Add(allProducts[0]);
+            products.RelatedProducts.Add(allProducts[0]);
+            // int lastId = allProducts.LastOrDefault().Id;
+            // lastId++;
+            //
+            // // filling Related Products
+            // for (int i = 0; i < 3; i++)
+            // {
+            //     int num = random.Next(lastId);
+            //     LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
+            //
+            //     if (item == null)
+            //     {
+            //         i--;
+            //         continue;
+            //     }
+            //     
+            //     products.RelatedProducts.Add(item);
+            // }
+            //
+            // // filling New Goods
+            // var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
+            //
+            // products.NewProducts.AddRange(newProducts);
 
             return View(products);
         }

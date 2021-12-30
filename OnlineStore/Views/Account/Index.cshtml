@@ -18,7 +18,16 @@ else
     <h2>@Localizer["MyAccount"]</h2>
 
     <a class="btn btn-primary" asp-action="ChangePassword" asp-controller="Account">@Localizer["ChangePassword"]</a>
+    @if (User.IsInRole("admin"))
+    {
+        
+        <a class="btn btn-primary" asp-controller="Product" asp-action="Index">Products</a>
+        <a class="btn btn-primary" asp-controller="Users" asp-action="Index">Users</a>
+        <a class="btn btn-primary" asp-controller="Roles" asp-action="Index">Roles</a>
+    }
     
+        
+
     <form method="post" asp-action="Edit" asp-controller="Account">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
@@ -63,5 +72,6 @@ else
             <input type="submit" class="btn btn-danger" value="@Localizer["ChangeDetails"]"/>
         </div>
     </form>
+    
 }
 

@@ -23,7 +23,7 @@ namespace OnlineStore.Localization
         /// 
         /// </summary>
         /// <returns>Returns list of localized goods.</returns>
-        public IEnumerable<LocalizedProduct> GetAll()
+        public List<LocalizedProduct> GetAll()
         {
             List<LocalizedProduct> localizedProducts = new List<LocalizedProduct>();
 

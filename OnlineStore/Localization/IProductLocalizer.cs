@@ -10,6 +10,6 @@ namespace OnlineStore.Localization
     /// </summary>
     public interface IProductLocalizer
     {
-        IEnumerable<LocalizedProduct> GetAll();
+        List<LocalizedProduct> GetAll();
     }
 }
