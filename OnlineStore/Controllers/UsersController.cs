@@ -63,6 +63,12 @@ namespace OnlineStore.Controllers
                     Address = model.Address
                 };
                 
+                Wishlist wishlist = new Wishlist();
+                ShoppingCart shoppingCart = new ShoppingCart();
+
+                user.Wishlist = wishlist;
+                user.ShoppingCart = shoppingCart;
+                
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

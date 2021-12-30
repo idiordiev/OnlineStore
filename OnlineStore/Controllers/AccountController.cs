@@ -16,10 +16,13 @@ namespace OnlineStore.Controllers
 
         private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly ApplicationDbContext _db;
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _db = db;
         }
 
         /// <summary>
@@ -171,6 +174,13 @@ namespace OnlineStore.Controllers
             if (ModelState.IsValid)
             {
                 User user = new User() { Email = model.Email, UserName = model.Username};
+
+                Wishlist wishlist = new Wishlist();
+                ShoppingCart shoppingCart = new ShoppingCart();
+
+                user.Wishlist = wishlist;
+                user.ShoppingCart = shoppingCart;
+                
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -242,5 +252,104 @@ namespace OnlineStore.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddToCart(int id)
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = await _userManager.FindByIdAsync(userId);
+
+                ShoppingCart cart = user.ShoppingCart;
+
+                Product product = await _db.Products.FindAsync(id);
+                
+                cart.Products.Add(product);
+
+                _db.ShoppingCarts.Update(cart);
+                await _db.SaveChangesAsync();
+
+                return Json(new { isSuccess = true });
+            }
+
+            return Json(new { isSuccess = false });
+        }
+        
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveFromCart(int id)
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = await _userManager.FindByIdAsync(userId);
+
+                ShoppingCart cart = user.ShoppingCart;
+
+                Product product = await _db.Products.FindAsync(id);
+                
+                cart.Products.Remove(product);
+
+                _db.ShoppingCarts.Update(cart);
+                await _db.SaveChangesAsync();
+
+                return Json(new { isSuccess = true });
+            }
+
+            return Json(new { isSuccess = false });
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddToWishlist(int id)
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = await _userManager.FindByIdAsync(userId);
+
+                Wishlist wishlist = user.Wishlist;
+
+                Product product = await _db.Products.FindAsync(id);
+                
+                wishlist.Products.Add(product);
+
+                _db.Wishlists.Update(wishlist);
+                await _db.SaveChangesAsync();
+
+                return Json(new { isSuccess = true });
+            }
+
+            return Json(new { isSuccess = false });
+        }
+        
+        
+        public async Task<IActionResult> RemoveFromWishlist(int id)
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = await _userManager.FindByIdAsync(userId);
+
+                Wishlist wishlist = user.Wishlist;
+
+                Product product = await _db.Products.FindAsync(id);
+                
+                wishlist.Products.Remove(product);
+
+                _db.Wishlists.Update(wishlist);
+                await _db.SaveChangesAsync();
+
+                return Json(new { isSuccess = true });
+            }
+
+            return Json(new { isSuccess = false });
+        }
     }
 }
