@@ -1,0 +1,41 @@
+@model OnlineStore.Models.ViewModels.ShoppingCartViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    Layout = null;
+}
+
+<h2>@Localizer["Cart"]</h2>
+
+@if (Model.Products.Count() == 0)
+{
+    <p>@Localizer["NoGoods"]</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>@Localizer["Image"]</th>
+            <th>@Localizer["Name"]</th>
+            <th>@Localizer["Price"]</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td><img src="@product.ImageLink"/></td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+

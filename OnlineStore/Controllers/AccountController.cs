@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineStore.Localization;
 using OnlineStore.Models;
 using OnlineStore.Models.ViewModels;
 
@@ -18,11 +21,14 @@ namespace OnlineStore.Controllers
 
         private readonly ApplicationDbContext _db;
 
+        private readonly ProductLocalizer _productLocalizer;
+
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = db;
+            _productLocalizer = new ProductLocalizer();
         }
 
         /// <summary>
@@ -244,6 +250,10 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -252,104 +262,135 @@ namespace OnlineStore.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        #region Shopping Cart
+
+        public async Task<IActionResult> ShoppingCart()
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
+
+                ShoppingCartViewModel model = new ShoppingCartViewModel()
+                {
+                    Products = _productLocalizer.Localize(user.ShoppingCart.Products.ToList(), user)
+                };
+
+                return View(model);
+            }
+            
+            return View();
+        }
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddToCart(int id)
+        public async Task<IActionResult> AddToCart(int id, string returnUrl)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string userId = _userManager.GetUserId(HttpContext.User);
 
-                User user = await _userManager.FindByIdAsync(userId);
-
-                ShoppingCart cart = user.ShoppingCart;
+                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
 
                 Product product = await _db.Products.FindAsync(id);
                 
-                cart.Products.Add(product);
+                user.ShoppingCart.Products.Add(product);
 
-                _db.ShoppingCarts.Update(cart);
+                await _userManager.UpdateAsync(user);
                 await _db.SaveChangesAsync();
-
-                return Json(new { isSuccess = true });
             }
 
-            return Json(new { isSuccess = false });
+            return Redirect(returnUrl);
         }
         
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RemoveFromCart(int id)
+        public async Task<IActionResult> RemoveFromCart(int id, string returnUrl)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string userId = _userManager.GetUserId(HttpContext.User);
 
-                User user = await _userManager.FindByIdAsync(userId);
-
-                ShoppingCart cart = user.ShoppingCart;
+                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
 
                 Product product = await _db.Products.FindAsync(id);
                 
-                cart.Products.Remove(product);
+                user.ShoppingCart.Products.Remove(product);
 
-                _db.ShoppingCarts.Update(cart);
+                await _userManager.UpdateAsync(user);
                 await _db.SaveChangesAsync();
-
-                return Json(new { isSuccess = true });
             }
 
-            return Json(new { isSuccess = false });
+            return Redirect(returnUrl);
         }
-        
+
+        #endregion
+
+
+        #region Wishlist
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddToWishlist(int id)
+        public async Task<IActionResult> AddToWishlist(int id, string returnUrl)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string userId = _userManager.GetUserId(HttpContext.User);
 
-                User user = await _userManager.FindByIdAsync(userId);
-
-                Wishlist wishlist = user.Wishlist;
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products).FirstOrDefault(u => u.Id == userId);
 
                 Product product = await _db.Products.FindAsync(id);
                 
-                wishlist.Products.Add(product);
+                user.Wishlist.Products.Add(product);
 
-                _db.Wishlists.Update(wishlist);
+                await _userManager.UpdateAsync(user);
                 await _db.SaveChangesAsync();
-
-                return Json(new { isSuccess = true });
             }
 
-            return Json(new { isSuccess = false });
+            return Redirect(returnUrl);
         }
         
-        
-        public async Task<IActionResult> RemoveFromWishlist(int id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> RemoveFromWishlist(int id, string returnUrl)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 string userId = _userManager.GetUserId(HttpContext.User);
 
-                User user = await _userManager.FindByIdAsync(userId);
-
-                Wishlist wishlist = user.Wishlist;
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products).FirstOrDefault(u => u.Id == userId);
 
                 Product product = await _db.Products.FindAsync(id);
                 
-                wishlist.Products.Remove(product);
+                user.Wishlist.Products.Remove(product);
 
-                _db.Wishlists.Update(wishlist);
+                await _userManager.UpdateAsync(user);
                 await _db.SaveChangesAsync();
-
-                return Json(new { isSuccess = true });
             }
 
-            return Json(new { isSuccess = false });
+            return Redirect(returnUrl);
         }
+
+        #endregion
     }
 }

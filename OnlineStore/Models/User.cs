@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace OnlineStore.Models
@@ -18,8 +19,14 @@ namespace OnlineStore.Models
         
         public List<Receipt> Receipts { get; set; }
         
+        public int WishlistId { get; set; }
+        
+        [ForeignKey("WishlistId")]
         public Wishlist Wishlist { get; set; }
         
+        public int ShoppingCartId { get; set; }
+        
+        [ForeignKey("ShoppingCartId")]
         public ShoppingCart ShoppingCart { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,7 +47,16 @@ namespace OnlineStore.Controllers
         /// <returns>Returns view with form.</returns>
         public IActionResult Create()
         {
-            return View();
+            ProductViewModel model = new ProductViewModel()
+            {
+                Categories = _db.Categories.Select(i => new SelectListItem()
+                {
+                    Value = i.Id.ToString(),
+                    Text = i.Name
+                })
+            };
+
+            return View(model);
         }
         
         /// <summary>
@@ -55,7 +65,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A viewmodel with product's data.</param>
         /// <returns>If model is valid, redirects to "/product/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Create(ProductAddViewModel model)
+        public async Task<IActionResult> Create(ProductViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -107,23 +117,28 @@ namespace OnlineStore.Controllers
         {
             var product = await _db.Products.FindAsync(id);
 
-            ProductEditViewModel model = new ProductEditViewModel()
+            ProductViewModel model = new ProductViewModel()
             {
                 Id = product.Id,
                 NameUA = product.NameUA,
                 NameRU = product.NameRU,
                 NameEN = product.NameEN,
                 Price = product.Price,
-                CategoryId = product.CategoryId,
                 DescriptionShortUA = product.DescriptionShortUA,
                 DescriptionShortRU = product.DescriptionShortRU,
                 DescriptionShortEN = product.DescriptionShortEN,
                 DescriptionFullUA = product.DescriptionFullUA,
                 DescriptionFullRU = product.DescriptionFullRU,
                 DescriptionFullEN = product.DescriptionFullEN,
-                ImageLink = product.ImageLink
+                ImageLink = product.ImageLink,
+                Categories = _db.Categories.Select(i => new SelectListItem()
+                {
+                    Value = i.Id.ToString(),
+                    Text = i.Name
+                })
             };
-            
+
+            model.Categories.FirstOrDefault(c => c.Value == product.CategoryId.ToString()).Selected = true;
             return View(model);
         }
 
@@ -133,7 +148,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A product's viewmodel with data.</param>
         /// <returns>If model is valid, redirects to "/product/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Edit(ProductEditViewModel model)
+        public async Task<IActionResult> Edit(ProductViewModel model)
         {
             if (ModelState.IsValid)
             {

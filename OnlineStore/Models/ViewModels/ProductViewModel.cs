@@ -1,13 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OnlineStore.Models.ViewModels
 {
-    public class ProductEditViewModel
+    public class ProductViewModel
     {
-        [DisplayName("Id")]
         public int Id { get; set; }
         
         [Required(ErrorMessage = "PriceRequired")] 
@@ -43,9 +44,11 @@ namespace OnlineStore.Models.ViewModels
         
         [DisplayName("DescriptionFullEN")]
         public string DescriptionFullEN { get; set; }
-
-        [DisplayName("CategoryId")]
+        
         public int CategoryId { get; set; }
+
+        [DisplayName("Categories")]
+        public IEnumerable<SelectListItem> Categories { get; set; }
 
         [DisplayName("Image")]
         public IFormFile Image { get; set; }

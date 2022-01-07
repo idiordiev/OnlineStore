@@ -2,10 +2,17 @@
 
 namespace OnlineStore.Migrations
 {
-    public partial class wishlistAndCart : Migration
+    public partial class addedWishlistAndCart : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "Views",
+                table: "Products",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.CreateTable(
                 name: "ShoppingCarts",
                 columns: table => new
@@ -130,6 +137,10 @@ namespace OnlineStore.Migrations
 
             migrationBuilder.DropTable(
                 name: "Wishlists");
+
+            migrationBuilder.DropColumn(
+                name: "Views",
+                table: "Products");
         }
     }
 }

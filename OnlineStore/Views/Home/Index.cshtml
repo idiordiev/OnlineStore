@@ -19,9 +19,10 @@
         <div class="goods-row">
             @if (Model.RelatedProducts.Count > 0)
             {
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[0])
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[1])
-                @await Html.PartialAsync("_GoodsPost", Model.RelatedProducts[2])
+                foreach (var product in Model.RelatedProducts)
+                {
+                    @await Html.PartialAsync("_GoodsPost", product)
+                }
             }
             else
             {
@@ -36,9 +37,10 @@
         @if (Model.NewProducts.Count > 0)
         {
             <div class="goods-row">
-                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[0])
-                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[1])
-                @await Html.PartialAsync("_GoodsPost", Model.NewProducts[2])
+                @foreach (var product in Model.RelatedProducts)
+                {
+                    @await Html.PartialAsync("_GoodsPost", product)
+                }
             </div>
         }
         else

@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Localization;
 using OnlineStore.Models;
@@ -21,13 +23,19 @@ namespace OnlineStore.Controllers
         private readonly ApplicationDbContext _db;
 
         private readonly ProductLocalizer _productLocalizer;
-        
+
+        private readonly SignInManager<User> _signInManager;
+
+        private readonly UserManager<User> _userManager;
+
         private Random random = new Random();
 
-        public HomeController(ApplicationDbContext db)
+        public HomeController(ApplicationDbContext db, SignInManager<User> signInManager, UserManager<User> userManager)
         {
             _db = db;
-            _productLocalizer = new ProductLocalizer(db);
+            _productLocalizer = new ProductLocalizer();
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -36,39 +44,67 @@ namespace OnlineStore.Controllers
         /// <returns>Returns view with related, new and discounted products.</returns>
         public async Task<IActionResult> Index()
         {
-            MainPageViewModel products = new MainPageViewModel();
+            MainPageViewModel model = new MainPageViewModel();
             
-            List<LocalizedProduct> allProducts = _productLocalizer.GetAll();
+            List<LocalizedProduct> allProducts = new List<LocalizedProduct>();
+            
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
 
-            products.RelatedProducts.Add(allProducts[0]);
-            products.RelatedProducts.Add(allProducts[0]);
-            products.RelatedProducts.Add(allProducts[0]);
-            // int lastId = allProducts.LastOrDefault().Id;
-            // lastId++;
-            //
-            // // filling Related Products
-            // for (int i = 0; i < 3; i++)
-            // {
-            //     int num = random.Next(lastId);
-            //     LocalizedProduct item = (from goods in allProducts where goods.Id == num select goods).FirstOrDefault();
-            //
-            //     if (item == null)
-            //     {
-            //         i--;
-            //         continue;
-            //     }
-            //     
-            //     products.RelatedProducts.Add(item);
-            // }
-            //
-            // // filling New Goods
-            // var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
-            //
-            // products.NewProducts.AddRange(newProducts);
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
 
-            return View(products);
+                allProducts.AddRange(_productLocalizer.Localize(_db.Products, user));
+            }
+            else
+            {
+                allProducts.AddRange(_productLocalizer.Localize(_db.Products));
+            }
+            
+            var relatedProducts = allProducts.OrderByDescending(p => p.Views).Take(3);
+            model.RelatedProducts.AddRange(relatedProducts);
+            
+            // filling New Goods
+            var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
+            model.NewProducts.AddRange(newProducts);
+
+            return View(model);
         }
-        
+
+        public async Task<IActionResult> Product(int id)
+        {
+            Product product = await _db.Products.FindAsync(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            
+            product.Views++;
+            await _db.SaveChangesAsync();
+
+            LocalizedProduct localizedProduct;
+            
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
+
+                localizedProduct = _productLocalizer.Localize(product, user);
+            }
+            else
+            {
+                localizedProduct = _productLocalizer.Localize(product);
+            }
+
+            return View(localizedProduct);
+        }
+
         [HttpPost]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {

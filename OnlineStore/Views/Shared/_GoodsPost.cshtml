@@ -4,18 +4,34 @@
 
 <div class="goods-post">
     <img class="post-img" src="@Model.ImageLink" alt=""/>
-    <h4 class="post-title">@Model.Name</h4>
+    <a href="@Url.Action("Product", "Home", new {id = Model.Id}, Context.Request.Scheme)" class="post-title">@Model.Name</a>
     <p class="post-description">@Model.DescriptionShort</p>
     <p class="post-price">@Model.Price</p>
     <div class="row" style="gap: 10px">
-        <button class="post-btn-wishlist">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#6c757d" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#6c757d" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
-            </button>
-        <button class="post-btn-cart">
-            <p>@Localizer["AddToCart"]</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#6c757d" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M184,184H69.8L41.9,30.6A8,8,0,0,0,34.1,24H16" fill="none" stroke="#6c757d" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><circle cx="80" cy="204" r="20" fill="none" stroke="#6c757d" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><circle cx="184" cy="204" r="20" fill="none" stroke="#6c757d" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><path d="M62.5,144H188.1a15.9,15.9,0,0,0,15.7-13.1L216,64H48" fill="none" stroke="#6c757d" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
-        </button>
-        
+        @if (Model.IsInWishlist)
+        {
+            <form method="post" asp-action="RemoveFromWishlist" asp-controller="Account" asp-route-id="@Model.Id" asp-route-returnUrl="@Url.Action("Index", "Home", null, Context.Request.Scheme)">
+                <input class="post-btn-wishlist" type="submit" value="RemoveWish"/>
+            </form>
+        }
+         else
+        {
+            <form method="post" asp-action="AddToWishlist" asp-controller="Account" asp-route-id="@Model.Id" asp-route-returnUrl="@Url.Action("Index", "Home", null, Context.Request.Scheme)">
+                <input class="post-btn-wishlist" type="submit" value="AddWish"/>
+            </form>
+        }
+        @if (Model.IsInCart)
+        {
+            <form method="post" asp-action="RemoveFromCart" asp-controller="Account" asp-route-id="@Model.Id" asp-route-returnUrl="@Url.Action("Index", "Home", null, Context.Request.Scheme)">
+                <input class="post-btn-cart" type="submit" value="@Localizer["RemoveFromCart"]"/>
+            </form>
+        }
+        else
+        {
+            <form method="post" asp-action="AddToCart" asp-controller="Account" asp-route-id="@Model.Id" asp-route-returnUrl="@Url.Action("Index", "Home", null, Context.Request.Scheme)">
+                <input class="post-btn-cart" type="submit" value="@Localizer["AddtoCart"]"/>
+            </form>
+        }
     </div>
 
 </div>

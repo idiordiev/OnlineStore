@@ -69,5 +69,7 @@ namespace OnlineStore.Models
         
         [DisplayName("ShoppingCarts")]
         public List<ShoppingCart> ShoppingCarts { get; set; }
+        
+        public int Views { get; set; }
     }
 }

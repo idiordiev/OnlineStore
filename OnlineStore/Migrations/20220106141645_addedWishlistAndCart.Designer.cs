@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineStore.Models;
 
 namespace OnlineStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220106141645_addedWishlistAndCart")]
+    partial class addedWishlistAndCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,7 +253,14 @@ namespace OnlineStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -313,18 +322,12 @@ namespace OnlineStore.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShoppingCartId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<int>("WishlistId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -336,12 +339,6 @@ namespace OnlineStore.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("ShoppingCartId")
-                        .IsUnique();
-
-                    b.HasIndex("WishlistId")
-                        .IsUnique();
-
                     b.ToTable("AspNetUsers");
                 });
 
@@ -352,7 +349,14 @@ namespace OnlineStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Wishlists");
                 });
@@ -473,23 +477,22 @@ namespace OnlineStore.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OnlineStore.Models.User", b =>
+            modelBuilder.Entity("OnlineStore.Models.ShoppingCart", b =>
                 {
-                    b.HasOne("OnlineStore.Models.ShoppingCart", "ShoppingCart")
-                        .WithOne("User")
-                        .HasForeignKey("OnlineStore.Models.User", "ShoppingCartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("OnlineStore.Models.User", "User")
+                        .WithOne("ShoppingCart")
+                        .HasForeignKey("OnlineStore.Models.ShoppingCart", "UserId");
 
-                    b.HasOne("OnlineStore.Models.Wishlist", "Wishlist")
-                        .WithOne("User")
-                        .HasForeignKey("OnlineStore.Models.User", "WishlistId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("User");
+                });
 
-                    b.Navigation("ShoppingCart");
+            modelBuilder.Entity("OnlineStore.Models.Wishlist", b =>
+                {
+                    b.HasOne("OnlineStore.Models.User", "User")
+                        .WithOne("Wishlist")
+                        .HasForeignKey("OnlineStore.Models.Wishlist", "UserId");
 
-                    b.Navigation("Wishlist");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ProductReceipt", b =>
@@ -542,19 +545,13 @@ namespace OnlineStore.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("OnlineStore.Models.ShoppingCart", b =>
-                {
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("OnlineStore.Models.User", b =>
                 {
                     b.Navigation("Receipts");
-                });
 
-            modelBuilder.Entity("OnlineStore.Models.Wishlist", b =>
-                {
-                    b.Navigation("User");
+                    b.Navigation("ShoppingCart");
+
+                    b.Navigation("Wishlist");
                 });
 #pragma warning restore 612, 618
         }

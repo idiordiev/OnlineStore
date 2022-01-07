@@ -6,86 +6,124 @@ using OnlineStore.Models;
 namespace OnlineStore.Localization
 {
     /// <summary>
-    /// Localizes a "Goods" model.
-    /// TODO: total rework using PATTERNS
+    /// Localizes a "Product" model.
     /// </summary>
-    public class ProductLocalizer: IProductLocalizer
+    public class ProductLocalizer
     {
-        // db instance
-        private readonly ApplicationDbContext _db;
 
-        public ProductLocalizer(ApplicationDbContext db)
-        {
-            _db = db;
-        }
-        
+        public ProductLocalizer() { }
+
         /// <summary>
         /// 
         /// </summary>
-        /// <returns>Returns list of localized goods.</returns>
-        public List<LocalizedProduct> GetAll()
+        /// <param name="product"></param>
+        /// <returns></returns>
+        public LocalizedProduct Localize(Product product)
         {
-            List<LocalizedProduct> localizedProducts = new List<LocalizedProduct>();
-
-            // for every item in db - choosing 1 of 3 languages
-            foreach (var product in _db.Products)
+            LocalizedProduct localizedProduct = new LocalizedProduct()
             {
-                string culture = CultureInfo.CurrentCulture.ToString();
-                
-                switch (culture)
-                {
-                    case "ua-UA":
-                        localizedProducts.Add(new LocalizedProduct()
-                        {
-                            Id = product.Id,
-                            Price = product.Price,
-                            Name = product.NameUA,
-                            DescriptionFull = product.DescriptionFullUA,
-                            DescriptionShort = product.DescriptionShortUA,
-                            ImageLink = product.ImageLink,
-                            DateAdded = product.DateAdded
-                        });
-                        break;
-                    case "ru-RU":
-                        localizedProducts.Add(new LocalizedProduct()
-                        {
-                            Id = product.Id,
-                            Price = product.Price,
-                            Name = product.NameRU,
-                            DescriptionFull = product.DescriptionFullRU,
-                            DescriptionShort = product.DescriptionShortRU,
-                            ImageLink = product.ImageLink,
-                            DateAdded = product.DateAdded
-                        });
-                        break;
-                    case "en-US":
-                        localizedProducts.Add(new LocalizedProduct()
-                        {
-                            Id = product.Id,
-                            Price = product.Price,
-                            Name = product.NameEN,
-                            DescriptionFull = product.DescriptionFullEN,
-                            DescriptionShort = product.DescriptionShortEN,
-                            ImageLink = product.ImageLink,
-                            DateAdded = product.DateAdded
-                        });
-                        break;
-                    default:
-                        localizedProducts.Add(new LocalizedProduct()
-                        {
-                            Id = product.Id,
-                            Price = product.Price,
-                            Name = product.NameEN,
-                            DescriptionFull = product.DescriptionFullEN,
-                            DescriptionShort = product.DescriptionShortEN,
-                            ImageLink = product.ImageLink,
-                            DateAdded = product.DateAdded
-                        });
-                        break;
-                }
+                Id = product.Id,
+                Price = product.Price,
+                ImageLink = product.ImageLink,
+                DateAdded = product.DateAdded,
+                IsInCart = false,
+                IsInWishlist = false,
+                Views = product.Views
+            };
+            
+            string culture = CultureInfo.CurrentCulture.ToString();
+
+            switch (culture)
+            {
+                case "ua-UA":
+                    localizedProduct.Name = product.NameUA;
+                    localizedProduct.DescriptionShort = product.DescriptionShortUA;
+                    localizedProduct.DescriptionFull = product.DescriptionFullUA;
+                    break;
+                case "ru-RU":
+                    localizedProduct.Name = product.NameRU;
+                    localizedProduct.DescriptionShort = product.DescriptionShortRU;
+                    localizedProduct.DescriptionFull = product.DescriptionFullRU;
+                    break;
+                case "en-US":
+                    localizedProduct.Name = product.NameEN;
+                    localizedProduct.DescriptionShort = product.DescriptionShortEN;
+                    localizedProduct.DescriptionFull = product.DescriptionFullEN;
+                    break;
+                default:
+                    localizedProduct.Name = product.NameEN;
+                    localizedProduct.DescriptionShort = product.DescriptionShortEN;
+                    localizedProduct.DescriptionFull = product.DescriptionFullEN;
+                    break;
             }
 
-            return localizedProducts;
+            return localizedProduct;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public LocalizedProduct Localize(Product product, User user)
+        {
+            LocalizedProduct localizedProduct = Localize(product);
+
+            if (user.Wishlist != null &&
+                user.Wishlist.Products != null &&
+                user.Wishlist.Products.Count != 0 &&
+                user.Wishlist.Products.Contains(product))
+            {
+                localizedProduct.IsInWishlist = true;
+            }
+
+            if (user.ShoppingCart != null &&
+                user.ShoppingCart.Products != null &&
+                user.ShoppingCart.Products.Count != 0 &&
+                user.ShoppingCart.Products.Contains(product))
+            {
+                localizedProduct.IsInCart = true;
+            }
+
+            return localizedProduct;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public List<LocalizedProduct> Localize(IEnumerable<Product> products)
+        {
+            List<LocalizedProduct> list = new List<LocalizedProduct>();
+
+            foreach (var product in products)
+            {
+                list.Add(Localize(product));
+            }
+            
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="products"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public List<LocalizedProduct> Localize(IEnumerable<Product> products, User user)
+        {
+            List<LocalizedProduct> list = new List<LocalizedProduct>();
+
+            foreach (var product in products)
+            {
+                list.Add(Localize(product, user));
+            }
+
+            return list;
+        }
+
+
     }
 }

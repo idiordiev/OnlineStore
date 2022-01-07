@@ -25,7 +25,12 @@ namespace OnlineStore
 
             if (await userManager.FindByNameAsync(adminUsername) == null)
             {
-                User admin = new User() { UserName = adminUsername, Email = "admin@domail.com"};
+                User admin = new User() { UserName = adminUsername, 
+                    Email = "admin@domail.com",
+                    Wishlist = new Wishlist(),
+                    ShoppingCart = new ShoppingCart()
+                };
+
                 var result = await userManager.CreateAsync(admin, adminPassword);
                 if (result.Succeeded)
                 {
@@ -37,6 +42,7 @@ namespace OnlineStore
                 User admin = await userManager.FindByNameAsync(adminUsername);
                 await userManager.AddToRoleAsync(admin, "admin");
             }
+            
         }
     }
 }
