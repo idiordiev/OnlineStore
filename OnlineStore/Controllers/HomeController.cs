@@ -95,11 +95,11 @@ namespace OnlineStore.Controllers
                     .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
                     .FirstOrDefault(u => u.Id == userId);
 
-                model.AddRange(_productLocalizer.Localize(_db.Products, user));
+                model.AddRange(_productLocalizer.Localize(products, user));
             }
             else
             {
-                model.AddRange(_productLocalizer.Localize(_db.Products));
+                model.AddRange(_productLocalizer.Localize(products));
             }
             
             return View(model);
