@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
-    /// A model for Account/Register()
+    /// Represents viewmodel for register form.
     /// </summary>
     public class RegisterViewModel
     {

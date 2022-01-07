@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// Represents a viewmodel for change password form.
+    /// </summary>
     public class ChangePasswordViewModel
     {
         public string Id { get; set; }

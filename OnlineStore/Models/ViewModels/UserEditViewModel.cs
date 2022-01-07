@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
-    /// A model for Users/Edit()
+    /// Represents viewmodel for editing user.
     /// </summary>
     public class UserEditViewModel
     {

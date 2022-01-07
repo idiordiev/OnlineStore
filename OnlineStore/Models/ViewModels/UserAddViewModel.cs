@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
-    /// A model for Users/Create()
+    /// Represents viewmodel for adding user (NOT REGISTER).
     /// </summary>
     public class UserAddViewModel
     {

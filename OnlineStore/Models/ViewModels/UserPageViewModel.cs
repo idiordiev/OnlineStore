@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// Represents viewmodel for viewing user information.
+    /// </summary>
     public class UserPageViewModel
     {
         [Required]

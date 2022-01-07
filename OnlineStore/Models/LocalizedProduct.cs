@@ -3,7 +3,7 @@ using System;
 namespace OnlineStore.Models
 {
     /// <summary>
-    /// Represents localized product. Contain data in required language.
+    /// Represents localized product. Contains data in required language.
     /// </summary>
     public class LocalizedProduct
     {

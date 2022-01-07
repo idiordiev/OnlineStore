@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Models
 {
-    // TODO: переделать бд
-    // TODO: поместить оба контекста в один
-    // TODO: комменты в моделях
+    /// <summary>
+    /// EF database context.
+    /// </summary>
     public class ApplicationDbContext: IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)

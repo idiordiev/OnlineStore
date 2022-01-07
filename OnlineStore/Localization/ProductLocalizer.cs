@@ -14,10 +14,10 @@ namespace OnlineStore.Localization
         public ProductLocalizer() { }
 
         /// <summary>
-        /// 
+        /// Localizes and returns a single product without user's preferences, such as wishlist and cart.
         /// </summary>
-        /// <param name="product"></param>
-        /// <returns></returns>
+        /// <param name="product">An instance of "Product" class.</param>
+        /// <returns>Returns a localized product without user's preferences.</returns>
         public LocalizedProduct Localize(Product product)
         {
             LocalizedProduct localizedProduct = new LocalizedProduct()
@@ -61,11 +61,11 @@ namespace OnlineStore.Localization
         }
 
         /// <summary>
-        /// 
+        /// Localizes and returns a single product with user's preferences, such as wishlist and cart.
         /// </summary>
-        /// <param name="product"></param>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        /// <param name="product">An instance of "Product" class.</param>
+        /// <param name="user">An instance of "User" class.</param>
+        /// <returns>Returns a localized product with user's preferences.</returns>
         public LocalizedProduct Localize(Product product, User user)
         {
             LocalizedProduct localizedProduct = Localize(product);
@@ -90,10 +90,10 @@ namespace OnlineStore.Localization
         }
 
         /// <summary>
-        /// 
+        /// Localizes and returns a collection of products without user's preferences, such as wishlist and cart.
         /// </summary>
-        /// <param name="products"></param>
-        /// <returns></returns>
+        /// <param name="products">A collection of "Product" instances.</param>
+        /// <returns>Returns a list of localized products without user's preferences.</returns>
         public List<LocalizedProduct> Localize(IEnumerable<Product> products)
         {
             List<LocalizedProduct> list = new List<LocalizedProduct>();
@@ -107,11 +107,11 @@ namespace OnlineStore.Localization
         }
 
         /// <summary>
-        /// 
+        /// Localizes and returns a collection of products with user's preferences, such as wishlist and cart.
         /// </summary>
-        /// <param name="products"></param>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        /// <param name="products">A collection of "Product" instances.</param>
+        /// <param name="user">An instance of "User" class.</param>
+        /// <returns>Returns a list of localized products with user's preferences.</returns>
         public List<LocalizedProduct> Localize(IEnumerable<Product> products, User user)
         {
             List<LocalizedProduct> list = new List<LocalizedProduct>();

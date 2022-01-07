@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 namespace OnlineStore.Models
 {
     /// <summary>
-    /// Represents user. Based on ASP.NET Core Identity User.
+    /// Represents user.
     /// </summary>
     public class User : IdentityUser
     {

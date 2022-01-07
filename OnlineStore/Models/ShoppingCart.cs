@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents shopping cart.
+    /// </summary>
     public class ShoppingCart
     {
         [Key]

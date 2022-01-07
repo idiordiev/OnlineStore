@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
-    /// Model for Home/Index()
+    /// Represents viewmodel for main page.
     /// </summary>
     public class MainPageViewModel
     {

@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// Represents a viewmodel for changing roles of user.
+    /// </summary>
     public class ChangeRolesViewModel
     {
         public string UserId { get; set; }

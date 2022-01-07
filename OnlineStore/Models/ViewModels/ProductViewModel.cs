@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OnlineStore.Models.ViewModels
 {
+    /// <summary>
+    /// Represents a viewmodel for adding/editing product.
+    /// </summary>
     public class ProductViewModel
     {
         public int Id { get; set; }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OnlineStore.Models
 {
     /// <summary>
-    /// Represents category.
+    /// Represents category of product.
     /// </summary>
     public class Category
     {

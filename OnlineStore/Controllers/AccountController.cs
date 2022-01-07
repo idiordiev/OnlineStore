@@ -251,9 +251,9 @@ namespace OnlineStore.Controllers
         }
 
         /// <summary>
-        /// 
+        /// A POST request for logging out.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Redirects to home page "/".</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -264,6 +264,10 @@ namespace OnlineStore.Controllers
 
         #region Shopping Cart
 
+        /// <summary>
+        /// A GET request for shopping cart. Used in modal window.
+        /// </summary>
+        /// <returns>Returns a view with list of products added to cart.</returns>
         public async Task<IActionResult> ShoppingCart()
         {
             if (_signInManager.IsSignedIn(User))
@@ -285,10 +289,11 @@ namespace OnlineStore.Controllers
         
         
         /// <summary>
-        /// 
+        /// A POST request for adding product to user's shopping cart.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Product ID.</param>
+        /// <param name="returnUrl">URL of current page or another page you want redirect to.</param>
+        /// <returns>Redirects to URL, specified in "returnUrl" parameter.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddToCart(int id, string returnUrl)
@@ -311,10 +316,11 @@ namespace OnlineStore.Controllers
         }
         
         /// <summary>
-        /// 
+        /// A POST request for removing product from user's shopping cart.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Product ID.</param>
+        /// <param name="returnUrl">URL of current page or another page you want redirect to.</param>
+        /// <returns>Redirects to URL, specified in "returnUrl" parameter.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveFromCart(int id, string returnUrl)
@@ -342,10 +348,11 @@ namespace OnlineStore.Controllers
         #region Wishlist
 
         /// <summary>
-        /// 
+        /// A POST request for adding product to user's wishlist.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Product ID.</param>
+        /// <param name="returnUrl">URL of current page or another page you want redirect to.</param>
+        /// <returns>Redirects to URL, specified in "returnUrl" parameter.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddToWishlist(int id, string returnUrl)
@@ -368,10 +375,11 @@ namespace OnlineStore.Controllers
         }
         
         /// <summary>
-        /// 
+        /// A POST request for removing product from user's wishlist.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Product ID.</param>
+        /// <param name="returnUrl">URL of current page or another page you want redirect to.</param>
+        /// <returns>Redirects to URL, specified in "returnUrl" parameter.</returns>
         public async Task<IActionResult> RemoveFromWishlist(int id, string returnUrl)
         {
             if (_signInManager.IsSignedIn(User))

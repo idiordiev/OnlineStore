@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Models
 {
+    /// <summary>
+    /// Represents wishlist.
+    /// </summary>
     public class Wishlist
     {
         [Key]

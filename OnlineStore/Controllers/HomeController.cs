@@ -73,6 +73,11 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// A GET request for "/home/product/id". 
+        /// </summary>
+        /// <param name="id">Product's ID.</param>
+        /// <returns>Returns a view with product information.</returns>
         public async Task<IActionResult> Product(int id)
         {
             Product product = await _db.Products.FindAsync(id);
