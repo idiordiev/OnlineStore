@@ -73,6 +73,38 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Search(string request)
+        {
+            List<Product> products = _db.Products.Where(p => p.NameUA.Contains(request) ||
+                                                             p.NameRU.Contains(request) ||
+                                                             p.NameEN.Contains(request) ||
+                                                             p.DescriptionShortUA.Contains(request) ||
+                                                             p.DescriptionShortRU.Contains(request) ||
+                                                             p.DescriptionShortEN.Contains(request) ||
+                                                             p.DescriptionFullUA.Contains(request) ||
+                                                             p.DescriptionFullRU.Contains(request) ||
+                                                             p.DescriptionFullEN.Contains(request)).ToList();
+
+            List<LocalizedProduct> model = new List<LocalizedProduct>();
+
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
+
+                model.AddRange(_productLocalizer.Localize(_db.Products, user));
+            }
+            else
+            {
+                model.AddRange(_productLocalizer.Localize(_db.Products));
+            }
+            
+            return View(model);
+        }
+
         /// <summary>
         /// A GET request for "/home/product/id". 
         /// </summary>

@@ -17,10 +17,14 @@
             <b><a class="header-link" asp-area="" asp-controller="Home" asp-action="Index">Тихий Омут</a></b>
         </div>
 
-        <div class="header-search">
-            <input class="search-bar">
-            <button class="search-button"><img src="~/img/search.png" class="search-ico"></button>
-        </div>
+        <form method="get" asp-action="Search" asp-controller="Home" class="header-search">
+            <input class="search-bar" name="request"/>
+            <input class="search-button" type="submit" value="@Localizer["Search"]"/>
+        </form>
+        @* <div class="header-search"> *@
+        @*     <input class="search-bar" > *@
+        @*     <button class="search-button"><img src="~/img/search.png" class="search-ico"></button> *@
+        @* </div> *@
 
         <div class="header-buttons">
             @if (User.Identity.IsAuthenticated)

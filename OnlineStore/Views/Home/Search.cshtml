@@ -1,0 +1,41 @@
+@model System.Collections.Generic.List<OnlineStore.Models.LocalizedProduct>
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["Search"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["SearchResults"]</h2>
+
+<div class="main-container">
+    <aside>
+        @await Html.PartialAsync("_Sidebar")
+    </aside>
+    
+    <div class="main-page">
+        @if (Model.Count == 0)
+        {
+            <p>@Localizer["NoSearchResults"]</p>
+        }
+        else
+        {
+            @for (int i = 0; i <= Model.Count / 3; i++)
+            {
+                <div class="goods-row">
+                    @for (int j = i * 3; j < i * 3 + 3; j++)
+                    {
+                        if (j < Model.Count)
+                        {
+                            @await Html.PartialAsync("_GoodsPost", Model[j])
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+
