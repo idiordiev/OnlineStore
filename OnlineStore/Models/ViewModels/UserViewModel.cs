@@ -6,7 +6,7 @@ namespace OnlineStore.Models.ViewModels
     /// <summary>
     /// Represents viewmodel for viewing user information.
     /// </summary>
-    public class UserPageViewModel
+    public class UserViewModel
     {
         [Required]
         [DisplayName("Id")]

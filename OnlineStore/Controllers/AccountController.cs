@@ -43,7 +43,7 @@ namespace OnlineStore.Controllers
 
                 User user = await _userManager.FindByIdAsync(id);
 
-                UserPageViewModel model = new UserPageViewModel()
+                UserViewModel model = new UserViewModel()
                 {
                     Id = user.Id,
                     Username = user.UserName,
@@ -65,7 +65,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A viewmodel with user's data.</param>
         /// <returns>Redirects to "/account".</returns>
         [HttpPost]
-        public async Task<IActionResult> Edit(UserPageViewModel model)
+        public async Task<IActionResult> Edit(UserViewModel model)
         {
             if (ModelState.IsValid)
             {

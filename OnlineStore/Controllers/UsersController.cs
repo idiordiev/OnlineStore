@@ -99,7 +99,7 @@ namespace OnlineStore.Controllers
                 return NotFound();
             }
 
-            UserEditViewModel model = new UserEditViewModel()
+            UserViewModel model = new UserViewModel()
             {
                 Id = user.Id, 
                 Username = user.UserName,
@@ -119,7 +119,7 @@ namespace OnlineStore.Controllers
         /// <param name="model">A model with fields filled in form.</param>
         /// <returns>If model is valid, redirects to "/users/". Otherwise, returns the same page.</returns>
         [HttpPost]
-        public async Task<IActionResult> Edit(UserEditViewModel model)
+        public async Task<IActionResult> Edit(UserViewModel model)
         {
             if (ModelState.IsValid)
             {
