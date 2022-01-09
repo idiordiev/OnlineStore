@@ -29,7 +29,7 @@
         else
         {
             <form method="post" asp-action="AddToCart" asp-controller="Account" asp-route-id="@Model.Id" asp-route-returnUrl="@Url.Action("Index", "Home", null, Context.Request.Scheme)">
-                <input class="post-btn-cart" type="submit" value="@Localizer["AddtoCart"]"/>
+                <input class="post-btn-cart" type="submit" value="@Localizer["AddToCart"]"/>
             </form>
         }
     </div>

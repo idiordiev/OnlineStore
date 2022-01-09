@@ -27,4 +27,10 @@
     <data name="ChangeDetails" xml:space="preserve">
         <value>Змінити</value>
     </data>
+    <data name="Login" xml:space="preserve">
+        <value>Увійти</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>Зареєструватися</value>
+    </data>
 </root>

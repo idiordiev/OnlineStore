@@ -61,15 +61,6 @@ namespace OnlineStore.Resources.Views.Users {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back.
-        /// </summary>
-        internal static string Back {
-            get {
-                return ResourceManager.GetString("Back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create User.
         /// </summary>
         internal static string CreateUser {

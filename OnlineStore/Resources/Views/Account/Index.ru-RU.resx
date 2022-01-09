@@ -27,4 +27,10 @@
     <data name="PleaseLogin" xml:space="preserve">
         <value>Пожалуйста, войдите или зарегистрируйтесь.</value>
     </data>
+    <data name="Login" xml:space="preserve">
+        <value>Войти</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>Зарегистрироваться</value>
+    </data>
 </root>

@@ -79,6 +79,15 @@ namespace OnlineStore.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My account.
         /// </summary>
         internal static string MyAccount {
@@ -93,6 +102,15 @@ namespace OnlineStore.Resources.Views.Account {
         internal static string PleaseLogin {
             get {
                 return ResourceManager.GetString("PleaseLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
             }
         }
     }

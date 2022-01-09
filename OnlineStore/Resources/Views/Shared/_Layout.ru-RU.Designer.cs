@@ -88,6 +88,15 @@ namespace OnlineStore.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Поиск.
+        /// </summary>
+        internal static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добро пожаловать, .
         /// </summary>
         internal static string Welcome {

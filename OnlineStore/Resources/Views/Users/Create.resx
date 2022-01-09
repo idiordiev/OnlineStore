@@ -21,7 +21,4 @@
     <data name="CreateUser" xml:space="preserve">
         <value>Створення користувача</value>
     </data>
-    <data name="Back" xml:space="preserve">
-        <value>Назад</value>
-    </data>
 </root>

@@ -70,6 +70,15 @@ namespace OnlineStore.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Увійти.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Мій обліковий запис.
         /// </summary>
         internal static string MyAccount {
@@ -84,6 +93,15 @@ namespace OnlineStore.Resources.Views.Account {
         internal static string PleaseLogin {
             get {
                 return ResourceManager.GetString("PleaseLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Зареєструватися.
+        /// </summary>
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
             }
         }
     }

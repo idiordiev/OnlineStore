@@ -30,4 +30,7 @@
     <data name="LogOutButton" xml:space="preserve">
         <value>Вийти</value>
     </data>
+    <data name="Search" xml:space="preserve">
+        <value>Пошук</value>
+    </data>
 </root>

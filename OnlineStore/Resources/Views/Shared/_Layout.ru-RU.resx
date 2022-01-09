@@ -30,4 +30,7 @@
     <data name="Welcome" xml:space="preserve">
         <value>Добро пожаловать, </value>
     </data>
+    <data name="Search" xml:space="preserve">
+        <value>Поиск</value>
+    </data>
 </root>
