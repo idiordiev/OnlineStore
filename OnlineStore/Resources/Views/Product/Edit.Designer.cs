@@ -22,14 +22,14 @@ namespace OnlineStore.Resources.Views.Goods {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Edit_en_US {
+    internal class Edit {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Edit_en_US() {
+        internal Edit() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace OnlineStore.Resources.Views.Goods {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Goods.Edit.en-US", typeof(Edit_en_US).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Product.Edit", typeof(Edit).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,29 @@ namespace OnlineStore.Resources.Views.Goods {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit product.
+        ///   Looks up a localized string similar to Змінити дані продукту.
         /// </summary>
         internal static string EditProduct {
             get {
                 return ResourceManager.GetString("EditProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to УВАГА! Поточна категорія продукту:.
+        /// </summary>
+        internal static string Warning1 {
+            get {
+                return ResourceManager.GetString("Warning1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Якщо Ви бажаєте зберегти поточну категорію, ВИБЕРІТЬ ЇЇ. Якщо бажаєте змінити категорію, виберіть іншу..
+        /// </summary>
+        internal static string Warning2 {
+            get {
+                return ResourceManager.GetString("Warning2", resourceCulture);
             }
         }
     }

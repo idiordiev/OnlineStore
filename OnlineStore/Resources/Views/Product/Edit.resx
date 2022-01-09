@@ -21,4 +21,10 @@
     <data name="EditProduct" xml:space="preserve">
         <value>Змінити дані продукту</value>
     </data>
+    <data name="Warning1" xml:space="preserve">
+        <value>УВАГА! Поточна категорія продукту:</value>
+    </data>
+    <data name="Warning2" xml:space="preserve">
+        <value>Якщо Ви бажаєте зберегти поточну категорію, ВИБЕРІТЬ ЇЇ. Якщо бажаєте змінити категорію, виберіть іншу.</value>
+    </data>
 </root>

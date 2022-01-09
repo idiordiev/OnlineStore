@@ -36,6 +36,8 @@
     </div>
     <div class="form-group">
         <label asp-for="Categories"></label><br/>
+        <p class="text-danger m-0">@Localizer["Warning1"] @Model.Categories.FirstOrDefault(c => c.Selected).Text</p>
+        <p class="text-danger">@Localizer["Warning2"]</p>
         <select asp-for="CategoryId" asp-items="@Model.Categories"></select>
         <span asp-validation-for="Categories"></span>
     </div>

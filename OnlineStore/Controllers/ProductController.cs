@@ -137,11 +137,11 @@ namespace OnlineStore.Controllers
                 Categories = _categoryLocalizer.Localize(_db.Categories.ToList()).Select(i => new SelectListItem()
                 {
                     Value = i.Id.ToString(),
-                    Text = i.Name
+                    Text = i.Name,
+                    Selected = i.Id == product.CategoryId
                 })
             };
 
-            model.Categories.FirstOrDefault(c => c.Value == product.CategoryId.ToString()).Selected = true;
             return View(model);
         }
 

@@ -19,6 +19,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="EditProduct" xml:space="preserve">
-        <value>Edit product</value>
+        <value>Изменить данные продукта</value>
+    </data>
+    <data name="Warning1" xml:space="preserve">
+        <value>ВНИМАНИЕ! Текущая категория продукта:</value>
+    </data>
+    <data name="Warning2" xml:space="preserve">
+        <value>Если Вы желаете оставить текущую категорию продукта, ВЫБЕРИТЕ ЕЕ. Если желаете изменить категорию, выберите другую.</value>
     </data>
 </root>

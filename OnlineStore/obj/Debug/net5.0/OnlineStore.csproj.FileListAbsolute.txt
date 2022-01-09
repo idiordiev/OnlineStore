@@ -892,9 +892,6 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.GoodsEditViewModel.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.UserPageViewModel.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Index.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Create.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Edit.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Index.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.ChangePasswordViewModel.en-US.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.ChangePasswordViewModel.ru-RU.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.GoodsAddViewModel.en-US.resources
@@ -907,12 +904,6 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.ChangePassword.ru-RU.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Index.en-US.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.Index.ru-RU.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Create.en-US.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Create.ru-RU.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Edit.en-US.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Edit.ru-RU.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Index.en-US.resources
-C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Goods.Index.ru-RU.resources
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Account.ChangePassword.resources
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.ChangePasswordViewModel.resources
 C:\Users\duhov\Source\Repos\i-diordiev\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Models.ViewModels.GoodsAddViewModel.resources
@@ -952,3 +943,12 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Category\Create.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Category\Edit.cshtml.g.cs
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Create.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Edit.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Index.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Create.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Create.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Edit.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Edit.ru-RU.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Index.en-US.resources
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.Resources.Views.Product.Index.ru-RU.resources

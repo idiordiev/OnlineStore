@@ -39,7 +39,7 @@ namespace OnlineStore.Resources.Views.Goods {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Goods.Edit.ru-RU", typeof(Edit_ru_RU).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStore.Resources.Views.Product.Edit.ru-RU", typeof(Edit_ru_RU).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,24 @@ namespace OnlineStore.Resources.Views.Goods {
         internal static string EditProduct {
             get {
                 return ResourceManager.GetString("EditProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ВНИМАНИЕ! Текущая категория продукта:.
+        /// </summary>
+        internal static string Warning1 {
+            get {
+                return ResourceManager.GetString("Warning1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Если Вы желаете оставить текущую категорию продукта, ВЫБЕРИТЕ ЕЕ. Если желаете изменить категорию, выберите другую..
+        /// </summary>
+        internal static string Warning2 {
+            get {
+                return ResourceManager.GetString("Warning2", resourceCulture);
             }
         }
     }
