@@ -13,8 +13,14 @@ namespace OnlineStore.Models
         [DisplayName("Id")]
         public int Id { get; set; }
 
-        [DisplayName("Name")]
-        public string Name { get; set; }
+        [DisplayName("NameUA")]
+        public string NameUA { get; set; }
+        
+        [DisplayName("NameRU")]
+        public string NameRU { get; set; }
+        
+        [DisplayName("NameEN")]
+        public string NameEN { get; set; }
         
         [DisplayName("Products")]
         public List<Product> Products { get; set; }

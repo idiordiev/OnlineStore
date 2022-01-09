@@ -23,11 +23,14 @@ namespace OnlineStore.Controllers
         private readonly ApplicationDbContext _db;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
+
+        private readonly ICategoryLocalizer _categoryLocalizer;
         
-        public ProductController(ApplicationDbContext db, IWebHostEnvironment environment)
+        public ProductController(ApplicationDbContext db, IWebHostEnvironment environment, ICategoryLocalizer categoryLocalizer)
         {
             _db = db;
             _webHostEnvironment = environment;
+            _categoryLocalizer = categoryLocalizer;
         }
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace OnlineStore.Controllers
         {
             ProductViewModel model = new ProductViewModel()
             {
-                Categories = _db.Categories.Select(i => new SelectListItem()
+                Categories = _categoryLocalizer.Localize(_db.Categories.ToList()).Select(i => new SelectListItem()
                 {
                     Value = i.Id.ToString(),
                     Text = i.Name
@@ -131,7 +134,7 @@ namespace OnlineStore.Controllers
                 DescriptionFullRU = product.DescriptionFullRU,
                 DescriptionFullEN = product.DescriptionFullEN,
                 ImageLink = product.ImageLink,
-                Categories = _db.Categories.Select(i => new SelectListItem()
+                Categories = _categoryLocalizer.Localize(_db.Categories.ToList()).Select(i => new SelectListItem()
                 {
                     Value = i.Id.ToString(),
                     Text = i.Name
