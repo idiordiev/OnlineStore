@@ -1,0 +1,42 @@
+@model OnlineStore.Models.Category
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title =  Localizer["EditCategory"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["EditCategory"]</h2>
+
+<form method="post" asp-action="Edit" asp-controller="Category">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Id" hidden></label>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameUA"></label><br/>
+        <input type="text" asp-for="NameUA"/>
+        <span asp-validation-for="NameUA"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameRU"></label><br/>
+        <input type="text" asp-for="NameRU"/>
+        <span asp-validation-for="NameRU"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NameEN"></label><br/>
+        <input type="text" asp-for="NameEN"/>
+        <span asp-validation-for="NameEN"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary"/>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

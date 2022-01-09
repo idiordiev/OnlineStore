@@ -32,6 +32,7 @@ namespace OnlineStore
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");  // set a folder with resources
             services.AddSingleton<IProductLocalizer, ProductLocalizer>();
+            services.AddSingleton<ICategoryLocalizer, CategoryLocalizer>();
             
             services.Configure<RequestLocalizationOptions>(options =>
             {

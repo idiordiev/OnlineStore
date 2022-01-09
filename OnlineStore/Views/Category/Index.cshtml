@@ -1,0 +1,40 @@
+@model System.Collections.Generic.List<OnlineStore.Models.Category>
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["CategoriesList"];
+    Layout = "_Layout";
+}
+
+<h2>@Localizer["CategoriesList"]</h2>
+<a class="btn btn-primary" asp-action="Create" asp-controller="Category">@Localizer["AddCategory"]</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Localizer["Id"]</th>
+        <th>@Localizer["NameUA"]</th>
+        <th>@Localizer["NameRU"]</th>
+        <th>@Localizer["NameEN"]</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.NameUA</td>
+            <td>@category.NameRU</td>
+            <td>@category.NameEN</td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-controller="Category" asp-route-id="@category.Id">@Localizer["Edit"]</a>
+                <form method="post" asp-action="Delete" asp-controller="Category" asp-route-id="@category.Id">
+                    <input class="btn btn-danger" type="submit" value="@Localizer["Delete"]">
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
