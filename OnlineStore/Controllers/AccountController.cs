@@ -21,14 +21,17 @@ namespace OnlineStore.Controllers
 
         private readonly ApplicationDbContext _db;
 
-        private readonly ProductLocalizer _productLocalizer;
+        private readonly IProductLocalizer _productLocalizer;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext db)
+        public AccountController(UserManager<User> userManager, 
+            SignInManager<User> signInManager, 
+            ApplicationDbContext db, 
+            IProductLocalizer productLocalizer)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = db;
-            _productLocalizer = new ProductLocalizer();
+            _productLocalizer = productLocalizer;
         }
 
         /// <summary>

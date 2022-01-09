@@ -22,7 +22,7 @@ namespace OnlineStore.Controllers
     {
         private readonly ApplicationDbContext _db;
 
-        private readonly ProductLocalizer _productLocalizer;
+        private readonly IProductLocalizer _productLocalizer;
 
         private readonly SignInManager<User> _signInManager;
 
@@ -30,10 +30,13 @@ namespace OnlineStore.Controllers
 
         private Random random = new Random();
 
-        public HomeController(ApplicationDbContext db, SignInManager<User> signInManager, UserManager<User> userManager)
+        public HomeController(ApplicationDbContext db, 
+            SignInManager<User> signInManager, 
+            UserManager<User> userManager, 
+            IProductLocalizer productLocalizer)
         {
             _db = db;
-            _productLocalizer = new ProductLocalizer();
+            _productLocalizer = productLocalizer;
             _signInManager = signInManager;
             _userManager = userManager;
         }

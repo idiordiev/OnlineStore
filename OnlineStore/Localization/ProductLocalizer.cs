@@ -8,7 +8,7 @@ namespace OnlineStore.Localization
     /// <summary>
     /// Localizes a "Product" model.
     /// </summary>
-    public class ProductLocalizer
+    public class ProductLocalizer : IProductLocalizer
     {
 
         public ProductLocalizer() { }
