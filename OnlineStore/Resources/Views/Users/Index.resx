@@ -18,19 +18,34 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="MyAccount" xml:space="preserve">
-        <value>Мій аккаунт</value>
+    <data name="UsersTitle" xml:space="preserve">
+        <value>Користувачі</value>
     </data>
-    <data name="Login" xml:space="preserve">
-        <value>Увійти</value>
+    <data name="AddUser" xml:space="preserve">
+        <value>Додати користувача</value>
     </data>
-    <data name="Register" xml:space="preserve">
-        <value>Зареєструватися</value>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
     </data>
-    <data name="ChangePassword" xml:space="preserve">
-        <value>Змінити пароль</value>
+    <data name="Username" xml:space="preserve">
+        <value>Ім'я користувача</value>
     </data>
-    <data name="ChangeDetails" xml:space="preserve">
-        <value>Змінити дані</value>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="FirstName" xml:space="preserve">
+        <value>Ім'я</value>
+    </data>
+    <data name="LastName" xml:space="preserve">
+        <value>Прізвище</value>
+    </data>
+    <data name="PhoneNumber" xml:space="preserve">
+        <value>Номер телефону</value>
+    </data>
+    <data name="City" xml:space="preserve">
+        <value>Місто</value>
+    </data>
+    <data name="Address" xml:space="preserve">
+        <value>Адреса</value>
     </data>
 </root>

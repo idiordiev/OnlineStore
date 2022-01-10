@@ -9,6 +9,7 @@ namespace OnlineStore.Models.ViewModels
     /// </summary>
     public class ChangeRolesViewModel
     {
+        [DisplayName("UserId")]
         public string UserId { get; set; }
         
         [DisplayName("Username")]

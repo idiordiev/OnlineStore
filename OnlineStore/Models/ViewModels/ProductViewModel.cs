@@ -12,6 +12,7 @@ namespace OnlineStore.Models.ViewModels
     /// </summary>
     public class ProductViewModel
     {
+        [DisplayName("Id")]
         public int Id { get; set; }
         
         [Required(ErrorMessage = "PriceRequired")] 
@@ -48,6 +49,7 @@ namespace OnlineStore.Models.ViewModels
         [DisplayName("DescriptionFullEN")]
         public string DescriptionFullEN { get; set; }
         
+        [DisplayName("CategoryId")]
         public int CategoryId { get; set; }
 
         [DisplayName("Categories")]

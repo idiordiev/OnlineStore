@@ -61,47 +61,92 @@ namespace OnlineStore.Resources.Views.Users {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change details.
+        ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string ChangeDetails {
+        internal static string Address {
             get {
-                return ResourceManager.GetString("ChangeDetails", resourceCulture);
+                return ResourceManager.GetString("Address", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change password.
+        ///   Looks up a localized string similar to Add user.
         /// </summary>
-        internal static string ChangePassword {
+        internal static string AddUser {
             get {
-                return ResourceManager.GetString("ChangePassword", resourceCulture);
+                return ResourceManager.GetString("AddUser", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to City.
         /// </summary>
-        internal static string Login {
+        internal static string City {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("City", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My account.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string MyAccount {
+        internal static string Email {
             get {
-                return ResourceManager.GetString("MyAccount", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to First Name.
         /// </summary>
-        internal static string Register {
+        internal static string FirstName {
             get {
-                return ResourceManager.GetString("Register", resourceCulture);
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        internal static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        internal static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        internal static string UsersTitle {
+            get {
+                return ResourceManager.GetString("UsersTitle", resourceCulture);
             }
         }
     }

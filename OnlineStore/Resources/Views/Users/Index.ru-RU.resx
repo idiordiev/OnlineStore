@@ -18,19 +18,34 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="ChangeDetails" xml:space="preserve">
-        <value>Изменить данные</value>
+    <data name="AddUser" xml:space="preserve">
+        <value>Добавить пользователя</value>
     </data>
-    <data name="ChangePassword" xml:space="preserve">
-        <value>Сменить пароль</value>
+    <data name="UsersTitle" xml:space="preserve">
+        <value>Пользователи</value>
     </data>
-    <data name="Login" xml:space="preserve">
-        <value>Войти</value>
+    <data name="Username" xml:space="preserve">
+        <value>Имя пользователя</value>
     </data>
-    <data name="MyAccount" xml:space="preserve">
-        <value>Мой аккаунт</value>
+    <data name="PhoneNumber" xml:space="preserve">
+        <value>Номер телефона</value>
     </data>
-    <data name="Register" xml:space="preserve">
-        <value>Зарегистрироваться</value>
+    <data name="LastName" xml:space="preserve">
+        <value>Фамилия</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="FirstName" xml:space="preserve">
+        <value>Имя</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="City" xml:space="preserve">
+        <value>Город</value>
+    </data>
+    <data name="Address" xml:space="preserve">
+        <value>Адрес</value>
     </data>
 </root>

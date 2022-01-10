@@ -61,47 +61,92 @@ namespace OnlineStore.Resources.Views.Users {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изменить данные.
+        ///   Looks up a localized string similar to Адрес.
         /// </summary>
-        internal static string ChangeDetails {
+        internal static string Address {
             get {
-                return ResourceManager.GetString("ChangeDetails", resourceCulture);
+                return ResourceManager.GetString("Address", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Сменить пароль.
+        ///   Looks up a localized string similar to Добавить пользователя.
         /// </summary>
-        internal static string ChangePassword {
+        internal static string AddUser {
             get {
-                return ResourceManager.GetString("ChangePassword", resourceCulture);
+                return ResourceManager.GetString("AddUser", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Войти.
+        ///   Looks up a localized string similar to Город.
         /// </summary>
-        internal static string Login {
+        internal static string City {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("City", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Мой аккаунт.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string MyAccount {
+        internal static string Email {
             get {
-                return ResourceManager.GetString("MyAccount", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Зарегистрироваться.
+        ///   Looks up a localized string similar to Имя.
         /// </summary>
-        internal static string Register {
+        internal static string FirstName {
             get {
-                return ResourceManager.GetString("Register", resourceCulture);
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        internal static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер телефона.
+        /// </summary>
+        internal static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имя пользователя.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователи.
+        /// </summary>
+        internal static string UsersTitle {
+            get {
+                return ResourceManager.GetString("UsersTitle", resourceCulture);
             }
         }
     }

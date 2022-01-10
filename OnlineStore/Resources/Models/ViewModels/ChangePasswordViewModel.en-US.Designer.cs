@@ -70,6 +70,15 @@ namespace OnlineStore.Resources.Models.ViewModels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimum password length - 6 characters, maximum - 64 characters..
+        /// </summary>
+        internal static string MinimumPasswordLength {
+            get {
+                return ResourceManager.GetString("MinimumPasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New password.
         /// </summary>
         internal static string NewPassword {

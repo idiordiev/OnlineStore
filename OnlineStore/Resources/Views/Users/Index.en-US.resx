@@ -18,19 +18,34 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Login" xml:space="preserve">
-        <value>Login</value>
+    <data name="Address" xml:space="preserve">
+        <value>Address</value>
     </data>
-    <data name="MyAccount" xml:space="preserve">
-        <value>My account</value>
+    <data name="AddUser" xml:space="preserve">
+        <value>Add user</value>
     </data>
-    <data name="Register" xml:space="preserve">
-        <value>Register</value>
+    <data name="City" xml:space="preserve">
+        <value>City</value>
     </data>
-    <data name="ChangePassword" xml:space="preserve">
-        <value>Change password</value>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
     </data>
-    <data name="ChangeDetails" xml:space="preserve">
-        <value>Change details</value>
+    <data name="FirstName" xml:space="preserve">
+        <value>First Name</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="LastName" xml:space="preserve">
+        <value>Last Name</value>
+    </data>
+    <data name="PhoneNumber" xml:space="preserve">
+        <value>Phone Number</value>
+    </data>
+    <data name="UsersTitle" xml:space="preserve">
+        <value>Users</value>
+    </data>
+    <data name="Username" xml:space="preserve">
+        <value>Username</value>
     </data>
 </root>
