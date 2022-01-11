@@ -28,15 +28,19 @@ namespace OnlineStore.Controllers
 
         private readonly UserManager<User> _userManager;
 
+        private readonly ICategoryLocalizer _categoryLocalizer;
+
         private Random random = new Random();
 
         public HomeController(ApplicationDbContext db, 
             SignInManager<User> signInManager, 
             UserManager<User> userManager, 
-            IProductLocalizer productLocalizer)
+            IProductLocalizer productLocalizer,
+            ICategoryLocalizer categoryLocalizer)
         {
             _db = db;
             _productLocalizer = productLocalizer;
+            _categoryLocalizer = categoryLocalizer;
             _signInManager = signInManager;
             _userManager = userManager;
         }
@@ -73,6 +77,7 @@ namespace OnlineStore.Controllers
             var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
             model.NewProducts.AddRange(newProducts);
 
+            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
             return View(model);
         }
 
@@ -105,6 +110,66 @@ namespace OnlineStore.Controllers
                 model.AddRange(_productLocalizer.Localize(products));
             }
             
+            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
+            return View(model);
+        }
+
+        public async Task<IActionResult> Search(int categoryId)
+        {
+            List<Product> products = _db.Products.Where(p => p.CategoryId == categoryId).ToList();
+            
+            List<LocalizedProduct> model = new List<LocalizedProduct>();
+
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
+
+                model.AddRange(_productLocalizer.Localize(products, user));
+            }
+            else
+            {
+                model.AddRange(_productLocalizer.Localize(products));
+            }
+            
+            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
+            return View(model);
+        }
+
+        public async Task<IActionResult> Search(string request, int categoryId)
+        {
+            List<Product> products = _db.Products.Where(p => p.NameUA.Contains(request) ||
+                                                             p.NameRU.Contains(request) ||
+                                                             p.NameEN.Contains(request) ||
+                                                             p.DescriptionShortUA.Contains(request) ||
+                                                             p.DescriptionShortRU.Contains(request) ||
+                                                             p.DescriptionShortEN.Contains(request) ||
+                                                             p.DescriptionFullUA.Contains(request) ||
+                                                             p.DescriptionFullRU.Contains(request) ||
+                                                             p.DescriptionFullEN.Contains(request) &&
+                                                             p.CategoryId == categoryId).ToList();
+
+            List<LocalizedProduct> model = new List<LocalizedProduct>();
+
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
+
+                model.AddRange(_productLocalizer.Localize(products, user));
+            }
+            else
+            {
+                model.AddRange(_productLocalizer.Localize(products));
+            }
+            
+            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
             return View(model);
         }
 
@@ -142,6 +207,7 @@ namespace OnlineStore.Controllers
                 localizedProduct = _productLocalizer.Localize(product);
             }
 
+            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
             return View(localizedProduct);
         }
 

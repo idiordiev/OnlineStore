@@ -11,9 +11,9 @@
 
 <div class="main-container">
     <aside>
-        @await Html.PartialAsync("_Sidebar")
+        @await Html.PartialAsync("_Sidebar", ViewBag.Categories, null)
     </aside>
-    
+
     <div class="main-page">
         @if (Model.Count == 0)
         {

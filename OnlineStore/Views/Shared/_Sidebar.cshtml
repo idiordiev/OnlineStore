@@ -1,13 +1,12 @@
+@model IEnumerable<LocalizedCategory>
+
 <div class="sidebar">
     <ul>
-        <li>
-            <p>Punkt 1</p>
-        </li>
-        <li>
-            <p>Punkt 2</p>
-        </li>
-        <li>
-            <p>Punkt 3</p>
-        </li>
+        @foreach (var category in Model)
+        {
+            <li>
+                <a asp-action="Search" asp-controller="Home" asp-route-categoryId="@category.Id">@category.Name</a>
+            </li>
+        }
     </ul>
 </div>
