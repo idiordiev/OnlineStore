@@ -516,7 +516,7 @@
       <Compile Update="Resources\Models\ViewModels\UserAddViewModel.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>EditUserViewModel.resx</DependentUpon>
+        <DependentUpon>UserAddViewModel.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Models\ViewModels\UserAddViewModel.en-US.Designer.cs">
         <DesignTime>True</DesignTime>
@@ -661,7 +661,7 @@
       <Compile Update="Resources\Models\ViewModels\ProductViewModel.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>GoodsAddViewModel.resx</DependentUpon>
+        <DependentUpon>ProductViewModel.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Models\ViewModels\ProductViewModel.en-US.Designer.cs">
         <DesignTime>True</DesignTime>
@@ -676,7 +676,7 @@
       <Compile Update="Resources\Models\ViewModels\UserViewModel.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>UserPageViewModel.resx</DependentUpon>
+        <DependentUpon>UserViewModel.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Models\ViewModels\UserViewModel.en-US.Designer.cs">
         <DesignTime>True</DesignTime>
