@@ -81,18 +81,28 @@ namespace OnlineStore.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Search(string request)
+        public async Task<IActionResult> Search(string request, int? categoryId)
         {
-            List<Product> products = _db.Products.Where(p => p.NameUA.Contains(request) ||
-                                                             p.NameRU.Contains(request) ||
-                                                             p.NameEN.Contains(request) ||
-                                                             p.DescriptionShortUA.Contains(request) ||
-                                                             p.DescriptionShortRU.Contains(request) ||
-                                                             p.DescriptionShortEN.Contains(request) ||
-                                                             p.DescriptionFullUA.Contains(request) ||
-                                                             p.DescriptionFullRU.Contains(request) ||
-                                                             p.DescriptionFullEN.Contains(request)).ToList();
+            List<Product> products = _db.Products.ToList();
 
+            if (request != null)
+            {
+                products = _db.Products.Where(p => p.NameUA.Contains(request) ||
+                                               p.NameRU.Contains(request) ||
+                                               p.NameEN.Contains(request) ||
+                                               p.DescriptionShortUA.Contains(request) ||
+                                               p.DescriptionShortRU.Contains(request) ||
+                                               p.DescriptionShortEN.Contains(request) ||
+                                               p.DescriptionFullUA.Contains(request) ||
+                                               p.DescriptionFullRU.Contains(request) ||
+                                               p.DescriptionFullEN.Contains(request)).ToList();
+            }
+
+            if (categoryId != null)
+            {
+                products = products.Where(p => p.CategoryId == categoryId).ToList();
+            }
+            
             List<LocalizedProduct> model = new List<LocalizedProduct>();
 
             if (_signInManager.IsSignedIn(HttpContext.User))
@@ -109,71 +119,10 @@ namespace OnlineStore.Controllers
             {
                 model.AddRange(_productLocalizer.Localize(products));
             }
-            
+
             ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
             return View(model);
         }
-
-        
-        
-        //public async Task<IActionResult> Search(int categoryId)
-        //{
-        //    List<Product> products = _db.Products.Where(p => p.CategoryId == categoryId).ToList();
-
-        //    List<LocalizedProduct> model = new List<LocalizedProduct>();
-
-        //    if (_signInManager.IsSignedIn(HttpContext.User))
-        //    {
-        //        string userId = _userManager.GetUserId(HttpContext.User);
-
-        //        User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
-        //            .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
-        //            .FirstOrDefault(u => u.Id == userId);
-
-        //        model.AddRange(_productLocalizer.Localize(products, user));
-        //    }
-        //    else
-        //    {
-        //        model.AddRange(_productLocalizer.Localize(products));
-        //    }
-
-        //    ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
-        //    return View(model);
-        //}
-
-        //public async Task<IActionResult> Search(string request, int categoryId)
-        //{
-        //    List<Product> products = _db.Products.Where(p => p.NameUA.Contains(request) ||
-        //                                                     p.NameRU.Contains(request) ||
-        //                                                     p.NameEN.Contains(request) ||
-        //                                                     p.DescriptionShortUA.Contains(request) ||
-        //                                                     p.DescriptionShortRU.Contains(request) ||
-        //                                                     p.DescriptionShortEN.Contains(request) ||
-        //                                                     p.DescriptionFullUA.Contains(request) ||
-        //                                                     p.DescriptionFullRU.Contains(request) ||
-        //                                                     p.DescriptionFullEN.Contains(request) &&
-        //                                                     p.CategoryId == categoryId).ToList();
-
-        //    List<LocalizedProduct> model = new List<LocalizedProduct>();
-
-        //    if (_signInManager.IsSignedIn(HttpContext.User))
-        //    {
-        //        string userId = _userManager.GetUserId(HttpContext.User);
-
-        //        User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
-        //            .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
-        //            .FirstOrDefault(u => u.Id == userId);
-
-        //        model.AddRange(_productLocalizer.Localize(products, user));
-        //    }
-        //    else
-        //    {
-        //        model.AddRange(_productLocalizer.Localize(products));
-        //    }
-
-        //    ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
-        //    return View(model);
-        //}
 
         /// <summary>
         /// A GET request for "/home/product/id". 
