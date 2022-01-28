@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -350,6 +351,30 @@ namespace OnlineStore.Controllers
 
         #region Wishlist
 
+        public async Task<IActionResult> Wishlist()
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                string userId = _userManager.GetUserId(HttpContext.User);
+
+                User user = _db.Users.Include(u => u.Wishlist)
+                    .Include(u => u.Wishlist.Products)
+                    .Include(u => u.ShoppingCart)
+                    .Include(u => u.ShoppingCart.Products)
+                    .FirstOrDefault(u => u.Id == userId);
+
+                WishlistViewModel model = new WishlistViewModel()
+                {
+                    Products = _productLocalizer.Localize(user.Wishlist.Products.ToList(), user)
+                };
+
+                return View(model);
+            }
+            
+            return View();
+        }
+        
+        
         /// <summary>
         /// A POST request for adding product to user's wishlist.
         /// </summary>
@@ -400,6 +425,15 @@ namespace OnlineStore.Controllers
             }
 
             return Redirect(returnUrl);
+        }
+
+        #endregion
+
+        #region Orders
+
+        public async Task<IActionResult> Order(IEnumerable<Product> products)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

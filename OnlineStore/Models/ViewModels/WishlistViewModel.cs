@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace OnlineStore.Models.ViewModels
 {
     /// <summary>
@@ -5,6 +7,6 @@ namespace OnlineStore.Models.ViewModels
     /// </summary>
     public class WishlistViewModel
     {
-        
+        public List<LocalizedProduct> Products { get; set; }
     }
 }
