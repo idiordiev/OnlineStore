@@ -403,3 +403,22 @@ footer {
     margin-top: 1em;
     padding: 0.2em;
 }
+
+/* Product page */
+
+.product-page-name {
+    font-size: 44px;
+    font-family: var(--ff-primary);
+}
+
+.product-page-price {
+    font-size: 52px;
+    font-family: var(--ff-primary);
+    margin: 0;
+}
+
+.product-page-description {
+    font-size: 28px;
+    font-family: var(--ff-accent);
+    color: #888888;
+}
