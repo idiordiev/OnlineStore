@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Globalization;
-using System.Threading.Tasks;
 using OnlineStore.Models;
 
 namespace OnlineStore.Localization
@@ -10,9 +9,6 @@ namespace OnlineStore.Localization
     /// </summary>
     public class ProductLocalizer : IProductLocalizer
     {
-
-        public ProductLocalizer() { }
-
         /// <summary>
         /// Localizes and returns a single product without user's preferences, such as wishlist and cart.
         /// </summary>
@@ -20,44 +16,64 @@ namespace OnlineStore.Localization
         /// <returns>Returns a localized product without user's preferences.</returns>
         public LocalizedProduct Localize(Product product)
         {
-            LocalizedProduct localizedProduct = new LocalizedProduct()
-            {
-                Id = product.Id,
-                Price = product.Price,
-                ImageLink = product.ImageLink,
-                DateAdded = product.DateAdded,
-                IsInCart = false,
-                IsInWishlist = false,
-                Views = product.Views
-            };
-            
             string culture = CultureInfo.CurrentCulture.ToString();
 
             switch (culture)
             {
                 case "ua-UA":
-                    localizedProduct.Name = product.NameUA;
-                    localizedProduct.DescriptionShort = product.DescriptionShortUA;
-                    localizedProduct.DescriptionFull = product.DescriptionFullUA;
-                    break;
+                    return GetLocalizedProductInUkrainian(product);
                 case "ru-RU":
-                    localizedProduct.Name = product.NameRU;
-                    localizedProduct.DescriptionShort = product.DescriptionShortRU;
-                    localizedProduct.DescriptionFull = product.DescriptionFullRU;
-                    break;
+                    return GetLocalizedProductInRussian(product);
                 case "en-US":
-                    localizedProduct.Name = product.NameEN;
-                    localizedProduct.DescriptionShort = product.DescriptionShortEN;
-                    localizedProduct.DescriptionFull = product.DescriptionFullEN;
-                    break;
+                    return GetLocalizedProductInEnglish(product);
                 default:
-                    localizedProduct.Name = product.NameEN;
-                    localizedProduct.DescriptionShort = product.DescriptionShortEN;
-                    localizedProduct.DescriptionFull = product.DescriptionFullEN;
-                    break;
+                    return GetLocalizedProductInEnglish(product);
             }
+        }
 
-            return localizedProduct;
+        private LocalizedProduct GetLocalizedProductInEnglish(Product product)
+        {
+            return new LocalizedProduct()
+            {
+                Id = product.Id,
+                Price = product.Price,
+                ImageLink = product.ImageLink,
+                DateAdded = product.DateAdded,
+                Views = product.Views,
+                Name = product.NameEN,
+                DescriptionShort = product.DescriptionShortEN,
+                DescriptionFull = product.DescriptionFullEN
+            };
+        }
+        
+        private LocalizedProduct GetLocalizedProductInRussian(Product product)
+        {
+            return new LocalizedProduct()
+            {
+                Id = product.Id,
+                Price = product.Price,
+                ImageLink = product.ImageLink,
+                DateAdded = product.DateAdded,
+                Views = product.Views,
+                Name = product.NameRU,
+                DescriptionShort = product.DescriptionShortRU,
+                DescriptionFull = product.DescriptionFullRU
+            };
+        }
+        
+        private LocalizedProduct GetLocalizedProductInUkrainian(Product product)
+        {
+            return new LocalizedProduct()
+            {
+                Id = product.Id,
+                Price = product.Price,
+                ImageLink = product.ImageLink,
+                DateAdded = product.DateAdded,
+                Views = product.Views,
+                Name = product.NameUA,
+                DescriptionShort = product.DescriptionShortUA,
+                DescriptionFull = product.DescriptionFullUA
+            };
         }
 
         /// <summary>
@@ -70,25 +86,12 @@ namespace OnlineStore.Localization
         {
             LocalizedProduct localizedProduct = Localize(product);
 
-            if (user.Wishlist != null &&
-                user.Wishlist.Products != null &&
-                user.Wishlist.Products.Count != 0 &&
-                user.Wishlist.Products.Contains(product))
-            {
-                localizedProduct.IsInWishlist = true;
-            }
-
-            if (user.ShoppingCart != null &&
-                user.ShoppingCart.Products != null &&
-                user.ShoppingCart.Products.Count != 0 &&
-                user.ShoppingCart.Products.Contains(product))
-            {
-                localizedProduct.IsInCart = true;
-            }
-
+            localizedProduct.IsInWishlist = user.Wishlist.Products.Contains(product);
+            localizedProduct.IsInCart = user.ShoppingCart.Products.Contains(product);
+            
             return localizedProduct;
         }
-
+        
         /// <summary>
         /// Localizes and returns a collection of products without user's preferences, such as wishlist and cart.
         /// </summary>
@@ -99,9 +102,7 @@ namespace OnlineStore.Localization
             List<LocalizedProduct> list = new List<LocalizedProduct>();
 
             foreach (var product in products)
-            {
                 list.Add(Localize(product));
-            }
             
             return list;
         }
@@ -117,13 +118,9 @@ namespace OnlineStore.Localization
             List<LocalizedProduct> list = new List<LocalizedProduct>();
 
             foreach (var product in products)
-            {
                 list.Add(Localize(product, user));
-            }
 
             return list;
         }
-
-
     }
 }
