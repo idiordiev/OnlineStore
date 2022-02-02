@@ -10,11 +10,11 @@ namespace OnlineStore.Models.ViewModels
         /// <summary>
         /// List of related products (first row)
         /// </summary>
-        public List<LocalizedProduct> RelatedProducts { get; set; } = new List<LocalizedProduct>();
+        public ICollection<LocalizedProduct> RelatedProducts { get; set; }
 
         /// <summary>
         /// List of new products (third row)
         /// </summary>
-        public List<LocalizedProduct> NewProducts { get; set; } = new List<LocalizedProduct>();
+        public ICollection<LocalizedProduct> NewProducts { get; set; }
     }
 }

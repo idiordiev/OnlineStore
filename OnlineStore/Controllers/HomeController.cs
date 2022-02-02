@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using OnlineStore.Localization;
 using OnlineStore.Models;
 using OnlineStore.Models.ViewModels;
@@ -22,15 +21,11 @@ namespace OnlineStore.Controllers
     {
         private readonly ApplicationDbContext _db;
 
-        private readonly IProductLocalizer _productLocalizer;
-
         private readonly SignInManager<User> _signInManager;
-
         private readonly UserManager<User> _userManager;
 
         private readonly ICategoryLocalizer _categoryLocalizer;
-
-        private Random random = new Random();
+        private readonly IProductLocalizer _productLocalizer;
 
         public HomeController(ApplicationDbContext db, 
             SignInManager<User> signInManager, 
@@ -49,81 +44,102 @@ namespace OnlineStore.Controllers
         /// A GET request for the main page.
         /// </summary>
         /// <returns>Returns view with related, new and discounted products.</returns>
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            MainPageViewModel model = new MainPageViewModel();
-            
-            List<LocalizedProduct> allProducts = new List<LocalizedProduct>();
-            
-            if (_signInManager.IsSignedIn(HttpContext.User))
+            MainPageViewModel model = new MainPageViewModel()
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
+                NewProducts = GetNewLocalizedProducts(),
+                RelatedProducts = GetRelatedLocalizedProducts()
+            };
 
-                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
-                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
-                    .FirstOrDefault(u => u.Id == userId);
-
-                allProducts.AddRange(_productLocalizer.Localize(_db.Products, user));
-            }
-            else
-            {
-                allProducts.AddRange(_productLocalizer.Localize(_db.Products));
-            }
-            
-            var relatedProducts = allProducts.OrderByDescending(p => p.Views).Take(3);
-            model.RelatedProducts.AddRange(relatedProducts);
-            
-            // filling New Goods
-            var newProducts = allProducts.OrderByDescending(p => p.DateAdded).Take(3);
-            model.NewProducts.AddRange(newProducts);
-
-            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
+            ViewBag.Categories = GetLocalizedCategories();
             return View(model);
         }
 
-        public async Task<IActionResult> Search(string request, int? categoryId)
+        private ICollection<LocalizedProduct> GetAllLocalizedProducts()
         {
-            List<Product> products = _db.Products.ToList();
+            List<LocalizedProduct> products;
+
+            if (_signInManager.IsSignedIn(HttpContext.User))
+            {
+                var user = GetUser();
+                products = _productLocalizer.Localize(_db.Products, user);
+            }
+            else
+                products = _productLocalizer.Localize(_db.Products);
+
+            return products;
+        }
+
+        private ICollection<LocalizedProduct> GetRelatedLocalizedProducts()
+        {
+            return GetAllLocalizedProducts().OrderByDescending(p => p.Views).Take(3).ToList();
+        }
+
+        private ICollection<LocalizedProduct> GetNewLocalizedProducts()
+        {
+            return GetAllLocalizedProducts().OrderByDescending(p => p.DateAdded).Take(3).ToList();
+        }
+
+        private ICollection<LocalizedCategory> GetLocalizedCategories()
+        {
+            return _categoryLocalizer.Localize(_db.Categories);
+        }
+
+        private User GetUser()
+        {
+            string userId = _userManager.GetUserId(HttpContext.User);
+            
+            User user = _db.Users.Include(u => u.Wishlist)
+                .Include(u => u.Wishlist.Products)
+                .Include(u => u.ShoppingCart)
+                .Include(u => u.ShoppingCart.Products)
+                .FirstOrDefault(u => u.Id == userId);
+
+            return user;
+        }
+        
+        public IActionResult Search(string request, int? categoryId)
+        {
+            IList<LocalizedProduct> model;
 
             if (request != null)
-            {
-                products = _db.Products.Where(p => p.NameUA.Contains(request) ||
-                                               p.NameRU.Contains(request) ||
-                                               p.NameEN.Contains(request) ||
-                                               p.DescriptionShortUA.Contains(request) ||
-                                               p.DescriptionShortRU.Contains(request) ||
-                                               p.DescriptionShortEN.Contains(request) ||
-                                               p.DescriptionFullUA.Contains(request) ||
-                                               p.DescriptionFullRU.Contains(request) ||
-                                               p.DescriptionFullEN.Contains(request)).ToList();
-            }
-
-            if (categoryId != null)
-            {
-                products = products.Where(p => p.CategoryId == categoryId).ToList();
-            }
-            
-            List<LocalizedProduct> model = new List<LocalizedProduct>();
-
-            if (_signInManager.IsSignedIn(HttpContext.User))
-            {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
-                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
-                    .FirstOrDefault(u => u.Id == userId);
-
-                model.AddRange(_productLocalizer.Localize(products, user));
-            }
+                model = Localize(SearchByRequest(request));
+            else if (categoryId != null)
+                model = Localize(SearchByCategory((int)categoryId));
             else
-            {
-                model.AddRange(_productLocalizer.Localize(products));
-            }
+                model = GetAllLocalizedProducts().ToList();
 
-            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
+            ViewBag.Categories = GetLocalizedCategories();
             return View(model);
         }
 
+        private IList<Product> SearchByRequest(string request)
+        {
+            return _db.Products.Where(p => p.NameUA.Contains(request) || 
+                                           p.NameRU.Contains(request) ||
+                                           p.NameEN.Contains(request) ||
+                                           p.DescriptionShortUA.Contains(request) ||
+                                           p.DescriptionShortRU.Contains(request) ||
+                                           p.DescriptionShortEN.Contains(request) ||
+                                           p.DescriptionFullUA.Contains(request) ||
+                                           p.DescriptionFullRU.Contains(request) ||
+                                           p.DescriptionFullEN.Contains(request)).ToList();
+        }
+
+        private IList<Product> SearchByCategory(int categoryId)
+        {
+            return _db.Products.Where(p => p.CategoryId == categoryId).ToList();
+        }
+
+        private IList<LocalizedProduct> Localize(IEnumerable<Product> products)
+        {
+            if (_signInManager.IsSignedIn(HttpContext.User))
+                return _productLocalizer.Localize(products, GetUser());
+            
+            return _productLocalizer.Localize(products);
+        }
+            
         /// <summary>
         /// A GET request for "/home/product/id". 
         /// </summary>
@@ -131,35 +147,32 @@ namespace OnlineStore.Controllers
         /// <returns>Returns a view with product information.</returns>
         public async Task<IActionResult> Product(int id)
         {
+            Product product = await FindProductAndIncrementViews(id);
+            var model = Localize(product);
+            
+            ViewBag.Categories = GetLocalizedCategories();
+            return View(model);
+        }
+
+        private async Task<Product> FindProductAndIncrementViews(int id)
+        {
             Product product = await _db.Products.FindAsync(id);
 
-            if (product == null)
+            if (product != null)
             {
-                return NotFound();
+                product.Views++;
+                await _db.SaveChangesAsync();
             }
-            
-            product.Views++;
-            await _db.SaveChangesAsync();
 
-            LocalizedProduct localizedProduct;
-            
+            return product;
+        }
+
+        private LocalizedProduct Localize(Product product)
+        {
             if (_signInManager.IsSignedIn(HttpContext.User))
-            {
-                string userId = _userManager.GetUserId(HttpContext.User);
+                return _productLocalizer.Localize(product, GetUser());
 
-                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products)
-                    .Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products)
-                    .FirstOrDefault(u => u.Id == userId);
-
-                localizedProduct = _productLocalizer.Localize(product, user);
-            }
-            else
-            {
-                localizedProduct = _productLocalizer.Localize(product);
-            }
-
-            ViewBag.Categories = _categoryLocalizer.Localize(_db.Categories.ToList());
-            return View(localizedProduct);
+            return _productLocalizer.Localize(product);
         }
 
         [HttpPost]
