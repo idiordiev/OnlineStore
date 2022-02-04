@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,6 @@ namespace OnlineStore.Controllers
         private readonly ApplicationDbContext _db;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
-
         private readonly ICategoryLocalizer _categoryLocalizer;
         
         public ProductController(ApplicationDbContext db, IWebHostEnvironment environment, ICategoryLocalizer categoryLocalizer)
@@ -52,16 +52,22 @@ namespace OnlineStore.Controllers
         {
             ProductViewModel model = new ProductViewModel()
             {
-                Categories = _categoryLocalizer.Localize(_db.Categories.ToList()).Select(i => new SelectListItem()
-                {
-                    Value = i.Id.ToString(),
-                    Text = i.Name
-                })
+                Categories = GetCategoriesAsDropdownItems()
             };
 
             return View(model);
         }
-        
+
+        private IEnumerable<SelectListItem> GetCategoriesAsDropdownItems()
+        {
+            return _categoryLocalizer.Localize(_db.Categories)
+                .Select(c => new SelectListItem()
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
+                });
+        }
+
         /// <summary>
         /// A POST request for "/product/create".
         /// </summary>
@@ -88,20 +94,9 @@ namespace OnlineStore.Controllers
                     DateAdded = DateTime.Today
                 };
                 if (model.Image != null)
-                {
-                    string path = "/img/" + model.Image.FileName;
-
-                    using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create))
-                    {
-                        await model.Image.CopyToAsync(fileStream);
-                    }
-
-                    product.ImageLink = path;
-                }
+                    product = AddImageToProduct(product, model.Image);
                 else
-                {
-                    product.ImageLink = String.Empty;
-                }
+                    product.ImageLink = string.Empty;
 
                 await _db.Products.AddAsync(product);
                 await _db.SaveChangesAsync();
@@ -109,6 +104,18 @@ namespace OnlineStore.Controllers
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+
+        private Product AddImageToProduct(Product product, IFormFile image)
+        {
+            string path = "/img/" + image.FileName;
+            using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create))
+            {
+                image.CopyTo(fileStream);
+            }
+            product.ImageLink = path;
+            
+            return product;
         }
 
         /// <summary>
@@ -134,16 +141,21 @@ namespace OnlineStore.Controllers
                 DescriptionFullRU = product.DescriptionFullRU,
                 DescriptionFullEN = product.DescriptionFullEN,
                 ImageLink = product.ImageLink,
-                Categories = _categoryLocalizer.Localize(_db.Categories.ToList()).Select(i => new SelectListItem()
-                {
-                    Value = i.Id.ToString(),
-                    Text = i.Name,
-                    Selected = i.Id == product.CategoryId
-                })
+                Categories = GetCategoriesAsDropdownItems(product)
             };
-
+            
             return View(model);
         }
+        
+        private IEnumerable<SelectListItem> GetCategoriesAsDropdownItems(Product product)
+        {
+            return _categoryLocalizer.Localize(_db.Categories).Select(c => new SelectListItem()
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name,
+                Selected = c.Id == product.CategoryId
+            });
+        } 
 
         /// <summary>
         /// A POST request for "/product/edit/id".
@@ -172,17 +184,8 @@ namespace OnlineStore.Controllers
                     product.DescriptionFullEN = model.DescriptionFullEN;
 
                     if (model.Image != null)
-                    {
-                        string path = "/img/" + model.Image.FileName;
+                        product = AddImageToProduct(product, model.Image);
 
-                        using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create))
-                        {
-                            await model.Image.CopyToAsync(fileStream);
-                        }
-
-                        product.ImageLink = path;
-                    }
-                    
                     _db.Products.Update(product);
                     await _db.SaveChangesAsync();
 

@@ -9,11 +9,7 @@
 
 <h2>@Localizer["Cart"]</h2>
 
-@if (Model.Products.Count() == 0)
-{
-    <p>@Localizer["NoGoods"]</p>
-}
-else
+@if (Model.Products.Any())
 {
     <table class="table">
         <thead>
@@ -40,7 +36,10 @@ else
         }
         </tbody>
     </table>
-    
+}
+else
+{
+    <p>@Localizer["NoGoods"]</p>
 }
 
 

@@ -16,11 +16,10 @@ namespace OnlineStore.Controllers
     /// </summary>
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-
-        private readonly SignInManager<User> _signInManager;
-
         private readonly ApplicationDbContext _db;
+        
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
         private readonly IProductLocalizer _productLocalizer;
 
@@ -39,13 +38,11 @@ namespace OnlineStore.Controllers
         /// A GET request for "/account".
         /// </summary>
         /// <returns>Returns a view with form (inputs might be filled).</returns>
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string id = _userManager.GetUserId(HttpContext.User);
-
-                User user = await _userManager.FindByIdAsync(id);
+                User user = GetUser();
 
                 UserViewModel model = new UserViewModel()
                 {
@@ -61,6 +58,19 @@ namespace OnlineStore.Controllers
                 return View(model);
             }
             return View();
+        }
+
+        private User GetUser()
+        {
+            string userId = _userManager.GetUserId(HttpContext.User);
+            
+            User user = _db.Users.Include(u => u.Wishlist)
+                .Include(u => u.Wishlist.Products)
+                .Include(u => u.ShoppingCart)
+                .Include(u => u.ShoppingCart.Products)
+                .FirstOrDefault(u => u.Id == userId);
+
+            return user;
         }
 
         /// <summary>
@@ -87,16 +97,10 @@ namespace OnlineStore.Controllers
                     
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
-                    {
                         return RedirectToAction("Index");
-                    }
                     else
-                    {
                         foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(String.Empty, error.Description);
-                        }
-                    }
+                            ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
             return RedirectToAction("Index", model);
@@ -107,13 +111,11 @@ namespace OnlineStore.Controllers
         /// </summary>
         /// <returns>Returns a view with form for changing password.</returns>
         [HttpGet]
-        public async Task<IActionResult> ChangePassword()
+        public IActionResult ChangePassword()
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string id = _userManager.GetUserId(HttpContext.User);
-
-                User user = await _userManager.FindByIdAsync(id);
+                User user = GetUser();
 
                 ChangePasswordViewModel model = new ChangePasswordViewModel()
                 {
@@ -144,21 +146,13 @@ namespace OnlineStore.Controllers
                     var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
 
                     if (result.Succeeded)
-                    {
                         return RedirectToAction("Index");
-                    }
                     else
-                    {
                         foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(String.Empty, error.Description);
-                        }
-                    }
+                            ModelState.AddModelError(string.Empty, error.Description);
                 }
                 else
-                {
-                    ModelState.AddModelError(String.Empty, "User not found.");
-                }
+                    ModelState.AddModelError(string.Empty, "User not found.");
             }
             return View(model);
         }
@@ -183,14 +177,14 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User() { Email = model.Email, UserName = model.Username};
+                User user = new User() 
+                { 
+                    Email = model.Email,
+                    UserName = model.Username,
+                    Wishlist = new Wishlist(),
+                    ShoppingCart = new ShoppingCart()
+                };
 
-                Wishlist wishlist = new Wishlist();
-                ShoppingCart shoppingCart = new ShoppingCart();
-
-                user.Wishlist = wishlist;
-                user.ShoppingCart = shoppingCart;
-                
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -199,12 +193,8 @@ namespace OnlineStore.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 else
-                {
                     foreach (var error in result.Errors)
-                    {
                         ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
             }
 
             return View(model);
@@ -216,9 +206,9 @@ namespace OnlineStore.Controllers
         /// <param name="returnUrl">A link to go back after login.</param>
         /// <returns>Returns a view with form for registration.</returns>
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string returnUrl = default)
         {
-            return View(new LoginViewModel() {ReturnUrl = returnUrl});
+            return View(new LoginViewModel() { ReturnUrl = returnUrl });
         }
 
         /// <summary>
@@ -232,23 +222,17 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result =
-                    await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password,
+                    model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                    {
                         return Redirect(model.ReturnUrl);
-                    }
                     else
-                    {
                         return RedirectToAction("Index", "Home");
-                    }
                 }
                 else
-                {
-                    ModelState.AddModelError("", "NotValidCredentials");
-                }
+                    ModelState.AddModelError(string.Empty, "NotValidCredentials");
             }
 
             return View(model);
@@ -272,14 +256,11 @@ namespace OnlineStore.Controllers
         /// A GET request for shopping cart. Used in modal window.
         /// </summary>
         /// <returns>Returns a view with list of products added to cart.</returns>
-        public async Task<IActionResult> ShoppingCart()
+        public IActionResult ShoppingCart()
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
-
+                User user = GetUser();
                 ShoppingCartViewModel model = new ShoppingCartViewModel()
                 {
                     Products = _productLocalizer.Localize(user.ShoppingCart.Products.ToList(), user)
@@ -304,10 +285,7 @@ namespace OnlineStore.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
-
+                User user = GetUser();
                 Product product = await _db.Products.FindAsync(id);
                 
                 user.ShoppingCart.Products.Add(product);
@@ -331,14 +309,9 @@ namespace OnlineStore.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.ShoppingCart).Include(u => u.ShoppingCart.Products).FirstOrDefault(u => u.Id == userId);
-
+                User user = GetUser();
                 Product product = await _db.Products.FindAsync(id);
-                
                 user.ShoppingCart.Products.Remove(product);
-
                 await _userManager.UpdateAsync(user);
                 await _db.SaveChangesAsync();
             }
@@ -351,17 +324,11 @@ namespace OnlineStore.Controllers
 
         #region Wishlist
 
-        public async Task<IActionResult> Wishlist()
+        public IActionResult Wishlist()
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.Wishlist)
-                    .Include(u => u.Wishlist.Products)
-                    .Include(u => u.ShoppingCart)
-                    .Include(u => u.ShoppingCart.Products)
-                    .FirstOrDefault(u => u.Id == userId);
+                User user = GetUser();
 
                 WishlistViewModel model = new WishlistViewModel()
                 {
@@ -387,10 +354,7 @@ namespace OnlineStore.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products).FirstOrDefault(u => u.Id == userId);
-
+                User user = GetUser();
                 Product product = await _db.Products.FindAsync(id);
                 
                 user.Wishlist.Products.Add(product);
@@ -412,10 +376,7 @@ namespace OnlineStore.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                string userId = _userManager.GetUserId(HttpContext.User);
-
-                User user = _db.Users.Include(u => u.Wishlist).Include(u => u.Wishlist.Products).FirstOrDefault(u => u.Id == userId);
-
+                User user = GetUser();
                 Product product = await _db.Products.FindAsync(id);
                 
                 user.Wishlist.Products.Remove(product);

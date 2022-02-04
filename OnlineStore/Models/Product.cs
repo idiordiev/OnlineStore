@@ -12,6 +12,7 @@ namespace OnlineStore.Models
     public class Product
     {
         [Key]
+        [DisplayName("Id")]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "PriceRequired")]

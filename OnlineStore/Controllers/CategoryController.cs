@@ -47,10 +47,8 @@ namespace OnlineStore.Controllers
             Category category = await _db.Categories.FindAsync(id);
 
             if (category == null)
-            {
                 return NotFound();
-            }
-
+            
             return View(category);
         }
 
@@ -74,16 +72,12 @@ namespace OnlineStore.Controllers
             Category category = await _db.Categories.FindAsync(id);
 
             if (category == null)
-            {
                 return NotFound();
-            }
 
             _db.Categories.Remove(category);
             await _db.SaveChangesAsync();
             
             return RedirectToAction("Index", "Category");
         }
-
-
     }
 }
