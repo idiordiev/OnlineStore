@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {}
+    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {
+    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
-        "projectName": "OnlineStore",
-        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+        "projectName": "OnlineStore.Tests",
+        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\obj\\",
+        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -45,35 +45,25 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[16.9.4, )"
             },
-            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.Abstractions": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
+            "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[3.0.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
@@ -87,9 +77,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
