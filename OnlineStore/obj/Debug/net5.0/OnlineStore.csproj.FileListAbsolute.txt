@@ -507,3 +507,4 @@ C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\ref\OnlineStore.dll
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.pdb
 C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\OnlineStore.genruntimeconfig.cache
+C:\Users\Ivan\RiderProjects\OnlineStore\OnlineStore\obj\Debug\net5.0\Razor\Views\Account\Order.cshtml.g.cs

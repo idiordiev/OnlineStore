@@ -27,5 +27,14 @@ namespace OnlineStore.Models
 
         [DisplayName("DateTime")]
         public DateTime Date { get; set; }
+        
+        [DisplayName("Comment")]
+        public string Comment { get; set; }
+        
+        [DisplayName("City")] 
+        public string City { get; set; }
+        
+        [DisplayName("Address")]
+        public string Address { get; set; }
     }
 }

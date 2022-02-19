@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -55,6 +54,7 @@ namespace OnlineStore.Controllers
                     City = user.City,
                     Address = user.Address
                 };
+                
                 return View(model);
             }
             return View();
@@ -68,6 +68,7 @@ namespace OnlineStore.Controllers
                 .Include(u => u.Wishlist.Products)
                 .Include(u => u.ShoppingCart)
                 .Include(u => u.ShoppingCart.Products)
+                .Include(u => u.Receipts)
                 .FirstOrDefault(u => u.Id == userId);
 
             return user;
@@ -391,11 +392,55 @@ namespace OnlineStore.Controllers
         #endregion
 
         #region Orders
-
-        public async Task<IActionResult> Order(IEnumerable<Product> products)
+        
+        // DO NOT UNCOMMENT!!! NOT WORK
+        public IActionResult Order()
         {
-            throw new NotImplementedException();
+        //     if (_signInManager.IsSignedIn(HttpContext.User))
+        //     {
+        //         var user = GetUser();
+        //
+        //         var model = new OrderViewModel()
+        //         {
+        //             Products = _productLocalizer.Localize(user.Wishlist.Products, user)
+        //         };
+        //         
+        //         return View(model);
+        //     }
+        //
+            return View();
         }
+        //
+        // [HttpPost]
+        // public async Task<IActionResult> Order(OrderViewModel model)
+        // {
+        //     if (_signInManager.IsSignedIn(HttpContext.User))
+        //     {
+        //         if (ModelState.IsValid)
+        //         {
+        //             var user = GetUser();
+        //             user.Receipts.Add(new Receipt()
+        //             {
+        //                 Date = DateTime.Now,
+        //                 Products = user.ShoppingCart.Products,
+        //                 User = user,
+        //                 City = model.City,
+        //                 Address = model.Address,
+        //                 Comment = model.Comment
+        //             });
+        //
+        //             await _db.SaveChangesAsync();
+        //             
+        //             user.ShoppingCart.Products.Clear();
+        //             await _db.SaveChangesAsync();
+        //
+        //         }
+        //
+        //         return View(model);
+        //     }
+        //
+        //     return View();
+        // }
 
         #endregion
     }

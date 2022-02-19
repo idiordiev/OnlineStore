@@ -7,40 +7,51 @@
     Layout = "_Layout";
 }
 
-<h2>@Localizer["Cart"]</h2>
-
-@if (Model.Products.Any())
+@if (User.Identity.IsAuthenticated)
 {
-    <table class="table">
-        <thead>
-        <tr>
-            <th>@Localizer["Image"]</th>
-            <th>@Localizer["Name"]</th>
-            <th>@Localizer["Price"]</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var product in Model.Products)
-        {
+    <h2>@Localizer["Cart"]</h2>
+
+    @if (Model.Products.Any())
+    {
+        <table class="table">
+            <thead>
             <tr>
-                <td><img src="@product.ImageLink"/></td>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>
-                    <form method="post" asp-action="RemoveFromCart" asp-controller="Account" asp-route-id="@product.Id" asp-route-returnUrl="@Url.Action("ShoppingCart", "Account", null, Context.Request.Scheme)">
-                        <input type="submit" value="Delete" class="btn btn-danger"/>
-                    </form>
-                </td>
+                <th>@Localizer["Image"]</th>
+                <th>@Localizer["Name"]</th>
+                <th>@Localizer["Price"]</th>
+                <th></th>
             </tr>
-        }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td><img class="img-thumbnail" style="height: 80px" src="@product.ImageLink"/></td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>
+                        <form method="post" asp-action="RemoveFromCart" asp-controller="Account" asp-route-id="@product.Id" asp-route-returnUrl="@Url.Action("ShoppingCart", "Account", null, Context.Request.Scheme)">
+                            <input type="submit" value="Delete" class="btn btn-danger"/>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>@Localizer["NoGoods"]</p>
+    }
 }
 else
 {
-    <p>@Localizer["NoGoods"]</p>
+    <h2>@Localizer["PleaseLogin"]</h2>
+    <a class="btn btn-primary" asp-action="Login" asp-controller="Account">@Localizer["Login"]</a>
+    <a class="btn btn-primary" asp-action="Register" asp-controller="Account">@Localizer["Register"]</a>
 }
+
+
 
 
 

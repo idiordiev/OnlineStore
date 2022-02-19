@@ -1,0 +1,58 @@
+@model OnlineStore.Models.ViewModels.OrderViewModel
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewBag.Title = Localizer["Order"];
+    Layout = "_Layout";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>@Localizer["Order"]</h2>
+
+    <form method="post" asp-action="Order" asp-controller="Account">
+        <div class="form-group">
+            <label asp-for="City"></label><br/>
+            <input asp-for="City"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address"></label><br/>
+            <input asp-for="Address"/>
+        </div>
+        <div class="form-group">
+            <table class="table table-striped">
+                <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td><img class="img-thumbnail" style="height: 80px" src="@product.ImageLink"/></td>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>
+                            <form method="post" asp-action="RemoveFromCart" asp-controller="Account" asp-route-id="@product.Id" asp-route-returnUrl="@Url.Action("Order", "Account", null, Context.Request.Scheme)">
+                                <input type="submit" value="Delete" class="btn btn-danger"/>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <label asp-for="Comment"></label><br/>
+            <input asp-for="Comment"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary"/>
+        </div>
+    </form>
+}
+else
+{
+    <h2>@Localizer["PleaseLogin"]</h2>
+    <a class="btn btn-primary" asp-action="Login" asp-controller="Account">@Localizer["Login"]</a>
+    <a class="btn btn-primary" asp-action="Register" asp-controller="Account">@Localizer["Register"]</a>
+}
+
+
