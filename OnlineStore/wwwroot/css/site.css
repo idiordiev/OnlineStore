@@ -129,6 +129,7 @@ main {
     gap: 40px;
     padding-left: 8em;
     background-color: var(--clr-primary);
+    justify-content: center;
 }
 
 .header-link:active,
@@ -295,13 +296,17 @@ footer {
     color: white;
     display: flex;
     flex-direction: row;
-    gap: 40em;
+    gap: 45em;
     height: 2.1em;
     padding-left: 5em;
     position: relative;
     right: 0;
     left: 0;
     bottom: 0;
+}
+
+#requestCulture_RequestCulture_UICulture_Name {
+    width: 200px;
 }
 
 /*  Login view  */
@@ -421,4 +426,81 @@ footer {
     font-size: 28px;
     font-family: var(--ff-accent);
     color: #888888;
+}
+
+@media (max-width: 1779px) {
+    footer {
+        gap: 35em;
+    }
+    .main-page{
+        flex-basis: 1050px;
+    }
+}
+
+@media (max-width: 1600px) {
+    footer {
+        gap: 30em;
+    }
+    .main-page {
+        flex-basis: 900px;
+    }
+}
+
+@media(max-width: 1440px){
+    footer {
+        gap: 23em;
+    }
+    .main-page{
+        flex-basis: 800px;
+    }
+    .main-container{
+        gap: 35px;
+    }
+}
+
+@media(max-width: 1370px) {
+    footer {
+        gap: 18em;
+    }
+    .main-container {
+        gap: 35px;
+    }
+    .header-nav{
+        padding-left: 0em;
+        gap: 80px;
+    }
+    .header-menu{
+        margin-right: 2em;
+    }
+    .header-link:active, .header-link:link, 
+    .header-link:visited, .header-link:hover {
+        font-size: 22px;
+    }
+    .header-buttons{
+        padding-left: 0.5em;
+    }
+}
+
+@media(max-width: 1190px){
+    footer {
+        gap: 14em;
+    }
+    .sidebar{
+        display: none;
+    }
+}
+
+@media(max-width: 1090px){
+    footer {
+        gap: 7em;
+    }
+}
+
+@media(max-width: 1023px){
+    .header-nav {
+        gap: 34px;
+    }
+    footer {
+        gap: 3em;
+    }
 }
