@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {}
+    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {
+    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
         "projectName": "OnlineStore.Tests",
-        "projectPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
-        "packagesPath": "C:\\Users\\duhov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore.Tests\\obj\\",
+        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+        "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\duhov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -34,8 +33,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {
-                "projectPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj"
+              "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {
+                "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj"
               }
             }
           }
@@ -82,32 +81,34 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {
+    "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
         "projectName": "OnlineStore",
-        "projectPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
-        "packagesPath": "C:\\Users\\duhov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duhov\\Source\\Repos\\i-diordiev\\OnlineStore\\OnlineStore\\obj\\",
+        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+        "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\OnlineStore\\OnlineStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\duhov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -181,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
