@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,rider
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,csharp,rider
+# Created by https://www.toptal.com/developers/gitignore/api/csharp,visualstudio,rider
+# Edit at https://www.toptal.com/developers/gitignore?templates=csharp,visualstudio,rider
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -404,6 +404,7 @@ FodyWeavers.xsd
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -659,4 +660,4 @@ fabric.properties
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,rider
+# End of https://www.toptal.com/developers/gitignore/api/csharp,visualstudio,rider
